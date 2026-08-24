@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "CETLS | Centre for Education Technology and Learning Sciences",
+      "hasCanvas": false,
+      "bodyTextLen": 1905,
+      "bodyTextHash": "1c51a2598cde1dbe2812d2c4d23a6216d8e0409aed8000c4e973a2140b2d08b0",
+      "bodyTextPrefix": "CETLS IIIT Hyderabad Home About Research Platform People Join Us",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "CETLS | Centre for Education Technology and Learning Sciences",
+      "hasCanvas": false,
+      "bodyTextLen": 1833,
+      "bodyTextHash": "fc16e59a6dc73dfee1accdf3bdb0dced9526456436998b5e507e9c42363f8c7a",
+      "bodyTextPrefix": "CETLS CENTRE FOR EDUCATION TECHNOLOGY AND LEARNING SCIENCES How ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
