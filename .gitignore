@@ -35,3 +35,4 @@ Thumbs.db
 # Local locks and caches
 .node_modules.lock
 .eslintcache
+.vercel
