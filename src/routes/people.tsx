@@ -35,6 +35,38 @@ function PeoplePage() {
           </Link>
         </p>
 
+        <section className="mb-16">
+          <h2 className="font-display text-2xl font-semibold">Leadership</h2>
+          <div className="mt-6 space-y-5">
+            {leadership.map((p) => (
+              <div
+                key={p.name}
+                className="flex overflow-hidden rounded-xl border border-border bg-surface"
+              >
+                <img
+                  src={p.photo}
+                  alt={p.name}
+                  className="w-28 shrink-0 self-stretch object-cover object-top sm:w-36"
+                />
+                <div className="min-w-0 px-5 py-5 sm:px-6 sm:py-6">
+                  <p className="font-display text-xl font-semibold">{p.name}</p>
+                  <div className="mt-1 text-sm text-accent">
+                    {p.roles.map((role) => (
+                      <p key={role}>{role}</p>
+                    ))}
+                  </div>
+                  <a
+                    href={`mailto:${p.email}`}
+                    className="mt-3 inline-block text-sm text-muted hover:text-accent"
+                  >
+                    {p.email}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section>
           <h2 className="font-display text-2xl font-semibold mb-3">International Advisory Committee</h2>
           <p className="text-muted leading-relaxed max-w-3xl mb-10">
