@@ -19,15 +19,12 @@ function Home() {
               Centre for Education Technology and Learning Sciences
             </p>
             <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-              How people learn, and how learning should be designed
+              Learning sciences and technology across the lifespan
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted sm:text-xl">
-              From school through working life and into later years. A research centre at
-              IIIT Hyderabad — not another set of classroom tools, but work on the
-              questions that decide whether a system actually improves.
-            </p>
-            <p className="mt-4 text-sm font-medium text-accent">
-              Inauguration · 5 September 2026 · IIIT Hyderabad
+              Advancing rigorous research and design for better learning from K-12 through
+              higher education, professional life, and the third age — grounded in the realities
+              of India and the Global South while contributing to the global research community.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -58,9 +55,9 @@ function Home() {
               Research across the lifespan
             </h2>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted">
-              The same questions run through all of the Centre’s work: what is worth
-              learning, how teaching should change, how people learn once technology is
-              in the room, and how we can tell, honestly, whether any of this has helped.
+              We organise our work around four interconnected domains, each addressing the
+              fundamental questions of what to learn, how to teach and facilitate, how people
+              learn, and how progress is understood.
             </p>
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {pillars.map((p) => (
@@ -88,10 +85,11 @@ function Home() {
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold">Learning Middleware</h2>
               <p className="mt-5 text-lg leading-relaxed opacity-90">
-                An open technology layer so that teachers, faculty, institutions, and
-                researchers can actually use the methods of the learning sciences. Not a
-                platform for its own sake — a way to lower the cost of evidence-based work,
-                released as open source.
+                An open technology layer designed to make the tools of learning sciences available to
+                educators, researchers, and institutions across the entire spectrum of learners.
+                By releasing it as open source, we aim to lower barriers and accelerate
+                evidence-based innovation for K-12, higher education, professional learning,
+                and third-age contexts.
               </p>
               <Link
                 to="/platform"
@@ -100,6 +98,40 @@ function Home() {
                 Learn more about the Platform →
               </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="mb-2 text-sm font-medium tracking-wide text-accent uppercase">People</p>
+              <h2 className="font-display text-3xl font-semibold">International Advisory Committee</h2>
+            </div>
+            <Link to="/advisory" className="whitespace-nowrap font-medium text-accent hover:underline">
+              Meet the committee →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+            <Link to="/advisory" hash="goel" className="group block">
+              <img src="/people/ashok-goel.png" alt="Ashok K. Goel" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />
+              <div className="font-semibold transition group-hover:text-accent">Ashok K. Goel</div>
+              <div className="text-sm text-muted">Georgia Tech</div>
+            </Link>
+            <Link to="/advisory" hash="baker" className="group block">
+              <img src="/people/ryan-baker.png" alt="Ryan S. Baker" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />
+              <div className="font-semibold transition group-hover:text-accent">Ryan S. Baker</div>
+              <div className="text-sm text-muted">Adelaide University</div>
+            </Link>
+            <Link to="/advisory" hash="kam" className="group block">
+              <img src="/people/matthew-kam.png" alt="Matthew Kam" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />
+              <div className="font-semibold transition group-hover:text-accent">Matthew Kam</div>
+              <div className="text-sm text-muted">Google</div>
+            </Link>
+            <Link to="/advisory" hash="lomas" className="group block">
+              <img src="/people/derek-lomas.png" alt="J. Derek Lomas" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />
+              <div className="font-semibold transition group-hover:text-accent">J. Derek Lomas</div>
+              <div className="text-sm text-muted">TU Delft</div>
+            </Link>
           </div>
         </section>
 

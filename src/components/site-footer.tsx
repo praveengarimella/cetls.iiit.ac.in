@@ -25,6 +25,9 @@ export function SiteFooter() {
               <Link to="/people" className="block text-muted hover:text-accent">
                 People
               </Link>
+              <Link to="/advisory" className="block text-muted hover:text-accent">
+                Advisory Committee
+              </Link>
             </div>
             <div className="space-y-2">
               <p className="font-medium">Engage</p>

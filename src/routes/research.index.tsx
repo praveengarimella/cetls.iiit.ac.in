@@ -14,10 +14,11 @@ function ResearchPage() {
         <div className="max-w-3xl">
           <h1 className="font-display text-4xl font-semibold tracking-tight">Research</h1>
           <p className="mt-5 text-xl leading-relaxed text-muted">
-            The same questions run through all of the Centre’s work, at every stage of
-            life. What is worth learning. How teaching should change. How people learn
-            once technology is in the room. How we can tell, honestly, whether any of
-            this has helped.
+            We organise research and design around four domains across the lifespan. In
+            each domain we address the same fundamental questions — what should be learned,
+            how teaching and facilitation should be designed, how people learn, and how
+            progress should be understood — adapted to the distinctive realities of that
+            stage of life.
           </p>
         </div>
 

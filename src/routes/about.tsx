@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site-shell";
 import { roadmap } from "@/lib/content";
 
@@ -12,67 +12,52 @@ function AboutPage() {
     <SiteShell>
       <main className="mx-auto max-w-3xl px-5 py-14 sm:px-6 sm:py-16">
         <h1 className="font-display text-4xl font-semibold tracking-tight">About CETLS</h1>
-        <p className="mt-6 text-lg leading-relaxed text-muted">
-          IIIT Hyderabad is establishing CETLS as a research centre on how people learn,
-          and on how learning should be designed, from school through working life and
-          into later years.
-        </p>
 
         <section className="mt-12">
-          <h2 className="font-display text-2xl font-semibold">Why a centre of this kind</h2>
-          <p className="mt-4 leading-relaxed text-muted">
-            The reason is not another set of classroom tools. Education systems are
-            already under pressure from AI, and most of the response so far has been
-            products: tutors, graders, content generators. Those can be useful. They do
-            not answer the questions that actually decide whether a system improves.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted">
-            CETLS exists to work on those questions in Indian conditions, and to put the
-            results into forms that others can use.
-          </p>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="font-display text-2xl font-semibold">What we are trying to do</h2>
+          <h2 className="font-display text-2xl font-semibold">Vision</h2>
           <p className="mt-4 text-lg leading-relaxed text-muted">
-            Learning that is adaptive, engaging, and fair, and that is based on evidence
-            rather than fashion. The work sits where the learning sciences, artificial
-            intelligence, and educational technology meet.
+            A future in which every learner — from childhood through higher education, professional life, and the third age — has access to adaptive, engaging, and equitable learning experiences that are grounded in the science of how people learn.
           </p>
-          <p className="mt-4 leading-relaxed text-muted">We will judge it by three tests:</p>
-          <ul className="mt-4 list-disc space-y-2 pl-6 text-muted">
-            <li>whether it is rigorous</li>
-            <li>whether it can be used at scale in India and the Global South</li>
-            <li>whether it adds anything the field does not already know</li>
-          </ul>
         </section>
 
         <section className="mt-12">
-          <h2 className="font-display text-2xl font-semibold">The questions</h2>
+          <h2 className="font-display text-2xl font-semibold">Mission</h2>
+          <p className="mt-4 text-lg leading-relaxed text-muted">
+            The Centre for Education Technology and Learning Sciences (CETLS) at IIIT Hyderabad advances rigorous research and design at the intersection of learning sciences, artificial intelligence, and educational technology. We focus on four domains across the lifespan — K-12 education, higher education, flexible learning for working professionals and executives, and third-age learning — developing solutions that are effective, inclusive, and scalable for India and the Global South, while contributing foundational knowledge to the global research community.
+          </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-semibold">Our Approach</h2>
           <p className="mt-4 leading-relaxed text-muted">
-            The same questions run through all of the Centre’s work, at every stage of
-            life:
+            We combine the learning sciences with technology design and open infrastructure. Research is organised around four fundamental questions that apply across the lifespan:
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-muted">
-            <li>What is worth learning when machines can already do a great deal of the old work</li>
-            <li>How teaching should change</li>
-            <li>How people learn once technology is in the room</li>
-            <li>How we can tell, honestly, whether any of this has helped</li>
+            <li>What should be learned in the age of AI</li>
+            <li>How teaching and facilitation should be designed</li>
+            <li>How people learn most effectively with technology</li>
+            <li>How progress, competence, and benefit should be understood and evaluated</li>
           </ul>
           <p className="mt-4 leading-relaxed text-muted">
-            Those are research questions. AI is not merely a new set of tools.
+            At the heart of our work is the Learning Middleware — an open technology layer that makes the tools of learning sciences available to educators, researchers, and institutions across all four domains.
           </p>
         </section>
 
         <section className="mt-12">
           <h2 className="font-display text-2xl font-semibold">Why IIIT Hyderabad</h2>
           <p className="mt-4 leading-relaxed text-muted">
-            IIIT Hyderabad is structured around research centres rather than traditional
-            departments. This model enables deep interdisciplinary work. CETLS builds on
-            the institute’s strengths in artificial intelligence, language technologies,
-            and software, and turns them toward the science and design of learning.
-            Prof. Sandeep Kumar Shukla is Director of the Institute.
+            IIIT Hyderabad is structured around research centres rather than traditional departments. This model enables deep interdisciplinary work. CETLS builds on the institute’s strengths in artificial intelligence, human-computer interaction, language technologies, and flexible learning, while focusing these capabilities on the science and design of learning across the lifespan.
           </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-display text-2xl font-semibold">International Advisory Committee</h2>
+          <p className="mt-4 mb-4 leading-relaxed text-muted">
+            The International Advisory Committee advises CETLS on research, design, and evidence at the meeting point of AI, educational technology, and the learning sciences. Members are Ashok K. Goel (Georgia Tech), Ryan S. Baker (Adelaide University / Penn), Matthew Kam (Google), and J. Derek Lomas (TU Delft).
+          </p>
+          <Link to="/advisory" className="font-medium text-accent hover:underline">
+            Meet the committee →
+          </Link>
         </section>
 
         <section className="mt-12">

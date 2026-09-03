@@ -15,7 +15,7 @@ export const pillars = [
     number: "01",
     title: "K-12 Education",
     href: "/research/k12",
-    card: "The Indian classroom, multilingual settings, teacher capacity, and NEP 2020 — in the age of AI.",
+    card: "Designing the future of school learning in the age of AI, grounded in the realities of Indian classrooms and systems.",
     intro:
       "In the age of AI, Indian K-12 education confronts four fundamental questions: What should students learn? How should teachers teach? How do students learn most effectively? And how should learning be evaluated?",
     body: "CETLS designs and studies technology-enabled interventions that address these questions with scientific rigor and practical relevance. Our work is rooted in the distinctive conditions of Indian schooling — multilingual classrooms, large public systems, teacher capacity constraints, foundational literacy and numeracy priorities, and the ambitions of NEP 2020 — while generating knowledge that advances the global learning sciences.",
@@ -43,7 +43,7 @@ export const pillars = [
     number: "02",
     title: "Higher Education",
     href: "/research/higher-education",
-    card: "Teaching, learning, and assessment in colleges and universities for a world already being rearranged by AI.",
+    card: "Redesigning teaching, learning, and assessment in universities and colleges for an AI-transformed world.",
     intro:
       "Indian higher education is being reshaped by generative AI, massification, and the demand for graduates who can thrive in an AI-shaped economy. Faculty, academic leaders, and institutions need rigorous guidance on what to teach, how to teach, how students learn, and how learning should be evaluated.",
     body: "CETLS designs and studies technology-enabled interventions that answer these questions. Our work engages the distinctive features of Indian higher education — large-enrolment courses, diverse student preparedness, multilingual contexts, and the push for flexible, multidisciplinary curricula under NEP 2020 — while contributing evidence to the international research community.",
@@ -71,7 +71,7 @@ export const pillars = [
     number: "03",
     title: "Flexible Learning for Professionals & Executives",
     href: "/research/professionals",
-    card: "Continuous learning that fits work rather than the other way around.",
+    card: "Designing adaptive, high-impact continuous learning that fits the realities of work and leadership.",
     intro:
       "Working professionals and executives must learn continuously as AI reshapes jobs, industries, and leadership itself. Organisations and learners need evidence-based answers to what professionals should learn, how learning should be designed, how adults learn most effectively under real constraints, and how progress and impact should be evaluated.",
     body: "CETLS designs and studies technology-enabled interventions that address these questions. Our work is grounded in the Indian and Global South context of rapid digital transformation, large and diverse workforces, and the growing demand for high-quality, scalable professional and executive development.",
@@ -99,7 +99,7 @@ export const pillars = [
     number: "04",
     title: "Third-Age Learning",
     href: "/research/third-age",
-    card: "Learning that keeps older adults connected and participating, with dignity.",
+    card: "Enabling older adults to continue learning, connecting, and participating fully through thoughtfully designed technology-supported experiences.",
     intro:
       "As populations age and digital technologies become central to daily life, older adults face both new opportunities and barriers to continued learning. Families, community organisations, and older learners themselves need guidance on what is worth learning in later life, how learning should be supported, how older adults learn most effectively, and how progress and benefit should be understood.",
     body: "CETLS designs and studies technology-enabled interventions that address these questions with rigor and respect. Our work is rooted in Indian and Global South realities — demographic ageing, intergenerational families, uneven digital access, and the need for culturally resonant, low-barrier solutions — while contributing to the global knowledge base on lifelong learning and active ageing.",
