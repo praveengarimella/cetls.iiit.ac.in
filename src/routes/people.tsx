@@ -8,7 +8,7 @@ export const Route = createFileRoute("/people")({
 
 const leadership = [
   {
-    name: "Prof. Vasudeva Varma",
+    name: "Vasudeva Varma",
     roles: ["Professor at IIIT Hyderabad", "Head of CETLS"],
     email: "vv@iiit.ac.in",
     photo: "/people/vasudeva-varma.jpg",
