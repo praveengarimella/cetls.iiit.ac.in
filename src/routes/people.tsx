@@ -31,14 +31,14 @@ const adjunctFaculty = [
     roles: ["Adjunct Faculty"],
     photo: "",
     description: "Dr. Santanu Paul is the founding CEO and Managing Director of TalentSprint. He has served as Senior Vice President for Global Delivery Operations at Virtusa Corporation. He holds a Ph.D. in Computer Science from the University of Michigan, Ann Arbor, and a B.Tech. in Computer Science from IIT Madras. He is a Visiting Professor at IIT Hyderabad and serves on the boards of organizations such as NPCI and NSDL Payments Bank.",
-    profileUrl: "https://in.linkedin.com/in/santanupaul"
+    profileUrl: "https://www.linkedin.com/in/santanup/"
   },
   {
     name: "Dr. Vamshi Ambati",
     roles: ["Adjunct Faculty"],
     photo: "",
     description: "Dr. Vamshi Ambati is an AI entrepreneur, researcher, and investor. He earned his Ph.D. from the Language Technologies Institute at Carnegie Mellon University. He has founded multiple companies, including LatentStructure and Predera, and has held technical roles at PayPal and Base CRM. He is currently an investor at Virama Ventures.",
-    profileUrl: "https://www.linkedin.com/in/vamshi"
+    profileUrl: "https://www.linkedin.com/in/vamshiambati/"
   },
 ];
 
