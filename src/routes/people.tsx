@@ -21,7 +21,7 @@ const leadership = [
     email: "praveeng@iiit.ac.in",
     photo: "/people/praveen-garimella.jpg",
     description: "Praveen Garimella is an educational technology practitioner, learning scientist, and systems architect. He serves as an Associate Professor of Practice at CETLS, IIIT Hyderabad, and as an Adjunct Faculty member in the Software & Societal Systems Department at Carnegie Mellon University. With over two decades of experience at the intersection of cognitive science, AI, and platform engineering, he focuses on designing intelligent tutoring systems and mastery-based learning ecosystems.",
-    profileUrl: "https://www.isri.cmu.edu/people/adjunct-faculty/garimella-praveen.html"
+    profileUrl: "https://www.linkedin.com/in/praveengarimella/"
   },
 ];
 
