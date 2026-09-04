@@ -42,6 +42,128 @@ const adjunctFaculty = [
   },
 ];
 
+const affiliateFaculty = [
+  {
+    name: "Kavita Vemuri",
+    roles: ["Affiliate Faculty"],
+    email: "kvemuri@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Bapi Raju",
+    roles: ["Affiliate Faculty"],
+    email: "raju.bapi@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Vishnu Sreekumar",
+    roles: ["Affiliate Faculty"],
+    email: "vishnu.sreekumar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Bhaktee Dongaonkar",
+    roles: ["Affiliate Faculty"],
+    email: "bhaktee.dongaonkar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Prof. C. Venkatesh",
+    roles: ["Affiliate Faculty"],
+    email: "vxc.iiit@gmail.com",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Soma Paul",
+    roles: ["Affiliate Faculty"],
+    email: "soma@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Suresh Purini",
+    roles: ["Affiliate Faculty"],
+    email: "suresh.purini@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Chiranjeevi Yarra",
+    roles: ["Affiliate Faculty"],
+    email: "chiranjeevi.yarra@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Anoop Namboodiri",
+    roles: ["Affiliate Faculty"],
+    email: "anoop@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Jawahar C V",
+    roles: ["Affiliate Faculty"],
+    email: "jawahar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Karthik Vaidhyanathan",
+    roles: ["Affiliate Faculty"],
+    email: "karthik.vaidhyanathan@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Prabhakar Bhimalapuram",
+    roles: ["Affiliate Faculty"],
+    email: "prabhakar.b@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Sachin Chaudhari",
+    roles: ["Affiliate Faculty"],
+    email: "sachin.c@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Aftab Hussain",
+    roles: ["Affiliate Faculty"],
+    email: "aftab.hussain@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Raghu Reddy",
+    roles: ["Affiliate Faculty"],
+    email: "raghu.reddy@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  }
+];
 function PeoplePage() {
   return (
     <SiteShell>
@@ -210,7 +332,161 @@ function PeoplePage() {
             ))}
           </div>
         </section>
+
+        <section className="mb-16">
+          <h2 className="font-display text-2xl font-semibold mb-6">Affiliate Faculty</h2>
+          <div className="space-y-8">
+            {affiliateFaculty.map((p) => (
+              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl shrink-0 bg-border overflow-hidden flex items-center justify-center">
+                    {p.photo && (
+                      <img src={p.photo} alt={p.name} className="w-full h-full object-cover object-top" onError={(e) => { e.currentTarget.style.display = 'none' }} />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold mb-1">{p.name}</h3>
+                    <div className="font-medium">
+                      {p.roles.map((role) => (
+                        <p key={role}>{role}</p>
+                      ))}
+                    </div>
+                    {p.description && (
+                      <p className="text-muted leading-relaxed mt-4">
+                        {p.description}
+                      </p>
+                    )}
+                    {p.profileUrl && (
+                      <a href={p.profileUrl} className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
     </SiteShell>
   );
 }
+export const affiliateFaculty = [
+  {
+    name: "Kavita Vemuri",
+    roles: ["Affiliate Faculty"],
+    email: "kvemuri@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Bapi Raju",
+    roles: ["Affiliate Faculty"],
+    email: "raju.bapi@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Vishnu Sreekumar",
+    roles: ["Affiliate Faculty"],
+    email: "vishnu.sreekumar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Bhaktee Dongaonkar",
+    roles: ["Affiliate Faculty"],
+    email: "bhaktee.dongaonkar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Prof. C. Venkatesh",
+    roles: ["Affiliate Faculty"],
+    email: "vxc.iiit@gmail.com",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Soma Paul",
+    roles: ["Affiliate Faculty"],
+    email: "soma@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Suresh Purini",
+    roles: ["Affiliate Faculty"],
+    email: "suresh.purini@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Chiranjeevi Yarra",
+    roles: ["Affiliate Faculty"],
+    email: "chiranjeevi.yarra@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Anoop Namboodiri",
+    roles: ["Affiliate Faculty"],
+    email: "anoop@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Jawahar C V",
+    roles: ["Affiliate Faculty"],
+    email: "jawahar@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Karthik Vaidhyanathan",
+    roles: ["Affiliate Faculty"],
+    email: "karthik.vaidhyanathan@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Prabhakar Bhimalapuram",
+    roles: ["Affiliate Faculty"],
+    email: "prabhakar.b@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Sachin Chaudhari",
+    roles: ["Affiliate Faculty"],
+    email: "sachin.c@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Aftab Hussain",
+    roles: ["Affiliate Faculty"],
+    email: "aftab.hussain@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  },
+  {
+    name: "Raghu Reddy",
+    roles: ["Affiliate Faculty"],
+    email: "raghu.reddy@iiit.ac.in",
+    photo: "",
+    description: "",
+    profileUrl: ""
+  }
