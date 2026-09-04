@@ -12,12 +12,16 @@ const leadership = [
     roles: ["Professor at IIIT Hyderabad", "Head of CETLS"],
     email: "vv@iiit.ac.in",
     photo: "/people/vasudeva-varma.jpg",
+    description: "Dr. Vasudeva Varma is a Professor and the Head of the Centre for Educational Technology and Learning Sciences (CETLS) at IIIT Hyderabad. He previously served as the Dean of Research and Development and CEO of IIIT Hyderabad. His research focuses on Information Retrieval, Extraction, and Access, with specific interests in Social Media Analysis, Semantic Search, and Text Generation. He is a recipient of the Google Research Award for his work in Artificial Intelligence and Machine Learning.",
+    profileUrl: "https://faculty.iiit.ac.in/~vv/"
   },
   {
     name: "Praveen Garimella",
     roles: ["Associate Professor of Practice"],
     email: "praveeng@iiit.ac.in",
     photo: "/people/praveen-garimella.jpg",
+    description: "Praveen Garimella is an educational technology practitioner, learning scientist, and systems architect. He serves as an Associate Professor of Practice at CETLS, IIIT Hyderabad, and as an Adjunct Faculty member in the Software & Societal Systems Department at Carnegie Mellon University. With over two decades of experience at the intersection of cognitive science, AI, and platform engineering, he focuses on designing intelligent tutoring systems and mastery-based learning ecosystems.",
+    profileUrl: "https://www.isri.cmu.edu/people/adjunct-faculty/garimella-praveen.html"
   },
 ];
 
@@ -55,35 +59,35 @@ function PeoplePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-2xl font-semibold">Leadership</h2>
-          <div className="mt-6 space-y-5">
+          <h2 className="font-display text-2xl font-semibold mb-6">Leadership</h2>
+          <div className="space-y-8">
             {leadership.map((p) => (
-              <div
-                key={p.name}
-                className="flex overflow-hidden rounded-xl border border-border bg-surface"
-              >
-                <img
-                  src={p.photo}
-                  alt={p.name}
-                  className="w-28 shrink-0 self-stretch object-cover object-top sm:w-36"
-                />
-                <div className="min-w-0 px-5 py-5 sm:px-6 sm:py-6">
-                  <p className="font-display text-xl font-semibold">{p.name}</p>
-                  <div className="mt-1 text-sm text-accent">
-                    {p.roles.map((role) => (
-                      <p key={role}>{role}</p>
-                    ))}
+              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                  <img src={p.photo} alt={p.name} className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover object-top shrink-0 bg-border" />
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold mb-1">{p.name}</h3>
+                    <div className="font-medium">
+                      {p.roles.map((role) => (
+                        <p key={role}>{role}</p>
+                      ))}
+                    </div>
+                    {p.email && (
+                      <p className="text-sm mt-1">
+                        <a href={`mailto:${p.email}`} className="text-muted hover:text-accent">{p.email}</a>
+                      </p>
+                    )}
+                    {p.description && (
+                      <p className="text-muted leading-relaxed mt-4">
+                        {p.description}
+                      </p>
+                    )}
+                    {p.profileUrl && (
+                      <a href={p.profileUrl} className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
+                    )}
                   </div>
-                  {p.email && (
-                    <a
-                      href={`mailto:${p.email}`}
-                      className="mt-3 inline-block text-sm text-muted hover:text-accent"
-                    >
-                      {p.email}
-                    </a>
-                  )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </section>
