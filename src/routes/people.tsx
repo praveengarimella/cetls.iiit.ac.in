@@ -27,12 +27,18 @@ const leadership = [
 
 const adjunctFaculty = [
   {
-    name: "Shantanu Paul",
+    name: "Dr. Santanu Paul",
     roles: ["Adjunct Faculty"],
+    photo: "/people/placeholder.jpg",
+    description: "Dr. Santanu Paul is the founding CEO and Managing Director of TalentSprint. He has served as Senior Vice President for Global Delivery Operations at Virtusa Corporation. He holds a Ph.D. in Computer Science from the University of Michigan, Ann Arbor, and a B.Tech. in Computer Science from IIT Madras. He is a Visiting Professor at IIT Hyderabad and serves on the boards of organizations such as NPCI and NSDL Payments Bank.",
+    profileUrl: "https://in.linkedin.com/in/santanupaul"
   },
   {
-    name: "Vamshi Ambati",
+    name: "Dr. Vamshi Ambati",
     roles: ["Adjunct Faculty"],
+    photo: "/people/placeholder.jpg",
+    description: "Dr. Vamshi Ambati is an AI entrepreneur, researcher, and investor. He earned his Ph.D. from the Language Technologies Institute at Carnegie Mellon University. He has founded multiple companies, including LatentStructure and Predera, and has held technical roles at PayPal and Base CRM. He is currently an investor at Virama Ventures.",
+    profileUrl: "https://www.linkedin.com/in/vamshi"
   },
 ];
 
@@ -174,14 +180,29 @@ function PeoplePage() {
 
         <section className="mb-16">
           <h2 className="font-display text-2xl font-semibold mb-6">Adjunct Faculty</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="space-y-8">
             {adjunctFaculty.map((p) => (
-              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6">
-                <h3 className="font-display text-xl font-semibold mb-1">{p.name}</h3>
-                <div className="font-medium text-muted">
-                  {p.roles.map((role) => (
-                    <p key={role}>{role}</p>
-                  ))}
+              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl shrink-0 bg-border overflow-hidden flex items-center justify-center">
+                    <img src={p.photo} alt={p.name} className="w-full h-full object-cover object-top" onError={(e) => { e.currentTarget.style.display = 'none' }} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold mb-1">{p.name}</h3>
+                    <div className="font-medium">
+                      {p.roles.map((role) => (
+                        <p key={role}>{role}</p>
+                      ))}
+                    </div>
+                    {p.description && (
+                      <p className="text-muted leading-relaxed mt-4">
+                        {p.description}
+                      </p>
+                    )}
+                    {p.profileUrl && (
+                      <a href={p.profileUrl} className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}
