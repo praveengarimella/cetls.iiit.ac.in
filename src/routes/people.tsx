@@ -63,15 +63,7 @@ function PeoplePage() {
   return (
     <SiteShell>
       <main className="mx-auto max-w-5xl px-5 py-14 sm:px-6 sm:py-16">
-        <h1 className="font-display text-4xl font-semibold tracking-tight">People</h1>
-        <p className="mt-5 text-xl leading-relaxed text-muted max-w-3xl mb-6">
-          CETLS is a research centre at IIIT Hyderabad. Faculty and research staff profiles will appear here as the centre grows. The International Advisory Committee is listed below.
-        </p>
-        <p className="mb-16">
-          <Link to="/advisory" className="font-medium text-accent hover:underline">
-            International Advisory Committee →
-          </Link>
-        </p>
+        <h1 className="font-display text-4xl font-semibold tracking-tight mb-12">People</h1>
 
         <section className="mb-16">
           <h2 className="font-display text-2xl font-semibold mb-6">Chief Mentor</h2>
