@@ -43,126 +43,21 @@ const adjunctFaculty = [
 ];
 
 const affiliateFaculty = [
-  {
-    name: "Kavita Vemuri",
-    roles: ["Affiliate Faculty"],
-    email: "kvemuri@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Bapi Raju",
-    roles: ["Affiliate Faculty"],
-    email: "raju.bapi@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Vishnu Sreekumar",
-    roles: ["Affiliate Faculty"],
-    email: "vishnu.sreekumar@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Bhaktee Dongaonkar",
-    roles: ["Affiliate Faculty"],
-    email: "bhaktee.dongaonkar@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Prof. C. Venkatesh",
-    roles: ["Affiliate Faculty"],
-    email: "vxc.iiit@gmail.com",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Soma Paul",
-    roles: ["Affiliate Faculty"],
-    email: "soma@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Suresh Purini",
-    roles: ["Affiliate Faculty"],
-    email: "suresh.purini@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Chiranjeevi Yarra",
-    roles: ["Affiliate Faculty"],
-    email: "chiranjeevi.yarra@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Anoop Namboodiri",
-    roles: ["Affiliate Faculty"],
-    email: "anoop@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Jawahar C V",
-    roles: ["Affiliate Faculty"],
-    email: "jawahar@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Karthik Vaidhyanathan",
-    roles: ["Affiliate Faculty"],
-    email: "karthik.vaidhyanathan@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Prabhakar Bhimalapuram",
-    roles: ["Affiliate Faculty"],
-    email: "prabhakar.b@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Sachin Chaudhari",
-    roles: ["Affiliate Faculty"],
-    email: "sachin.c@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Aftab Hussain",
-    roles: ["Affiliate Faculty"],
-    email: "aftab.hussain@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  },
-  {
-    name: "Raghu Reddy",
-    roles: ["Affiliate Faculty"],
-    email: "raghu.reddy@iiit.ac.in",
-    photo: "",
-    description: "",
-    profileUrl: ""
-  }
+  { name: "Kavita Vemuri", role: "Affiliate Faculty", photo: "https://faculty.iiit.ac.in/~kvemuri/images/team/kavita.jpg", bio: "" },
+  { name: "Bapi Raju", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Bapi+Raju&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Vishnu Sreekumar", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Vishnu+Sreekumar&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Bhaktee Dongaonkar", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Bhaktee+Dongaonkar&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Prof C Venkatesh", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Prof+C+Venkatesh&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Soma Paul", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Soma+Paul&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Suresh Purini", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Suresh+Purini&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Chiranjeevi Yarra", role: "Affiliate Faculty", photo: "https://faculty.iiit.ac.in/~chiranjeevi.yarra/HCI.jpg", bio: "" },
+  { name: "Anoop Namboodiri", role: "Affiliate Faculty", photo: "https://faculty.iiit.ac.in/~anoop/images/Anoop1s.jpg", bio: "" },
+  { name: "Jawahar C V", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Jawahar+C+V&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Karthik Vaidhyanathan", role: "Affiliate Faculty", photo: "https://faculty.iiit.ac.in/~karthik.vaidhyanathan/assets/img/prof_pic.jpg", bio: "" },
+  { name: "Prabhakar Bhimalapuram", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Prabhakar+Bhimalapuram&background=0D8ABC&color=fff&size=150", bio: "" },
+  { name: "Sachin Chaudhari", role: "Affiliate Faculty", photo: "https://faculty.iiit.ac.in/~sachin.c/index_files/Sachin-Official.jpg", bio: "" },
+  { name: "Aftab Hussain", role: "Affiliate Faculty", photo: "https://www.iiit.ac.in/wp-content/uploads/elementor/thumbs/Aftab-M-Hussain-rfk2q3krgesaywvzyeg2v7g2yqeytuui9lz816z54o.jpg", bio: "" },
+  { name: "Raghu Reddy", role: "Affiliate Faculty", photo: "https://ui-avatars.com/api/?name=Raghu+Reddy&background=0D8ABC&color=fff&size=150", bio: "" },
 ];
 function PeoplePage() {
   return (
