@@ -57,7 +57,7 @@ const affiliateFaculty = [
   { name: "Prabhakar Bhimalapuram", roles: ["Affiliate Faculty"], photo: "/people/prabhakar-bhimalapuram.png", description: "", profileUrl: "" },
   { name: "Sachin Chaudhari", roles: ["Affiliate Faculty"], photo: "https://faculty.iiit.ac.in/~sachin.c/index_files/Sachin-Official.jpg", description: "", profileUrl: "" },
   { name: "Aftab Hussain", roles: ["Affiliate Faculty"], photo: "https://www.iiit.ac.in/wp-content/uploads/elementor/thumbs/Aftab-M-Hussain-rfk2q3krgesaywvzyeg2v7g2yqeytuui9lz816z54o.jpg", description: "", profileUrl: "" },
-  { name: "Raghu Reddy", roles: ["Affiliate Faculty"], photo: "https://ui-avatars.com/api/?name=Raghu+Reddy&background=0D8ABC&color=fff&size=150", description: "", profileUrl: "" },
+  { name: "Raghu Reddy", roles: ["Affiliate Faculty"], photo: "/people/raghu-reddy.png", description: "", profileUrl: "" },
 ];
 function PeoplePage() {
   return (
