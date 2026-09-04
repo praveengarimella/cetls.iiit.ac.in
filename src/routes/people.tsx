@@ -51,7 +51,7 @@ const affiliateFaculty = [
   { name: "Soma Paul", roles: ["Affiliate Faculty"], photo: "/people/soma-paul.png", description: "", profileUrl: "" },
   { name: "Suresh Purini", roles: ["Affiliate Faculty"], photo: "/people/suresh-purini.png", description: "", profileUrl: "" },
   { name: "Chiranjeevi Yarra", roles: ["Affiliate Faculty"], photo: "/people/chiranjeevi-yarra.png", description: "", profileUrl: "" },
-  { name: "Anoop Namboodiri", roles: ["Affiliate Faculty"], photo: "https://faculty.iiit.ac.in/~anoop/images/Anoop1s.jpg", description: "", profileUrl: "" },
+  { name: "Anoop Namboodiri", roles: ["Affiliate Faculty"], photo: "/people/anoop-namboodiri.png", description: "", profileUrl: "" },
   { name: "Jawahar C V", roles: ["Affiliate Faculty"], photo: "/people/jawahar-cv.png", description: "", profileUrl: "" },
   { name: "Karthik Vaidhyanathan", roles: ["Affiliate Faculty"], photo: "https://faculty.iiit.ac.in/~karthik.vaidhyanathan/assets/img/prof_pic.jpg", description: "", profileUrl: "" },
   { name: "Prabhakar Bhimalapuram", roles: ["Affiliate Faculty"], photo: "/people/prabhakar-bhimalapuram.png", description: "", profileUrl: "" },
