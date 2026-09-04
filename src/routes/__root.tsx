@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Centre for Education Technology and Learning Sciences at IIIT Hyderabad — research and design for better learning across the lifespan.",
+          "Centre for Educational Technology and Learning Sciences at IIIT Hyderabad — research and design for better learning across the lifespan.",
       },
       { name: "theme-color", content: "#163457" },
     ],

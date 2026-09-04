@@ -23,7 +23,7 @@ function AboutPage() {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-semibold">Mission</h2>
           <p className="mt-4 text-lg leading-relaxed text-muted">
-            The Centre for Education Technology and Learning Sciences (CETLS) at IIIT Hyderabad advances rigorous research and design at the intersection of learning sciences, artificial intelligence, and educational technology. We focus on four domains across the lifespan — K-12 education, higher education, flexible learning for working professionals and executives, and third-age learning — developing solutions that are effective, inclusive, and scalable for India and the Global South, while contributing foundational knowledge to the global research community.
+            The Centre for Educational Technology and Learning Sciences (CETLS) at IIIT Hyderabad advances rigorous research and design at the intersection of learning sciences, artificial intelligence, and educational technology. We focus on four domains across the lifespan — K-12 education, higher education, flexible learning for working professionals and executives, and third-age learning — developing solutions that are effective, inclusive, and scalable for India and the Global South, while contributing foundational knowledge to the global research community.
           </p>
         </section>
 

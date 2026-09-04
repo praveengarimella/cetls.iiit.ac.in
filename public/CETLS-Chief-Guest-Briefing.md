@@ -1,6 +1,6 @@
 Briefing for the Chief Guest
 
-On the launch of the Centre for Education Technology and Learning Sciences (CETLS), International Institute of Information Technology, Hyderabad.
+On the launch of the Centre for Educational Technology and Learning Sciences (CETLS), International Institute of Information Technology, Hyderabad.
 
 IIIT Hyderabad is establishing CETLS as a research centre on how people learn, and on how learning should be designed, from school through working life and into later years. We would like you to inaugurate the Centre.
 

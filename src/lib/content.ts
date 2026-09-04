@@ -177,6 +177,6 @@ export const newsItems = [
   {
     date: "5 September 2026",
     title: "Inauguration of CETLS at IIIT Hyderabad",
-    text: "The Centre for Education Technology and Learning Sciences will be inaugurated at IIIT Hyderabad. CETLS is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
+    text: "The Centre for Educational Technology and Learning Sciences will be inaugurated at IIIT Hyderabad. CETLS is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
   },
 ];

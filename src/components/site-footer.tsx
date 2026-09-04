@@ -8,7 +8,7 @@ export function SiteFooter() {
           <div>
             <img src="/logo.png" alt="CETLS, IIIT Hyderabad" className="h-16 w-auto sm:h-20" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Centre for Education Technology and Learning Sciences
+              Centre for Educational Technology and Learning Sciences
               <br />
               International Institute of Information Technology, Hyderabad
             </p>
@@ -44,7 +44,7 @@ export function SiteFooter() {
           </div>
         </div>
         <p className="mt-10 border-t border-border pt-6 text-sm text-muted">
-          © 2026 Centre for Education Technology and Learning Sciences, IIIT Hyderabad
+          © 2026 Centre for Educational Technology and Learning Sciences, IIIT Hyderabad
         </p>
       </div>
     </footer>

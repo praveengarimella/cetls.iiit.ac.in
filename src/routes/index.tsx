@@ -4,7 +4,7 @@ import { pillars } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [{ title: "CETLS | Centre for Education Technology and Learning Sciences" }],
+    meta: [{ title: "CETLS | Centre for Educational Technology and Learning Sciences" }],
   }),
   component: Home,
 });
@@ -16,7 +16,7 @@ function Home() {
         <section className="mx-auto max-w-6xl px-5 pt-14 pb-16 sm:px-6 sm:pt-20 sm:pb-24">
           <div className="max-w-3xl">
             <p className="text-sm font-medium tracking-wide text-accent uppercase">
-              Centre for Education Technology and Learning Sciences
+              Centre for Educational Technology and Learning Sciences
             </p>
             <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
               Learning sciences and technology across the lifespan

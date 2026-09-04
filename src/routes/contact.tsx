@@ -25,7 +25,7 @@ function ContactPage() {
         </p>
 
         <div className="mt-10 rounded-xl border border-border bg-surface p-6">
-          <p className="font-medium">Centre for Education Technology and Learning Sciences</p>
+          <p className="font-medium">Centre for Educational Technology and Learning Sciences</p>
           <p className="mt-2 leading-relaxed text-muted">
             International Institute of Information Technology
             <br />
