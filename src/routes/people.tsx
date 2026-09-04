@@ -44,7 +44,7 @@ const adjunctFaculty = [
 
 const affiliateFaculty = [
   { name: "Kavita Vemuri", roles: ["Affiliate Faculty"], photo: "https://faculty.iiit.ac.in/~kvemuri/images/team/kavita.jpg", description: "", profileUrl: "" },
-  { name: "Bapi Raju", roles: ["Affiliate Faculty"], photo: "https://ui-avatars.com/api/?name=Bapi+Raju&background=0D8ABC&color=fff&size=150", description: "", profileUrl: "" },
+  { name: "Bapi Raju", roles: ["Affiliate Faculty"], photo: "/people/bapi-raju.png", description: "", profileUrl: "" },
   { name: "Vishnu Sreekumar", roles: ["Affiliate Faculty"], photo: "https://ui-avatars.com/api/?name=Vishnu+Sreekumar&background=0D8ABC&color=fff&size=150", description: "", profileUrl: "" },
   { name: "Bhaktee Dongaonkar", roles: ["Affiliate Faculty"], photo: "https://ui-avatars.com/api/?name=Bhaktee+Dongaonkar&background=0D8ABC&color=fff&size=150", description: "", profileUrl: "" },
   { name: "Prof C Venkatesh", roles: ["Affiliate Faculty"], photo: "https://ui-avatars.com/api/?name=Prof+C+Venkatesh&background=0D8ABC&color=fff&size=150", description: "", profileUrl: "" },
