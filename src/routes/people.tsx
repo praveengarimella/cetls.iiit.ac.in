@@ -70,58 +70,24 @@ function PeoplePage() {
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-2xl font-semibold mb-6">Leadership</h2>
-          <div className="space-y-8">
-            {leadership.map((p) => (
-              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
-                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
-                  <img src={p.photo} alt={p.name} className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover object-top shrink-0 bg-border" />
-                  <div>
-                    <h3 className="font-display text-2xl font-semibold mb-1">{p.name}</h3>
-                    <div className="font-medium">
-                      {p.roles.map((role) => (
-                        <p key={role}>{role}</p>
-                      ))}
-                    </div>
-                    {p.email && (
-                      <p className="text-sm mt-1">
-                        <a href={`mailto:${p.email}`} className="text-muted hover:text-accent">{p.email}</a>
-                      </p>
-                    )}
-                    {p.description && (
-                      <p className="text-muted leading-relaxed mt-4">
-                        {p.description}
-                      </p>
-                    )}
-                    {p.profileUrl && (
-                      <a href={p.profileUrl} className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
-                    )}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <h2 className="font-display text-2xl font-semibold mb-6">Chief Mentor</h2>
+          <article className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+              <img src="/people/raj-reddy.jpg" alt="Prof. Raj Reddy" className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover object-top shrink-0 bg-border" />
+              <div>
+                <h3 className="font-display text-2xl font-semibold mb-1">Prof. Raj Reddy</h3>
+                <p className="font-medium">Moza Bint Nasser University Professor of Computer Science and Robotics, Carnegie Mellon University</p>
+                <p className="text-muted leading-relaxed mt-4">
+                  Dabbala Rajagopal "Raj" Reddy is an Indian-American computer scientist and one of the early pioneers of artificial intelligence. He serves as the Chief Mentor for CETLS, guiding its research and vision at the intersection of AI and education. He and Edward Feigenbaum won the 1994 ACM Turing Award for their pioneering work in artificial intelligence.
+                </p>
+              </div>
+            </div>
+          </article>
         </section>
 
         <section className="mb-16">
-          <h2 className="font-display text-2xl font-semibold mb-6">Adjunct Faculty</h2>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {adjunctFaculty.map((p) => (
-              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6">
-                <h3 className="font-display text-xl font-semibold mb-1">{p.name}</h3>
-                <div className="font-medium text-muted">
-                  {p.roles.map((role) => (
-                    <p key={role}>{role}</p>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section>
           <h2 className="font-display text-2xl font-semibold mb-3">International Advisory Committee</h2>
-          <p className="text-muted leading-relaxed max-w-3xl mb-10">
+          <p className="text-muted leading-relaxed max-w-3xl mb-8">
             The committee advises the Centre for Educational Technology and Learning Sciences on research, design, and evidence at the meeting point of AI, educational technology, and the learning sciences.
           </p>
 
@@ -185,6 +151,56 @@ function PeoplePage() {
                 </div>
               </div>
             </article>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="font-display text-2xl font-semibold mb-6">Leadership</h2>
+          <div className="space-y-8">
+            {leadership.map((p) => (
+              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                  <img src={p.photo} alt={p.name} className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover object-top shrink-0 bg-border" />
+                  <div>
+                    <h3 className="font-display text-2xl font-semibold mb-1">{p.name}</h3>
+                    <div className="font-medium">
+                      {p.roles.map((role) => (
+                        <p key={role}>{role}</p>
+                      ))}
+                    </div>
+                    {p.email && (
+                      <p className="text-sm mt-1">
+                        <a href={`mailto:${p.email}`} className="text-muted hover:text-accent">{p.email}</a>
+                      </p>
+                    )}
+                    {p.description && (
+                      <p className="text-muted leading-relaxed mt-4">
+                        {p.description}
+                      </p>
+                    )}
+                    {p.profileUrl && (
+                      <a href={p.profileUrl} className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="font-display text-2xl font-semibold mb-6">Adjunct Faculty</h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {adjunctFaculty.map((p) => (
+              <article key={p.name} className="bg-surface border border-border rounded-2xl p-6">
+                <h3 className="font-display text-xl font-semibold mb-1">{p.name}</h3>
+                <div className="font-medium text-muted">
+                  {p.roles.map((role) => (
+                    <p key={role}>{role}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
       </main>
