@@ -8,6 +8,11 @@ export const Route = createFileRoute("/people")({
 
 const leadership = [
   {
+    name: "Prof. Raj Reddy",
+    roles: ["Chief Mentor for CETLS"],
+    photo: "/people/raj-reddy.jpg",
+  },
+  {
     name: "Vasudeva Varma",
     roles: ["Professor at IIIT Hyderabad", "Head of CETLS"],
     email: "vv@iiit.ac.in",
@@ -55,12 +60,14 @@ function PeoplePage() {
                       <p key={role}>{role}</p>
                     ))}
                   </div>
-                  <a
-                    href={`mailto:${p.email}`}
-                    className="mt-3 inline-block text-sm text-muted hover:text-accent"
-                  >
-                    {p.email}
-                  </a>
+                  {p.email && (
+                    <a
+                      href={`mailto:${p.email}`}
+                      className="mt-3 inline-block text-sm text-muted hover:text-accent"
+                    >
+                      {p.email}
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
