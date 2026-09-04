@@ -105,6 +105,29 @@ function Home() {
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="mb-2 text-sm font-medium tracking-wide text-accent uppercase">People</p>
+              <h2 className="font-display text-3xl font-semibold">Chief Mentor</h2>
+            </div>
+            <Link to="/people" className="whitespace-nowrap font-medium text-accent hover:underline">
+              Meet the leadership team →
+            </Link>
+          </div>
+          <Link to="/people" className="group block bg-surface border border-border rounded-2xl overflow-hidden hover:border-primary transition">
+            <div className="flex flex-col sm:flex-row">
+              <img src="/people/raj-reddy.jpg" alt="Prof. Raj Reddy" className="w-full sm:w-48 h-48 object-cover object-top shrink-0 bg-border" />
+              <div className="p-6 sm:p-8">
+                <h3 className="font-display text-2xl font-semibold mb-1 group-hover:text-accent transition">Prof. Raj Reddy</h3>
+                <p className="font-medium text-muted">Moza Bint Nasser University Professor of Computer Science and Robotics, Carnegie Mellon University</p>
+                <p className="mt-4 text-muted leading-relaxed">
+                  Dabbala Rajagopal "Raj" Reddy is an Indian-American computer scientist and one of the early pioneers of artificial intelligence. He serves as the Chief Mentor for CETLS, guiding its research and vision at the intersection of AI and education. He and Edward Feigenbaum won the 1994 ACM Turing Award for their pioneering work in artificial intelligence.
+                </p>
+              </div>
+            </div>
+          </Link>
+        </section>
+
+        <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-6 sm:pb-20">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
               <h2 className="font-display text-3xl font-semibold">International Advisory Committee</h2>
             </div>
             <Link to="/advisory" className="whitespace-nowrap font-medium text-accent hover:underline">
