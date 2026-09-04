@@ -148,7 +148,7 @@ function Home() {
             <Link to="/advisory" hash="kam" className="group block">
               <img src="/people/matthew-kam.png" alt="Matthew Kam" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />
               <div className="font-semibold transition group-hover:text-accent">Matthew Kam</div>
-              <div className="text-sm text-muted">Google</div>
+              <div className="text-sm text-muted">Former Google</div>
             </Link>
             <Link to="/advisory" hash="lomas" className="group block">
               <img src="/people/derek-lomas.png" alt="J. Derek Lomas" className="mb-3 aspect-square w-full rounded-xl border border-border object-cover object-top" />

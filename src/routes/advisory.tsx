@@ -52,10 +52,10 @@ function AdvisoryPage() {
               <img src="/people/matthew-kam.png" alt="Matthew Kam" className="w-32 h-32 sm:w-36 sm:h-36 rounded-xl object-cover object-top shrink-0 bg-border" />
               <div>
                 <h2 className="font-display text-2xl font-semibold mb-1">Matthew Kam</h2>
-                <p className="font-medium">Researcher, Google</p>
-                <p className="text-sm text-muted mt-1">Staff User Experience Researcher, Software Engineering Education</p>
+                <p className="font-medium">Former Employee of Google</p>
+                <p className="text-sm text-muted mt-1">Former Staff User Experience Researcher, Software Engineering Education</p>
                 <p className="text-muted leading-relaxed mt-4">
-                  Matthew Kam studies how learning technologies are designed and used at scale, and how AI is changing the work people must learn to do. At Google he has led research that shaped products used by more than 100 million students and teachers, including Chromebooks in education, Google Classroom, Google Forms, and Expeditions. His earlier academic work at UC Berkeley and Carnegie Mellon designed mobile literacy games with children in rural and low-income schools in India. He advises organizations including Google.org, UNICEF, and the Computing Research Association. For CETLS he brings human-centered product research, workforce-relevant AI learning, and design for large, diverse school systems.
+                  Matthew Kam studies how learning technologies are designed and used at scale, and how AI is changing the work people must learn to do. At Google he led research that shaped products used by more than 100 million students and teachers, including Chromebooks in education, Google Classroom, Google Forms, and Expeditions. His earlier academic work at UC Berkeley and Carnegie Mellon designed mobile literacy games with children in rural and low-income schools in India. He advises organizations including Google.org, UNICEF, and the Computing Research Association. For CETLS he brings human-centered product research, workforce-relevant AI learning, and design for large, diverse school systems.
                 </p>
                 <a href="https://scholar.google.com/citations?user=HDDSjm0AAAAJ" className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
               </div>
