@@ -8,11 +8,6 @@ export const Route = createFileRoute("/people")({
 
 const leadership = [
   {
-    name: "Prof. Raj Reddy",
-    roles: ["Chief Mentor for CETLS"],
-    photo: "/people/raj-reddy.jpg",
-  },
-  {
     name: "Vasudeva Varma",
     roles: ["Professor at IIIT Hyderabad", "Head of CETLS"],
     email: "vv@iiit.ac.in",
@@ -39,6 +34,25 @@ function PeoplePage() {
             International Advisory Committee →
           </Link>
         </p>
+
+        <section className="mb-16">
+          <h2 className="font-display text-2xl font-semibold mb-6">Chief Mentor</h2>
+          
+          <article className="bg-surface border border-border rounded-2xl p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+              <img src="/people/raj-reddy.jpg" alt="Prof. Raj Reddy" className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl object-cover object-top shrink-0 bg-border" />
+              <div>
+                <h3 className="font-display text-2xl font-semibold mb-1">Prof. Raj Reddy</h3>
+                <p className="font-medium">Chief Mentor for CETLS</p>
+                <p className="text-sm text-muted mt-1">Moza Bint Nasser University Professor of Computer Science and Robotics, Carnegie Mellon University<br />Founding Chairman, IIIT Hyderabad</p>
+                <p className="text-muted leading-relaxed mt-4">
+                  Dabbala Rajagopal "Raj" Reddy is an Indian-American computer scientist and one of the early pioneers of artificial intelligence. He has served on the faculty of Stanford and Carnegie Mellon for over 50 years and was the founding director of the Robotics Institute at Carnegie Mellon University. As the founding chairman of the International Institute of Information Technology, Hyderabad (IIIT-H), he has been instrumental in shaping the institution's vision. He and Edward Feigenbaum won the 1994 ACM Turing Award for their pioneering work in artificial intelligence. He serves as the Chief Mentor for CETLS, guiding its research and vision at the intersection of AI and education.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Raj_Reddy" className="inline-block mt-4 text-sm font-medium text-accent hover:underline" target="_blank" rel="noopener noreferrer">Profile →</a>
+              </div>
+            </div>
+          </article>
+        </section>
 
         <section className="mb-16">
           <h2 className="font-display text-2xl font-semibold">Leadership</h2>
