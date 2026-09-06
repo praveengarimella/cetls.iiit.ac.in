@@ -8,11 +8,41 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSent(true);
+    setStatus("submitting");
+    setErrorMsg("");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xyeydqww", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        const json = await res.json().catch(() => ({}));
+        setErrorMsg(
+          json?.errors?.map((err: { message: string }) => err.message).join(", ") ||
+            "Failed to send message. Please try again or email us directly."
+        );
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("A network error occurred. Please check your connection or email us directly.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -48,22 +78,39 @@ function ContactPage() {
           </p>
         </div>
 
-        {sent ? (
-          <div className="mt-10 rounded-xl border border-border bg-soft p-6">
-            <p className="font-medium">Thank you</p>
-            <p className="mt-2 leading-relaxed text-muted">
-              Your message has been noted. We will follow up as the centre’s correspondence
-              channels open. For urgent matters, please write via IIIT Hyderabad.
+        {status === "success" ? (
+          <div className="mt-10 rounded-xl border border-border bg-soft p-6 sm:p-8">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-500 font-bold">
+                ✓
+              </span>
+              <p className="font-display text-xl font-semibold">Thank you!</p>
+            </div>
+            <p className="mt-3 leading-relaxed text-muted">
+              Your message has been sent successfully. We will follow up with you shortly.
             </p>
+            <button
+              type="button"
+              onClick={() => setStatus("idle")}
+              className="mt-6 inline-flex min-h-10 items-center rounded-lg border border-border bg-surface px-5 py-2 text-sm font-medium hover:bg-soft"
+            >
+              Send another message
+            </button>
           </div>
         ) : (
           <form className="mt-10 space-y-5" onSubmit={onSubmit}>
+            {status === "error" && (
+              <div className="rounded-lg border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-500">
+                {errorMsg}
+              </div>
+            )}
             <label className="block">
               <span className="text-sm font-medium">Name</span>
               <input
                 required
                 name="name"
-                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary"
+                disabled={status === "submitting"}
+                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary disabled:opacity-60"
               />
             </label>
             <label className="block">
@@ -72,7 +119,8 @@ function ContactPage() {
                 required
                 type="email"
                 name="email"
-                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary"
+                disabled={status === "submitting"}
+                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary disabled:opacity-60"
               />
             </label>
             <label className="block">
@@ -81,14 +129,16 @@ function ContactPage() {
                 required
                 name="message"
                 rows={5}
-                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary"
+                disabled={status === "submitting"}
+                className="mt-1.5 w-full rounded-lg border border-border bg-surface px-4 py-3 text-fg outline-none focus:border-primary disabled:opacity-60"
               />
             </label>
             <button
               type="submit"
-              className="inline-flex min-h-11 items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-fg hover:bg-primary-hover"
+              disabled={status === "submitting"}
+              className="inline-flex min-h-11 items-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-fg hover:bg-primary-hover disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send message
+              {status === "submitting" ? "Sending..." : "Send message"}
             </button>
           </form>
         )}
