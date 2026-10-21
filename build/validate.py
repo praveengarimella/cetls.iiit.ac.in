@@ -201,7 +201,28 @@ def validate(data: dict, schema: dict) -> list[str]:
     if join_outro_page not in page_ids:
         errors.append(f"join.outro: unknown pageId '{join_outro_page}'")
 
-    # 3g. Pages -> description or descriptionRef
+    for news_item in data.get("news", {}).get("items", []):
+        nid = news_item.get("id", "?")
+        npid = news_item.get("pageId")
+        if npid is not None and npid not in page_ids:
+            errors.append(f"news.items[{nid}]: unknown pageId '{npid}'")
+
+    # 3g. Inaugural -> gallery ids, programmeAreas domainId, advisers personId, signOff signatories
+    inaugural = data.get("inaugural", {})
+    check_collection_ids(inaugural.get("gallery", []), "inaugural.gallery")
+    for pa in inaugural.get("programmeAreas", {}).get("items", []):
+        did = pa.get("domainId")
+        if did not in domain_ids:
+            errors.append(f"inaugural.programmeAreas: unknown domainId '{did}'")
+    for adv in inaugural.get("advisersAndSupport", {}).get("advisers", []):
+        pid = adv.get("personId")
+        if pid not in people_ids:
+            errors.append(f"inaugural.advisersAndSupport.advisers: unknown personId '{pid}'")
+    for sig_pid in inaugural.get("signOff", {}).get("signatories", []):
+        if sig_pid not in people_ids:
+            errors.append(f"inaugural.signOff.signatories: unknown personId '{sig_pid}'")
+
+    # 3h. Pages -> description or descriptionRef
     for page in data.get("pages", []):
         pid = page.get("id", "?")
         seo = page.get("seo", {})

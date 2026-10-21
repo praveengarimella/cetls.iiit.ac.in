@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as InauguralRouteImport } from './routes/inaugural'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as NewsRouteImport } from './routes/news'
@@ -45,6 +46,11 @@ const AdvisoryRoute = AdvisoryRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InauguralRoute = InauguralRouteImport.update({
+  id: '/inaugural',
+  path: '/inaugural',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinRoute = JoinRouteImport.update({
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
@@ -156,6 +164,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
   '/news': typeof NewsRoute
@@ -177,6 +186,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/advisory'
     | '/contact'
+    | '/inaugural'
     | '/join'
     | '/login'
     | '/news'
@@ -196,6 +206,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/advisory'
     | '/contact'
+    | '/inaugural'
     | '/join'
     | '/login'
     | '/news'
@@ -214,6 +225,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/advisory'
     | '/contact'
+    | '/inaugural'
     | '/join'
     | '/login'
     | '/news'
@@ -234,6 +246,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdvisoryRoute: typeof AdvisoryRoute
   ContactRoute: typeof ContactRoute
+  InauguralRoute: typeof InauguralRoute
   JoinRoute: typeof JoinRoute
   LoginRoute: typeof LoginRoute
   NewsRoute: typeof NewsRoute
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inaugural': {
+      id: '/inaugural'
+      path: '/inaugural'
+      fullPath: '/inaugural'
+      preLoaderRoute: typeof InauguralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join': {
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdvisoryRoute: AdvisoryRoute,
   ContactRoute: ContactRoute,
+  InauguralRoute: InauguralRoute,
   JoinRoute: JoinRoute,
   LoginRoute: LoginRoute,
   NewsRoute: NewsRoute,

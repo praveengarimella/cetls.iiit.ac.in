@@ -19,6 +19,7 @@
     "groups",
     "join",
     "news",
+    "inaugural",
     "contact",
     "pages"
   ],
@@ -716,9 +717,156 @@
               "venue": { "type": ["string", "null"] },
               "body": { "type": "string" },
               "liveBody": { "type": ["string", "null"] },
+              "pageId": { "$ref": "#/$defs/kebabId" },
+              "ctaLabel": { "type": "string" },
+              "externalUrl": { "type": "string", "format": "uri" },
+              "externalLabel": { "type": "string" },
               "status": { "$ref": "#/$defs/status" },
               "published": { "type": "boolean" }
             }
+          }
+        }
+      }
+    },
+    "inaugural": {
+      "type": "object",
+      "required": [
+        "eyebrow",
+        "title",
+        "subtitle",
+        "date",
+        "eventDate",
+        "lead",
+        "gallery",
+        "background",
+        "event",
+        "programmeAreas",
+        "advisersAndSupport",
+        "collaboratorsSought",
+        "signOff"
+      ],
+      "properties": {
+        "eyebrow": { "type": "string" },
+        "title": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "eventDate": { "type": "string", "format": "date" },
+        "lead": { "type": "string" },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "src", "alt"],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "src": { "type": "string" },
+              "alt": { "type": "string" },
+              "caption": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "background": {
+          "type": "object",
+          "required": ["heading", "paragraphs"],
+          "properties": {
+            "heading": { "type": "string" },
+            "paragraphs": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "event": {
+          "type": "object",
+          "required": [
+            "heading",
+            "pressCoverage",
+            "paragraphs",
+            "questionsIntro",
+            "questions"
+          ],
+          "properties": {
+            "heading": { "type": "string" },
+            "pressCoverage": {
+              "type": "object",
+              "required": ["prefix", "url", "label", "suffix"],
+              "properties": {
+                "prefix": { "type": "string" },
+                "url": { "type": "string", "format": "uri" },
+                "label": { "type": "string" },
+                "suffix": { "type": "string" }
+              }
+            },
+            "paragraphs": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "questionsIntro": { "type": "string" },
+            "questions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "programmeAreas": {
+          "type": "object",
+          "required": ["heading", "intro", "items"],
+          "properties": {
+            "heading": { "type": "string" },
+            "intro": { "type": "string" },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["domainId", "title", "body"],
+                "properties": {
+                  "domainId": { "$ref": "#/$defs/kebabId" },
+                  "title": { "type": "string" },
+                  "body": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "advisersAndSupport": {
+          "type": "object",
+          "required": ["heading", "advisersIntro", "advisers", "supportBody"],
+          "properties": {
+            "heading": { "type": "string" },
+            "advisersIntro": { "type": "string" },
+            "advisers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["personId", "name", "affiliation", "focus"],
+                "properties": {
+                  "personId": { "$ref": "#/$defs/kebabId" },
+                  "name": { "type": "string" },
+                  "affiliation": { "type": "string" },
+                  "focus": { "type": "string" }
+                }
+              }
+            },
+            "supportBody": { "type": "string" }
+          }
+        },
+        "collaboratorsSought": {
+          "type": "object",
+          "required": ["heading", "body"],
+          "properties": {
+            "heading": { "type": "string" },
+            "body": { "type": "string" }
+          }
+        },
+        "signOff": {
+          "type": "object",
+          "required": ["signatories", "organizationLine"],
+          "properties": {
+            "signatories": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/kebabId" }
+            },
+            "organizationLine": { "type": "string" }
           }
         }
       }

@@ -359,6 +359,10 @@ export interface NewsItem {
   venue: string | null;
   body: string;
   liveBody?: string | null;
+  pageId?: string;
+  ctaLabel?: string;
+  externalUrl?: string;
+  externalLabel?: string;
   status: DataStatus;
   published: boolean;
 }
@@ -367,6 +371,71 @@ export interface NewsConfig {
   heading: string;
   intro: string;
   items: NewsItem[];
+}
+
+export interface InauguralPhoto {
+  id: string;
+  src: string;
+  alt: string;
+  caption?: string | null;
+}
+
+export interface InauguralProgrammeArea {
+  domainId: string;
+  title: string;
+  body: string;
+}
+
+export interface InauguralAdviserItem {
+  personId: string;
+  name: string;
+  affiliation: string;
+  focus: string;
+}
+
+export interface InauguralConfig {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  date: string;
+  eventDate: string;
+  lead: string;
+  gallery: InauguralPhoto[];
+  background: {
+    heading: string;
+    paragraphs: string[];
+  };
+  event: {
+    heading: string;
+    pressCoverage: {
+      prefix: string;
+      url: string;
+      label: string;
+      suffix: string;
+    };
+    paragraphs: string[];
+    questionsIntro: string;
+    questions: string[];
+  };
+  programmeAreas: {
+    heading: string;
+    intro: string;
+    items: InauguralProgrammeArea[];
+  };
+  advisersAndSupport: {
+    heading: string;
+    advisersIntro: string;
+    advisers: InauguralAdviserItem[];
+    supportBody: string;
+  };
+  collaboratorsSought: {
+    heading: string;
+    body: string;
+  };
+  signOff: {
+    signatories: string[];
+    organizationLine: string;
+  };
 }
 
 export interface ContactPersonRef {
@@ -439,6 +508,7 @@ export interface SiteData {
   groups: Group[];
   join: JoinConfig;
   news: NewsConfig;
+  inaugural: InauguralConfig;
   contact: ContactConfig;
   pages: PageConfig[];
 }

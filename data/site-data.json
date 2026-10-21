@@ -56,6 +56,7 @@
     "nav": [
       { "pageId": "home", "label": "Home" },
       { "pageId": "about", "label": "About" },
+      { "pageId": "inaugural", "label": "Inaugural" },
       { "pageId": "research", "label": "Research" },
       { "pageId": "platform", "label": "Platform" },
       { "pageId": "people", "label": "People" },
@@ -72,6 +73,7 @@
         {
           "title": "Explore",
           "links": [
+            { "pageId": "inaugural", "label": "Inaugural Event" },
             { "pageId": "research", "label": "Research" },
             { "pageId": "platform", "label": "Platform" },
             { "pageId": "people", "label": "People" },
@@ -1397,10 +1399,139 @@
         "venue": "KRB Auditorium, {parent.shortName}",
         "body": "The {org.name} was inaugurated at {parent.shortName} on 5 September 2026 at the KRB Auditorium. {org.shortName} is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
         "liveBody": "The Centre for Educational Technology and Learning Sciences will be inaugurated at IIIT Hyderabad. CETLS is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
+        "pageId": "inaugural",
+        "ctaLabel": "Read the Inaugural Note",
+        "externalUrl": "https://www.iiit.ac.in/iiit-h-launches-cetls",
+        "externalLabel": "Press Coverage (iiit.ac.in)",
         "status": "confirmed",
         "published": true
       }
     ]
+  },
+  "inaugural": {
+    "eyebrow": "{org.name}, {parent.shortName}",
+    "title": "Launch, research questions and programme",
+    "subtitle": "A note for friends of {org.shortName}.",
+    "date": "2026-09-10",
+    "eventDate": "2026-09-05",
+    "lead": "The {org.name} ({org.shortName}) was opened at {parent.shortName} on 5 September 2026. It studies how AI can be used during learning without displacing the learning itself, across school education, higher education, the workplace and later life.",
+    "gallery": [
+      {
+        "id": "inaugural-unveiling",
+        "src": "/inaugural/unveiling.jpg",
+        "alt": "Unveiling of the {org.name} ({org.shortName}) plaque at {parent.shortName}",
+        "caption": "Chief Guest R. Chandrashekhar (former President, NASSCOM) unveiling the {org.shortName} plaque with {parent.shortName} and {org.shortName} leadership on 5 September 2026."
+      },
+      {
+        "id": "inaugural-raj-reddy-address",
+        "src": "/inaugural/raj-reddy-address.jpg",
+        "alt": "Chief Mentor Prof. Raj Reddy addressing the {org.shortName} inauguration at KRB Auditorium, {parent.shortName}",
+        "caption": "Prof. Raj Reddy, Chief Mentor to {org.shortName}, addressing the inaugural gathering at the KRB Auditorium, {parent.shortName}."
+      },
+      {
+        "id": "inaugural-director-address",
+        "src": "/inaugural/director-address.jpg",
+        "alt": "Prof. Sandeep Kumar Shukla, Director of {parent.shortName}, speaking at the {org.shortName} inauguration",
+        "caption": "Prof. Sandeep Kumar Shukla, Director of {parent.shortName}, addressing the gathering at the {org.shortName} launch."
+      },
+      {
+        "id": "inaugural-vasudeva-varma",
+        "src": "/inaugural/vasudeva-varma-presentation.jpg",
+        "alt": "Prof. Vasudeva Varma presenting the initial initiatives of {org.shortName}",
+        "caption": "Prof. Vasudeva Varma, founding Head of {org.shortName}, presenting the Centre's initial research and programme initiatives."
+      }
+    ],
+    "background": {
+      "heading": "Background",
+      "paragraphs": [
+        "AI systems can now complete much of routine schoolwork, undergraduate assignments and office work. An AI system completing a task is no evidence that the person who submitted it has learned anything. Homework is being finished in minutes, and children ask, reasonably, why they should avoid a tool that already holds the answer.",
+        "Prohibition fails, because students will use these tools anyway. Removing all friction fails for a different reason. Understanding usually arrives just before a student succeeds, and a tool that steps in at that moment improves the submitted work while taking away the learning. The Centre works on the remaining case: AI used while learning, so the learner can still reason when the tool is absent."
+      ]
+    },
+    "event": {
+      "heading": "Inaugural",
+      "pressCoverage": {
+        "prefix": "About a hundred faculty, students, school leaders, edtech practitioners and friends of the Institute attended. R. Chandrashekhar, former President of NASSCOM, launched the Centre as Chief Guest. Prof. Raj Reddy, Chief Mentor to the Centre, addressed the gathering. National and local press covered the launch with enthusiasm, and the reports are collected at ",
+        "url": "https://www.iiit.ac.in/iiit-h-launches-cetls",
+        "label": "iiit.ac.in/iiit-h-launches-cetls",
+        "suffix": "."
+      },
+      "paragraphs": [
+        "Vasudeva Varma, founding head of the Centre, presented the initiatives it begins with: tailored programmes for school teachers on AI literacy, profiling of learners and teachers on how they use AI, Silver Rooms for older adults, and the revised MSIT programme as the first study site in higher education.",
+        "Praveen Garimella ran two roundtables in the afternoon, one with school leaders and one with edtech companies working in K-12, on the most pressing challenges and openings for AI in schools. Both discussions are continuing."
+      ],
+      "questionsIntro": "The speakers at the inaugural pointed the Centre towards three questions.",
+      "questions": [
+        "The first is what should be taught, and how it should be assessed, when a capable assistant is always available. Prof. Reddy holds that much of the present curriculum is already on the web, and that classroom time should move towards judgement, particularly the ability to tell when an answer is wrong.",
+        "The second is whether learning outcomes can be raised at the same or lower public cost with the teacher retained as the central intermediary, given that outcomes in India are well below where they need to be, that the education budget will not double, and that students will use AI tools whether or not policy permits it. Mr Chandrashekhar asked that the Centre stay close to implementation, recalling an earlier digital-education programme in which infrastructure spending was not matched by content quality.",
+        "The third is the conditions under which AI assistance preserves or increases productive struggle, since early experimental reports associate heavy use of AI for writing and programming with signs of cognitive diminution and the conditions under which assistance helps have not been established."
+      ]
+    },
+    "programmeAreas": {
+      "heading": "Programme areas",
+      "intro": "The Centre tests interventions with real learners across the lifespan. Four areas are defined, and each will begin several initiatives of its own.",
+      "items": [
+        {
+          "domainId": "k12",
+          "title": "School education",
+          "body": "Work will be carried out in schools with teachers, students and parents. Open questions include instruction in Indian languages, science and mathematics understood as well as answered, AI literacy for teachers before AI reaches children, and a workable path for board-level AI curricula. CBSE’s proposed AI education from Grade 1 to 12 is policy running ahead of evidence. A monthly dialogue among school stakeholders has been proposed, with a compiled note for state and central governments."
+        },
+        {
+          "domainId": "higher-education",
+          "title": "Higher education",
+          "body": "The first engineering artefact is Learning Middleware (LMW), a software layer between AI models on one side and teachers and students on the other. The instructor-facing side supports the design of more learnable material, using the Knowledge, Learning and Instruction (KLI) framework from Carnegie Mellon’s LearnLab. The learner-facing side adapts to what a student knows and where they get stuck."
+        },
+        {
+          "domainId": "professionals",
+          "title": "Workplace and continuing education",
+          "body": "With the Division for Flexible Learning, the work extends to employed professionals and to independent and gig workers, through offerings from a few hours to full degrees taken outside a classroom. The research problem specific to this setting is signal loss. Online, the evidence of learning is often limited to what a learner types and where they click, and the Centre will study whether learning state can be inferred from such traces well enough for a distance course to match on-campus instruction."
+        },
+        {
+          "domainId": "third-age",
+          "title": "Later-life (Third Age) learning",
+          "body": "Because people live and work well beyond sixty, the Centre treats learning after retirement as a research area. A third-age learning research group, with colleagues from cognitive science, will study how older adults learn, including crystallised and fluid intelligence at that age. New North, recorded conversations with highly productive people in their seventies and beyond, continues. Silver Rooms, structured conversations on AI in daily life, online safety and ageing well, will develop into intergenerational programmes on campus."
+        }
+      ]
+    },
+    "advisersAndSupport": {
+      "heading": "Advisers, faculty and support",
+      "advisersIntro": "Four advisers from outside India have joined an International Advisory Committee.",
+      "advisers": [
+        {
+          "personId": "ashok-goel",
+          "name": "Prof. Ashok Goel",
+          "affiliation": "Georgia Institute of Technology, creator of Jill Watson and director of the US National AI Institute for Adult Learning and Online Education",
+          "focus": "mutual theory of mind between learner and tutor."
+        },
+        {
+          "personId": "ryan-baker",
+          "name": "Prof. Ryan S. Baker",
+          "affiliation": "Adelaide University, a founder of educational data mining",
+          "focus": "whether interventions work in practice and at scale, and knowledge tracing."
+        },
+        {
+          "personId": "matthew-kam",
+          "name": "Dr. Matthew Kam",
+          "affiliation": "formerly of Carnegie Mellon and later head of education work at Google",
+          "focus": "workforce skills and learning at population scale."
+        },
+        {
+          "personId": "derek-lomas",
+          "name": "Prof. Derek Lomas",
+          "affiliation": "working on positive AI and on smart paper now used for assessment in tens of thousands of Indian schools",
+          "focus": "wellbeing-oriented design."
+        }
+      ],
+      "supportBody": "More than a dozen faculty across the Institute are affiliated with the Centre, and the core faculty will grow to between eight and ten over two to three years. Hiring is open for faculty, postdoctoral researchers, doctoral students and learning engineers. The first founding donors committed within a day of being asked, and a small number of founding-supporter places remain open until the end of September 2026."
+    },
+    "collaboratorsSought": {
+      "heading": "Collaborators sought",
+      "body": "The Centre is looking for school leaders who will permit sustained work in their schools as controlled studies, builders of learning tools willing to have them evaluated on learning outcomes, faculty and students from computing, cognitive science, language and design, and supporters of work that takes time to show results."
+    },
+    "signOff": {
+      "signatories": ["vasudeva-varma", "praveen-garimella"],
+      "organizationLine": "{org.name}, {parent.shortName}"
+    }
   },
   "contact": {
     "heading": "Contact",
@@ -1647,6 +1778,21 @@
       "sections": [
         "news.intro",
         "news.items"
+      ]
+    },
+    {
+      "id": "inaugural",
+      "path": "/inaugural",
+      "title": "Inaugural: Launch, Research Questions & Programme",
+      "seo": {
+        "description": null,
+        "descriptionRef": "inaugural.lead",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "inaugural"
       ]
     },
     {

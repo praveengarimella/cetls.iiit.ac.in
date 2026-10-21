@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { AdvisoryList } from "@/components/advisory-list";
 import { ChiefMentorHomeCard } from "@/components/person-card";
 import { ProgrammesSection } from "@/components/programmes-section";
@@ -6,6 +7,7 @@ import { SiteShell } from "@/components/site-shell";
 import { pageMetadata } from "@/lib/seo";
 import {
   data,
+  formatIsoDate,
   formatOrder,
   getDomains,
   getGroup,
@@ -25,6 +27,7 @@ function Home() {
   const chiefMentors = publishedMembers("chief-mentor");
   const advisoryGroup = getGroup("advisory");
   const advisoryMembers = publishedMembers("advisory");
+  const inauguralPath = getPage("inaugural").path;
   const platformPath = getPage("platform").path;
   const peoplePath = getPage("people").path;
   const advisoryPath = getPage("advisory").path;
@@ -59,6 +62,28 @@ function Home() {
                   </Link>
                 );
               })}
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-2xl border border-border bg-surface p-6 sm:p-8">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-xs font-medium tracking-wide text-accent uppercase">
+                  {t(data.inaugural.subtitle)} · {formatIsoDate(data.inaugural.date)}
+                </p>
+                <h2 className="mt-1.5 font-display text-xl font-semibold sm:text-2xl">
+                  {t(data.inaugural.title)}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {t(data.inaugural.lead)}
+                </p>
+              </div>
+              <Link
+                to={inauguralPath}
+                className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-lg border border-border bg-bg px-4 py-2.5 text-xs font-medium text-primary transition-colors hover:border-primary"
+              >
+                {t(data.news.items[0]?.ctaLabel)} <ArrowRight className="size-3.5" />
+              </Link>
             </div>
           </div>
         </section>
