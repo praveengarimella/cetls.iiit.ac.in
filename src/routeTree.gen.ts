@@ -14,15 +14,18 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as JoinRouteImport } from './routes/join'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as PeopleRouteImport } from './routes/people'
 import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ResearchIndexRouteImport } from './routes/research.index'
 import { Route as ResearchHigherEducationRouteImport } from './routes/research.higher-education'
 import { Route as ResearchK12RouteImport } from './routes/research.k12'
 import { Route as ResearchProfessionalsRouteImport } from './routes/research.professionals'
 import { Route as ResearchThirdAgeRouteImport } from './routes/research.third-age'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -49,6 +52,11 @@ const JoinRoute = JoinRouteImport.update({
   path: '/join',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
   path: '/news',
@@ -62,6 +70,11 @@ const PeopleRoute = PeopleRouteImport.update({
 const PlatformRoute = PlatformRouteImport.update({
   id: '/platform',
   path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -94,6 +107,11 @@ const ResearchThirdAgeRoute = ResearchThirdAgeRouteImport.update({
   path: '/third-age',
   getParentRoute: () => ResearchRoute,
 } as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -101,15 +119,18 @@ export interface FileRoutesByFullPath {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/join': typeof JoinRoute
+  '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/people': typeof PeopleRoute
   '/platform': typeof PlatformRoute
+  '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
   '/research/': typeof ResearchIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -117,14 +138,17 @@ export interface FileRoutesByTo {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/join': typeof JoinRoute
+  '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/people': typeof PeopleRoute
   '/platform': typeof PlatformRoute
+  '/portal': typeof PortalRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
   '/research': typeof ResearchIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -133,15 +157,18 @@ export interface FileRoutesById {
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
   '/join': typeof JoinRoute
+  '/login': typeof LoginRoute
   '/news': typeof NewsRoute
   '/people': typeof PeopleRoute
   '/platform': typeof PlatformRoute
+  '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
   '/research/': typeof ResearchIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,15 +178,18 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/join'
+    | '/login'
     | '/news'
     | '/people'
     | '/platform'
+    | '/portal'
     | '/research'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
     | '/research/'
+    | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -167,14 +197,17 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/join'
+    | '/login'
     | '/news'
     | '/people'
     | '/platform'
+    | '/portal'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
     | '/research'
+    | '/api/auth/$'
   id:
     | '__root__'
     | '/'
@@ -182,15 +215,18 @@ export interface FileRouteTypes {
     | '/advisory'
     | '/contact'
     | '/join'
+    | '/login'
     | '/news'
     | '/people'
     | '/platform'
+    | '/portal'
     | '/research'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
     | '/research/'
+    | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -199,10 +235,13 @@ export interface RootRouteChildren {
   AdvisoryRoute: typeof AdvisoryRoute
   ContactRoute: typeof ContactRoute
   JoinRoute: typeof JoinRoute
+  LoginRoute: typeof LoginRoute
   NewsRoute: typeof NewsRoute
   PeopleRoute: typeof PeopleRoute
   PlatformRoute: typeof PlatformRoute
+  PortalRoute: typeof PortalRoute
   ResearchRoute: typeof ResearchRouteWithChildren
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -242,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JoinRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news': {
       id: '/news'
       path: '/news'
@@ -261,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/platform'
       fullPath: '/platform'
       preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -305,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchThirdAgeRouteImport
       parentRoute: typeof ResearchRoute
     }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -334,10 +394,13 @@ const rootRouteChildren: RootRouteChildren = {
   AdvisoryRoute: AdvisoryRoute,
   ContactRoute: ContactRoute,
   JoinRoute: JoinRoute,
+  LoginRoute: LoginRoute,
   NewsRoute: NewsRoute,
   PeopleRoute: PeopleRoute,
   PlatformRoute: PlatformRoute,
+  PortalRoute: PortalRoute,
   ResearchRoute: ResearchRouteWithChildren,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

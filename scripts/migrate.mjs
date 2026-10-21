@@ -12,21 +12,31 @@
  * No DATABASE_URL (local / preview builds) -> skip; the PGLite fallback applies
  * the same files at startup instead (see src/lib/db.ts).
  */
-import { readdir, readFile } from "node:fs/promises";
+import { copyFile, readdir, readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import pg from "pg";
 import { pendingMigrations } from "./migration-plan.mjs";
 
+const rootDir = join(dirname(fileURLToPath(import.meta.url)), "..");
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
+  const vercelLibsDir = join(rootDir, ".vercel/output/functions/__server.func/_libs");
+  const pgliteDistDir = join(rootDir, "node_modules/@electric-sql/pglite/dist");
+  if (existsSync(vercelLibsDir) && existsSync(pgliteDistDir)) {
+    for (const asset of ["pglite.wasm", "initdb.wasm", "pglite.data"]) {
+      await copyFile(join(pgliteDistDir, asset), join(vercelLibsDir, asset));
+    }
+    console.log("[migrate] Copied PGLite WASM assets into .vercel/output/functions/__server.func/_libs.");
+  }
   console.log(
     "[migrate] DATABASE_URL not set — skipping (the PGLite fallback migrates itself).",
   );
   process.exit(0);
 }
 
-const migrationsDir = join(dirname(fileURLToPath(import.meta.url)), "..", "migrations");
+const migrationsDir = join(rootDir, "migrations");
 
 async function main() {
   let entries;

@@ -1,0 +1,826 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cetls.iiit.ac.in/schema/site-data.schema.json",
+  "title": "CETLS Site Data Schema",
+  "description": "Single source of truth schema for cetls.iiit.ac.in content, SEO, people, groups, programmes, and research projects.",
+  "type": "object",
+  "required": [
+    "meta",
+    "site",
+    "org",
+    "researchQuestions",
+    "research",
+    "domains",
+    "roadmap",
+    "platform",
+    "programmes",
+    "projects",
+    "people",
+    "groups",
+    "join",
+    "news",
+    "contact",
+    "pages"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "kebabId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["confirmed", "pending-praveen"]
+    },
+    "fieldStatus": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/status"
+      }
+    }
+  },
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["schemaVersion", "extractedAt", "statusValues", "tokens"],
+      "properties": {
+        "schemaVersion": { "type": "string" },
+        "extractedAt": { "type": "string", "format": "date" },
+        "statusValues": {
+          "type": "object",
+          "required": ["confirmed", "pending-praveen"],
+          "properties": {
+            "confirmed": { "type": "string" },
+            "pending-praveen": { "type": "string" }
+          }
+        },
+        "tokens": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": [
+        "baseUrl",
+        "themeColor",
+        "backgroundColor",
+        "twitterCard",
+        "homeTitle",
+        "titleTemplate",
+        "fonts",
+        "assets",
+        "nav",
+        "footer",
+        "social",
+        "robots"
+      ],
+      "properties": {
+        "baseUrl": { "type": "string", "format": "uri" },
+        "themeColor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "backgroundColor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "twitterCard": { "type": "string", "enum": ["summary", "summary_large_image"] },
+        "homeTitle": { "type": "string" },
+        "titleTemplate": { "type": "string" },
+        "fonts": {
+          "type": "object",
+          "required": ["preconnectUrls", "stylesheetUrl"],
+          "properties": {
+            "preconnectUrls": { "type": "array", "items": { "type": "string" } },
+            "stylesheetUrl": { "type": "string" }
+          }
+        },
+        "assets": {
+          "type": "object",
+          "required": ["logo", "logoMark", "favicon", "appleTouchIcon", "manifest", "ogImage"],
+          "properties": {
+            "logo": {
+              "type": "object",
+              "required": ["src", "alt"],
+              "properties": {
+                "src": { "type": "string" },
+                "alt": { "type": "string" }
+              }
+            },
+            "logoMark": {
+              "type": "object",
+              "required": ["src", "alt", "width", "height"],
+              "properties": {
+                "src": { "type": "string" },
+                "alt": { "type": "string" },
+                "width": { "type": "integer" },
+                "height": { "type": "integer" }
+              }
+            },
+            "favicon": { "type": "string" },
+            "appleTouchIcon": { "type": ["string", "null"] },
+            "manifest": { "type": "string" },
+            "ogImage": {
+              "type": "object",
+              "required": ["src", "width", "height", "alt"],
+              "properties": {
+                "src": { "type": "string" },
+                "width": { "type": "integer" },
+                "height": { "type": "integer" },
+                "alt": { "type": "string" }
+              }
+            },
+            "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+          }
+        },
+        "nav": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["pageId", "label"],
+            "properties": {
+              "pageId": { "$ref": "#/$defs/kebabId" },
+              "label": { "type": "string" }
+            }
+          }
+        },
+        "footer": {
+          "type": "object",
+          "required": ["taglineLines", "groups", "copyright"],
+          "properties": {
+            "taglineLines": { "type": "array", "items": { "type": "string" } },
+            "groups": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["title", "links"],
+                "properties": {
+                  "title": { "type": "string" },
+                  "links": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["pageId", "label"],
+                      "properties": {
+                        "pageId": { "$ref": "#/$defs/kebabId" },
+                        "label": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "copyright": { "type": "string" }
+          }
+        },
+        "social": {
+          "type": "object",
+          "required": ["profiles"],
+          "properties": {
+            "profiles": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["id", "label", "url", "published"],
+                "properties": {
+                  "id": { "$ref": "#/$defs/kebabId" },
+                  "label": { "type": "string" },
+                  "url": { "type": "string" },
+                  "published": { "type": "boolean" }
+                }
+              }
+            },
+            "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+          }
+        },
+        "robots": {
+          "type": "object",
+          "required": ["allow", "disallow"],
+          "properties": {
+            "allow": { "type": "array", "items": { "type": "string" } },
+            "disallow": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "org": {
+      "type": "object",
+      "required": [
+        "shortName",
+        "name",
+        "parent",
+        "address",
+        "metaDescription",
+        "hero",
+        "vision",
+        "mission",
+        "approach",
+        "whyIiith"
+      ],
+      "properties": {
+        "shortName": { "type": "string" },
+        "name": {
+          "type": "object",
+          "required": ["value", "alternatives", "status"],
+          "properties": {
+            "value": { "type": "string" },
+            "alternatives": { "type": "array", "items": { "type": "string" } },
+            "status": { "$ref": "#/$defs/status" }
+          }
+        },
+        "parent": {
+          "type": "object",
+          "required": ["name", "displayName", "shortName", "abbreviation", "url"],
+          "properties": {
+            "name": { "type": "string" },
+            "displayName": { "type": "string" },
+            "shortName": { "type": "string" },
+            "abbreviation": { "type": "string" },
+            "url": { "type": ["string", "null"] },
+            "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+          }
+        },
+        "address": {
+          "type": "object",
+          "required": ["street", "locality", "city", "postalCode", "region", "country"],
+          "properties": {
+            "street": { "type": ["string", "null"] },
+            "locality": { "type": "string" },
+            "city": { "type": "string" },
+            "postalCode": { "type": "string" },
+            "region": { "type": "string" },
+            "country": { "type": "string" },
+            "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+          }
+        },
+        "metaDescription": { "type": "string" },
+        "hero": {
+          "type": "object",
+          "required": ["eyebrow", "headline", "summary", "ctas"],
+          "properties": {
+            "eyebrow": { "type": "string" },
+            "headline": { "type": "string" },
+            "summary": { "type": "string" },
+            "ctas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["pageId", "label", "variant"],
+                "properties": {
+                  "pageId": { "$ref": "#/$defs/kebabId" },
+                  "label": { "type": "string" },
+                  "variant": { "type": "string", "enum": ["primary", "secondary", "link"] }
+                }
+              }
+            }
+          }
+        },
+        "vision": {
+          "type": "object",
+          "required": ["heading", "value", "alternatives", "status"],
+          "properties": {
+            "heading": { "type": "string" },
+            "value": { "type": "string" },
+            "alternatives": { "type": "array", "items": { "type": "string" } },
+            "status": { "$ref": "#/$defs/status" }
+          }
+        },
+        "mission": {
+          "type": "object",
+          "required": ["heading", "value", "status"],
+          "properties": {
+            "heading": { "type": "string" },
+            "value": { "type": "string" },
+            "status": { "$ref": "#/$defs/status" }
+          }
+        },
+        "approach": {
+          "type": "object",
+          "required": ["heading", "intro", "outro"],
+          "properties": {
+            "heading": { "type": "string" },
+            "intro": { "type": "string" },
+            "outro": { "type": "string" }
+          }
+        },
+        "whyIiith": {
+          "type": "object",
+          "required": ["heading", "value"],
+          "properties": {
+            "heading": { "type": "string" },
+            "value": { "type": "string" }
+          }
+        }
+      }
+    },
+    "researchQuestions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "label"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "order": { "type": "integer", "minimum": 1 },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "research": {
+      "type": "object",
+      "required": ["homeHeading", "homeIntro", "pageHeading", "pageIntro", "crossCutting"],
+      "properties": {
+        "homeHeading": { "type": "string" },
+        "homeIntro": { "type": "string" },
+        "pageHeading": { "type": "string" },
+        "pageIntro": { "type": "string" },
+        "crossCutting": {
+          "type": "object",
+          "required": ["heading", "intro", "items", "outroPrefix", "outroSuffix"],
+          "properties": {
+            "heading": { "type": "string" },
+            "intro": { "type": "string" },
+            "items": { "type": "array", "items": { "type": "string" } },
+            "outroPrefix": { "type": "string" },
+            "outroSuffix": { "type": "string" }
+          }
+        }
+      }
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "pageId", "path", "title", "summary", "context", "questions"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "order": { "type": "integer", "minimum": 1 },
+          "pageId": { "$ref": "#/$defs/kebabId" },
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "context": { "type": "array", "items": { "type": "string" } },
+          "questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["questionId", "heading", "body"],
+              "properties": {
+                "questionId": { "$ref": "#/$defs/kebabId" },
+                "heading": { "type": "string" },
+                "body": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "roadmap": {
+      "type": "object",
+      "required": ["heading", "intro", "phases"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "order", "title", "body", "progress", "status"],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "order": { "type": "integer", "minimum": 1 },
+              "title": { "type": "string" },
+              "body": { "type": "string" },
+              "progress": { "type": "string", "enum": ["done", "in-progress", "planned"] },
+              "status": { "$ref": "#/$defs/status" },
+              "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+            }
+          }
+        }
+      }
+    },
+    "platform": {
+      "type": "object",
+      "required": [
+        "eyebrow",
+        "homeEyebrow",
+        "name",
+        "summary",
+        "homeCtaLabel",
+        "description",
+        "audiencesHeading",
+        "audiences",
+        "statusHeading",
+        "statusText",
+        "repoUrl",
+        "docsUrl",
+        "license",
+        "cta"
+      ],
+      "properties": {
+        "eyebrow": { "type": "string" },
+        "homeEyebrow": { "type": "string" },
+        "name": { "type": "string" },
+        "summary": { "type": "string" },
+        "homeCtaLabel": { "type": "string" },
+        "description": { "type": "array", "items": { "type": "string" } },
+        "audiencesHeading": { "type": "string" },
+        "audiences": { "type": "array", "items": { "type": "string" } },
+        "statusHeading": { "type": "string" },
+        "statusText": { "type": "string" },
+        "repoUrl": { "type": ["string", "null"] },
+        "docsUrl": { "type": ["string", "null"] },
+        "license": { "type": ["string", "null"] },
+        "fieldStatus": { "$ref": "#/$defs/fieldStatus" },
+        "cta": {
+          "type": "object",
+          "required": ["heading", "body", "pageId", "label"],
+          "properties": {
+            "heading": { "type": "string" },
+            "body": { "type": "string" },
+            "pageId": { "$ref": "#/$defs/kebabId" },
+            "label": { "type": "string" }
+          }
+        }
+      }
+    },
+    "programmes": {
+      "type": "object",
+      "required": ["heading", "summary", "status", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "summary": { "type": "string" },
+        "status": { "$ref": "#/$defs/status" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "description", "url", "domainId", "status", "published"],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "name": { "type": "string" },
+              "description": { "type": ["string", "null"] },
+              "url": { "type": ["string", "null"] },
+              "domainId": { "type": ["string", "null"] },
+              "status": { "$ref": "#/$defs/status" },
+              "published": { "type": "boolean" },
+              "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+            }
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "required": ["heading", "intro", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "code",
+              "title",
+              "summary",
+              "status",
+              "published",
+              "visibility",
+              "stage",
+              "health",
+              "domainIds",
+              "questionIds",
+              "programmeId",
+              "usesMiddleware",
+              "leadPersonId",
+              "memberPersonIds",
+              "startDate",
+              "targetDate",
+              "repoUrl",
+              "docUrl",
+              "updates"
+            ],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "code": { "type": "string" },
+              "title": { "type": "string" },
+              "summary": { "type": "string" },
+              "status": { "$ref": "#/$defs/status" },
+              "published": { "type": "boolean" },
+              "visibility": { "type": "string", "enum": ["internal", "public"] },
+              "stage": {
+                "type": "string",
+                "enum": ["proposed", "active", "pilot", "completed", "paused"]
+              },
+              "health": {
+                "type": "string",
+                "enum": ["on-track", "at-risk", "blocked"]
+              },
+              "domainIds": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/kebabId" }
+              },
+              "questionIds": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/kebabId" }
+              },
+              "programmeId": {
+                "oneOf": [{ "$ref": "#/$defs/kebabId" }, { "type": "null" }]
+              },
+              "usesMiddleware": { "type": "boolean" },
+              "leadPersonId": { "$ref": "#/$defs/kebabId" },
+              "memberPersonIds": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/kebabId" }
+              },
+              "startDate": { "type": ["string", "null"] },
+              "targetDate": { "type": ["string", "null"] },
+              "repoUrl": { "type": ["string", "null"] },
+              "docUrl": { "type": ["string", "null"] },
+              "fieldStatus": { "$ref": "#/$defs/fieldStatus" },
+              "updates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "date",
+                    "authorPersonId",
+                    "type",
+                    "health",
+                    "title",
+                    "body",
+                    "nextSteps",
+                    "blockers",
+                    "externalUrl",
+                    "published"
+                  ],
+                  "properties": {
+                    "id": { "$ref": "#/$defs/kebabId" },
+                    "date": { "type": "string", "format": "date" },
+                    "authorPersonId": { "$ref": "#/$defs/kebabId" },
+                    "type": {
+                      "type": "string",
+                      "enum": ["progress", "milestone", "pilot", "publication", "blocker", "decision"]
+                    },
+                    "health": {
+                      "type": "string",
+                      "enum": ["on-track", "at-risk", "blocked"]
+                    },
+                    "title": { "type": "string" },
+                    "body": { "type": "string" },
+                    "nextSteps": { "type": ["string", "null"] },
+                    "blockers": { "type": ["string", "null"] },
+                    "externalUrl": { "type": ["string", "null"] },
+                    "published": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "honorific",
+          "photo",
+          "headline",
+          "subtitleLines",
+          "shortAffiliation",
+          "bioShort",
+          "bio",
+          "links",
+          "email",
+          "status",
+          "published"
+        ],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "legacyAnchor": { "type": ["string", "null"] },
+          "name": { "type": "string" },
+          "honorific": { "type": ["string", "null"] },
+          "photo": { "type": ["string", "null"] },
+          "headline": { "type": ["string", "null"] },
+          "subtitleLines": { "type": "array", "items": { "type": "string" } },
+          "shortAffiliation": { "type": ["string", "null"] },
+          "bioShort": { "type": ["string", "null"] },
+          "bio": { "type": ["string", "null"] },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["label", "url"],
+              "properties": {
+                "label": { "type": "string" },
+                "url": { "type": "string" }
+              }
+            }
+          },
+          "email": { "type": ["string", "null"] },
+          "status": { "$ref": "#/$defs/status" },
+          "published": { "type": "boolean" },
+          "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "order", "name", "summary", "description", "members"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "order": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string" },
+          "homeEyebrow": { "type": ["string", "null"] },
+          "homeCtaLabel": { "type": ["string", "null"] },
+          "summary": { "type": ["string", "null"] },
+          "peopleIntro": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "fieldStatus": { "$ref": "#/$defs/fieldStatus" },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["personId", "roleTitle", "roleLines", "status", "published"],
+              "properties": {
+                "personId": { "$ref": "#/$defs/kebabId" },
+                "roleTitle": { "type": "string" },
+                "roleLines": { "type": "array", "items": { "type": "string" } },
+                "status": { "$ref": "#/$defs/status" },
+                "published": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "join": {
+      "type": "object",
+      "required": ["heading", "intro", "homeTeaser", "pathways", "outro"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "homeTeaser": {
+          "type": "object",
+          "required": ["heading", "body", "pageId", "ctaLabel"],
+          "properties": {
+            "heading": { "type": "string" },
+            "body": { "type": "string" },
+            "pageId": { "$ref": "#/$defs/kebabId" },
+            "ctaLabel": { "type": "string" }
+          }
+        },
+        "pathways": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "body"],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "title": { "type": "string" },
+              "body": { "type": "string" }
+            }
+          }
+        },
+        "outro": {
+          "type": "object",
+          "required": ["prefix", "linkLabel", "pageId", "suffix"],
+          "properties": {
+            "prefix": { "type": "string" },
+            "linkLabel": { "type": "string" },
+            "pageId": { "$ref": "#/$defs/kebabId" },
+            "suffix": { "type": "string" }
+          }
+        }
+      }
+    },
+    "news": {
+      "type": "object",
+      "required": ["heading", "intro", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "date", "title", "venue", "body", "status", "published"],
+            "properties": {
+              "id": { "$ref": "#/$defs/kebabId" },
+              "date": { "type": "string", "format": "date" },
+              "title": { "type": "string" },
+              "venue": { "type": ["string", "null"] },
+              "body": { "type": "string" },
+              "liveBody": { "type": ["string", "null"] },
+              "status": { "$ref": "#/$defs/status" },
+              "published": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "required": ["heading", "intro", "email", "websiteNote", "contacts", "form"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "email": { "type": ["string", "null"] },
+        "websiteNote": { "type": ["string", "null"] },
+        "fieldStatus": { "$ref": "#/$defs/fieldStatus" },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["personId", "roleLabel", "showHonorific"],
+            "properties": {
+              "personId": { "$ref": "#/$defs/kebabId" },
+              "roleLabel": { "type": "string" },
+              "showHonorific": { "type": "boolean" }
+            }
+          }
+        },
+        "form": {
+          "type": "object",
+          "required": [
+            "endpoint",
+            "status",
+            "fields",
+            "submitLabel",
+            "submittingLabel",
+            "successHeading",
+            "successBody",
+            "resetLabel",
+            "errorFallback",
+            "networkError"
+          ],
+          "properties": {
+            "endpoint": { "type": "string", "format": "uri" },
+            "status": { "$ref": "#/$defs/status" },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "label", "type", "required"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "label": { "type": "string" },
+                  "type": { "type": "string", "enum": ["text", "email", "textarea"] },
+                  "rows": { "type": "integer" },
+                  "required": { "type": "boolean" }
+                }
+              }
+            },
+            "submitLabel": { "type": "string" },
+            "submittingLabel": { "type": "string" },
+            "successHeading": { "type": "string" },
+            "successBody": { "type": "string" },
+            "resetLabel": { "type": "string" },
+            "errorFallback": { "type": "string" },
+            "networkError": { "type": "string" }
+          }
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "title", "seo", "sections"],
+        "properties": {
+          "id": { "$ref": "#/$defs/kebabId" },
+          "path": { "type": "string" },
+          "title": { "type": "string" },
+          "seo": {
+            "type": "object",
+            "required": ["noindex"],
+            "properties": {
+              "description": { "type": ["string", "null"] },
+              "descriptionRef": { "type": ["string", "null"] },
+              "ogTitle": { "type": ["string", "null"] },
+              "ogImage": {
+                "type": ["object", "null"],
+                "properties": {
+                  "src": { "type": "string" },
+                  "width": { "type": "integer" },
+                  "height": { "type": "integer" },
+                  "alt": { "type": "string" }
+                }
+              },
+              "noindex": { "type": "boolean" },
+              "fieldStatus": { "$ref": "#/$defs/fieldStatus" }
+            }
+          },
+          "sections": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

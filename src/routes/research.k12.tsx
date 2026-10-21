@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PillarPage } from "@/components/pillar-page";
-import { pillars } from "@/lib/content";
-
-const pillar = pillars[0];
+import { pageMetadata } from "@/lib/seo";
 
 export const Route = createFileRoute("/research/k12")({
-  head: () => ({ meta: [{ title: "K-12 Education | CETLS" }] }),
-  component: () => <PillarPage pillar={pillar} />,
+  head: () => pageMetadata("research-k12"),
+  component: () => <PillarPage domainId="k12" />,
 });

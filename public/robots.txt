@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /portal
+Disallow: /login
+Disallow: /api
+
+Sitemap: https://cetls.iiit.ac.in/sitemap.xml

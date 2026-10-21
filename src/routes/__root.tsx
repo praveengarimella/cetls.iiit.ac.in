@@ -1,34 +1,38 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { data, t } from "@/lib/site-data";
 import appCss from "../styles.css?url";
-
-const APP_NAME = "CETLS";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: APP_NAME },
+      { title: data.org.shortName },
       {
         name: "description",
-        content:
-          "Centre for Educational Technology and Learning Sciences at IIIT Hyderabad — research and design for better learning across the lifespan.",
+        content: t(data.org.metaDescription),
       },
-      { name: "theme-color", content: "#163457" },
+      { name: "theme-color", content: data.site.themeColor },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/svg+xml", href: data.site.assets.favicon },
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "preconnect", href: data.site.fonts.preconnectUrls[0] },
+      {
+        rel: "preconnect",
+        href: data.site.fonts.preconnectUrls[1],
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap",
+        href: data.site.fonts.stylesheetUrl,
       },
-      { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
+      { rel: "manifest", href: data.site.assets.manifest },
+      ...(data.site.assets.appleTouchIcon
+        ? [{ rel: "apple-touch-icon", href: data.site.assets.appleTouchIcon }]
+        : []),
     ],
   }),
   component: () => (

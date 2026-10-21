@@ -1,0 +1,1701 @@
+{
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "extractedAt": "2026-10-21",
+    "statusValues": {
+      "confirmed": "Value is live on cetls.iiit.ac.in and not under review, or explicitly confirmed.",
+      "pending-praveen": "Open decision awaiting confirmation from Praveen Garimella."
+    },
+    "tokens": [
+      "{org.name}",
+      "{org.shortName}",
+      "{parent.name}",
+      "{parent.shortName}",
+      "{year}"
+    ]
+  },
+  "site": {
+    "baseUrl": "https://cetls.iiit.ac.in",
+    "themeColor": "#163457",
+    "backgroundColor": "#ffffff",
+    "twitterCard": "summary_large_image",
+    "homeTitle": "{org.shortName} | {org.name}",
+    "titleTemplate": "{page} | {org.shortName}",
+    "fonts": {
+      "preconnectUrls": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ],
+      "stylesheetUrl": "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    },
+    "assets": {
+      "logo": {
+        "src": "/logo.png",
+        "alt": "{org.shortName}, {parent.shortName}"
+      },
+      "logoMark": {
+        "src": "/logo-mark.png",
+        "alt": "",
+        "width": 40,
+        "height": 44
+      },
+      "favicon": "/favicon.svg",
+      "appleTouchIcon": "/logo-mark.png",
+      "manifest": "/manifest.webmanifest",
+      "ogImage": {
+        "src": "/og.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "{org.shortName} — {org.name} at {parent.shortName}"
+      },
+      "fieldStatus": {
+        "appleTouchIcon": "pending-praveen",
+        "ogImage.alt": "pending-praveen"
+      }
+    },
+    "nav": [
+      { "pageId": "home", "label": "Home" },
+      { "pageId": "about", "label": "About" },
+      { "pageId": "research", "label": "Research" },
+      { "pageId": "platform", "label": "Platform" },
+      { "pageId": "people", "label": "People" },
+      { "pageId": "join", "label": "Join Us" },
+      { "pageId": "news", "label": "News" },
+      { "pageId": "contact", "label": "Contact" }
+    ],
+    "footer": {
+      "taglineLines": [
+        "{org.name}",
+        "{parent.name}"
+      ],
+      "groups": [
+        {
+          "title": "Explore",
+          "links": [
+            { "pageId": "research", "label": "Research" },
+            { "pageId": "platform", "label": "Platform" },
+            { "pageId": "people", "label": "People" },
+            { "pageId": "advisory", "label": "Advisory Committee" }
+          ]
+        },
+        {
+          "title": "Engage",
+          "links": [
+            { "pageId": "join", "label": "Join Us" },
+            { "pageId": "news", "label": "News" },
+            { "pageId": "contact", "label": "Contact" },
+            { "pageId": "portal", "label": "Faculty Portal" }
+          ]
+        }
+      ],
+      "copyright": "© {year} {org.name}, {parent.shortName}"
+    },
+    "social": {
+      "profiles": [],
+      "fieldStatus": {
+        "profiles": "pending-praveen"
+      }
+    },
+    "robots": {
+      "allow": ["/"],
+      "disallow": ["/portal", "/login", "/api"]
+    }
+  },
+  "org": {
+    "shortName": "CETLS",
+    "name": {
+      "value": "Centre for Educational Technology and Learning Sciences",
+      "alternatives": [
+        "Centre for Education Technology and Learning Sciences"
+      ],
+      "status": "pending-praveen"
+    },
+    "parent": {
+      "name": "International Institute of Information Technology, Hyderabad",
+      "displayName": "International Institute of Information Technology",
+      "shortName": "IIIT Hyderabad",
+      "abbreviation": "IIIT-H",
+      "url": null,
+      "fieldStatus": {
+        "url": "pending-praveen"
+      }
+    },
+    "address": {
+      "street": null,
+      "locality": "Gachibowli",
+      "city": "Hyderabad",
+      "postalCode": "500032",
+      "region": "Telangana",
+      "country": "India",
+      "fieldStatus": {
+        "street": "pending-praveen"
+      }
+    },
+    "metaDescription": "{org.name} at {parent.shortName} — research and design for better learning across the lifespan.",
+    "hero": {
+      "eyebrow": "{org.name}",
+      "headline": "Learning sciences and technology across the lifespan",
+      "summary": "Advancing rigorous research and design for better learning from K-12 through higher education, professional life, and the third age — grounded in the realities of India and the Global South while contributing to the global research community.",
+      "ctas": [
+        { "pageId": "research", "label": "Explore Research", "variant": "primary" },
+        { "pageId": "platform", "label": "Explore the Platform", "variant": "secondary" },
+        { "pageId": "join", "label": "Join Us →", "variant": "link" }
+      ]
+    },
+    "vision": {
+      "heading": "Vision",
+      "value": "A future in which every learner — from childhood through higher education, professional life, and the third age — has access to adaptive, engaging, and equitable learning experiences that are grounded in the science of how people learn.",
+      "alternatives": [
+        "A future in which every learner — from school through higher education, professional life, and the third age — has access to adaptive, engaging, and equitable learning experiences that are grounded in the science of how people learn."
+      ],
+      "status": "pending-praveen"
+    },
+    "mission": {
+      "heading": "Mission",
+      "value": "The {org.name} ({org.shortName}) at {parent.shortName} advances rigorous research and design at the intersection of learning sciences, artificial intelligence, and educational technology. We focus on four domains across the lifespan — K-12 education, higher education, flexible learning for working professionals and executives, and third-age learning — developing solutions that are effective, inclusive, and scalable for India and the Global South, while contributing foundational knowledge to the global research community.",
+      "status": "confirmed"
+    },
+    "approach": {
+      "heading": "Our Approach",
+      "intro": "We combine the learning sciences with technology design and open infrastructure. Research is organised around four fundamental questions that apply across the lifespan:",
+      "outro": "At the heart of our work is the Learning Middleware — an open technology layer that makes the tools of learning sciences available to educators, researchers, and institutions across all four domains."
+    },
+    "whyIiith": {
+      "heading": "Why {parent.shortName}",
+      "value": "{parent.shortName} is structured around research centres rather than traditional departments. This model enables deep interdisciplinary work. {org.shortName} builds on the institute’s strengths in artificial intelligence, human-computer interaction, language technologies, and flexible learning, while focusing these capabilities on the science and design of learning across the lifespan."
+    }
+  },
+  "researchQuestions": [
+    {
+      "id": "rq-what",
+      "order": 1,
+      "label": "What should be learned in the age of AI"
+    },
+    {
+      "id": "rq-teach",
+      "order": 2,
+      "label": "How teaching and facilitation should be designed"
+    },
+    {
+      "id": "rq-learn",
+      "order": 3,
+      "label": "How people learn most effectively with technology"
+    },
+    {
+      "id": "rq-evaluate",
+      "order": 4,
+      "label": "How progress, competence, and benefit should be understood and evaluated"
+    }
+  ],
+  "research": {
+    "homeHeading": "Research across the lifespan",
+    "homeIntro": "We organise our work around four interconnected domains, each addressing the fundamental questions of what to learn, how to teach and facilitate, how people learn, and how progress is understood.",
+    "pageHeading": "Research",
+    "pageIntro": "We organise research and design around four domains across the lifespan. In each domain we address the same fundamental questions — what should be learned, how teaching and facilitation should be designed, how people learn, and how progress should be understood — adapted to the distinctive realities of that stage of life.",
+    "crossCutting": {
+      "heading": "Cross-cutting approaches",
+      "intro": "Across all four domains we draw on:",
+      "items": [
+        "AI for adaptive and personalised learning",
+        "Learning engineering and evidence-based design",
+        "Equity, access, and inclusion",
+        "Human-centered design and HCI"
+      ],
+      "outroPrefix": "These approaches are supported by the",
+      "outroSuffix": ", our open infrastructure for the science and design of learning."
+    }
+  },
+  "domains": [
+    {
+      "id": "k12",
+      "order": 1,
+      "pageId": "research-k12",
+      "path": "/research/k12",
+      "title": "K-12 Education",
+      "summary": "Designing the future of school learning in the age of AI, grounded in the realities of Indian classrooms and systems.",
+      "context": [
+        "In the age of AI, Indian K-12 education confronts four fundamental questions: What should students learn? How should teachers teach? How do students learn most effectively? And how should learning be evaluated?",
+        "{org.shortName} designs and studies technology-enabled interventions that address these questions with scientific rigor and practical relevance. Our work is rooted in the distinctive conditions of Indian schooling — multilingual classrooms, large public systems, teacher capacity constraints, foundational literacy and numeracy priorities, and the ambitions of NEP 2020 — while generating knowledge that advances the global learning sciences."
+      ],
+      "questions": [
+        {
+          "questionId": "rq-what",
+          "heading": "What students should learn",
+          "body": "Curriculum frameworks, learning progressions, and competency models that balance foundational knowledge with the capabilities required in an AI era: critical thinking, problem-solving, collaboration, digital and AI literacy, creativity, and ethical reasoning — developed for Indian languages and contexts."
+        },
+        {
+          "questionId": "rq-teach",
+          "heading": "How teachers should teach",
+          "body": "AI-supported and human-centered pedagogical tools and practices that amplify teacher expertise. This includes intelligent orchestration systems, classroom analytics, and professional learning models that work at scale in real Indian schools."
+        },
+        {
+          "questionId": "rq-learn",
+          "heading": "How students learn",
+          "body": "Adaptive learning environments, multilingual tools, and scaffolds that promote deeper understanding, self-regulated learning, and learner agency. Research examines how students actually interact with these systems in classroom and home settings."
+        },
+        {
+          "questionId": "rq-evaluate",
+          "heading": "How learning is evaluated",
+          "body": "Next-generation assessment approaches that remain valid when AI can generate traditional answers — formative systems, process data, authentic tasks, and feedback mechanisms that support both equity and continuous improvement."
+        }
+      ]
+    },
+    {
+      "id": "higher-education",
+      "order": 2,
+      "pageId": "research-higher-education",
+      "path": "/research/higher-education",
+      "title": "Higher Education",
+      "summary": "Redesigning teaching, learning, and assessment in universities and colleges for an AI-transformed world.",
+      "context": [
+        "Indian higher education is being reshaped by generative AI, massification, and the demand for graduates who can thrive in an AI-shaped economy. Faculty, academic leaders, and institutions need rigorous guidance on what to teach, how to teach, how students learn, and how learning should be evaluated.",
+        "{org.shortName} designs and studies technology-enabled interventions that answer these questions. Our work engages the distinctive features of Indian higher education — large-enrolment courses, diverse student preparedness, multilingual contexts, and the push for flexible, multidisciplinary curricula under NEP 2020 — while contributing evidence to the international research community."
+      ],
+      "questions": [
+        {
+          "questionId": "rq-what",
+          "heading": "What students should learn",
+          "body": "Programme and course designs that integrate disciplinary depth with AI-era competencies: critical and ethical use of AI, research and inquiry skills, interdisciplinary problem-solving, and professional readiness."
+        },
+        {
+          "questionId": "rq-teach",
+          "heading": "How faculty should teach",
+          "body": "AI-supported instructional models and faculty development approaches for both large-enrolment and specialised courses. We develop tools and pedagogies that preserve the essential role of the teacher while amplifying reach and impact."
+        },
+        {
+          "questionId": "rq-learn",
+          "heading": "How students learn",
+          "body": "Adaptive courseware, learning analytics, and collaborative environments that support self-regulated learning, conceptual understanding, and productive engagement with generative AI."
+        },
+        {
+          "questionId": "rq-evaluate",
+          "heading": "How learning is evaluated",
+          "body": "Assessment approaches that remain meaningful in an AI era — authentic and performance-based tasks, process-oriented evaluation, competency-based systems, and analytics that provide timely feedback while supporting equity and student success."
+        }
+      ]
+    },
+    {
+      "id": "professionals",
+      "order": 3,
+      "pageId": "research-professionals",
+      "path": "/research/professionals",
+      "title": "Flexible Learning for Professionals & Executives",
+      "summary": "Designing adaptive, high-impact continuous learning that fits the realities of work and leadership.",
+      "context": [
+        "Working professionals and executives must learn continuously as AI reshapes jobs, industries, and leadership itself. Organisations and learners need evidence-based answers to what professionals should learn, how learning should be designed, how adults learn most effectively under real constraints, and how progress and impact should be evaluated.",
+        "{org.shortName} designs and studies technology-enabled interventions that address these questions. Our work is grounded in the Indian and Global South context of rapid digital transformation, large and diverse workforces, and the growing demand for high-quality, scalable professional and executive development."
+      ],
+      "questions": [
+        {
+          "questionId": "rq-what",
+          "heading": "What professionals should learn",
+          "body": "Capabilities required in an AI-transformed workplace: AI literacy and fluency, domain-specific continuous learning, adaptive leadership, collaboration with intelligent systems, and ethical decision-making."
+        },
+        {
+          "questionId": "rq-teach",
+          "heading": "How learning should be designed and facilitated",
+          "body": "Flexible, modular, and work-integrated architectures — micro-learning, cohort-based programmes, AI-supported coaching, and platforms that embed learning in the flow of work — designed for the time and motivation realities of adult learners."
+        },
+        {
+          "questionId": "rq-learn",
+          "heading": "How professionals learn",
+          "body": "Self-directed and adaptive pathways, social and peer learning, and productive integration of AI tools, grounded in adult learning theory and real workplace contexts."
+        },
+        {
+          "questionId": "rq-evaluate",
+          "heading": "How progress and impact are evaluated",
+          "body": "Approaches suited to professional learning: demonstration of competence, transfer to workplace performance, micro-credentials, continuous feedback, and measures of individual and organisational value."
+        }
+      ]
+    },
+    {
+      "id": "third-age",
+      "order": 4,
+      "pageId": "research-third-age",
+      "path": "/research/third-age",
+      "title": "Third-Age Learning",
+      "summary": "Enabling older adults to continue learning, connecting, and participating fully through thoughtfully designed technology-supported experiences.",
+      "context": [
+        "As populations age and digital technologies become central to daily life, older adults face both new opportunities and barriers to continued learning. Families, community organisations, and older learners themselves need guidance on what is worth learning in later life, how learning should be supported, how older adults learn most effectively, and how progress and benefit should be understood.",
+        "{org.shortName} designs and studies technology-enabled interventions that address these questions with rigor and respect. Our work is rooted in Indian and Global South realities — demographic ageing, intergenerational families, uneven digital access, and the need for culturally resonant, low-barrier solutions — while contributing to the global knowledge base on lifelong learning and active ageing."
+      ],
+      "questions": [
+        {
+          "questionId": "rq-what",
+          "heading": "What is worth learning",
+          "body": "Opportunities that matter in later life: digital and AI literacy for everyday participation, cognitive engagement, health and financial literacy, creative expression, intergenerational knowledge sharing, and personal growth — designed for meaning and dignity."
+        },
+        {
+          "questionId": "rq-teach",
+          "heading": "How learning is supported",
+          "body": "Age-friendly architectures: accessible platforms, community-based and intergenerational models, facilitated group learning, and gentle AI support that prioritise clarity, social presence, and respect for life experience."
+        },
+        {
+          "questionId": "rq-learn",
+          "heading": "How older adults learn",
+          "body": "Motivation and meaning-making, social learning, adaptation to technology, and strategies that accommodate possible changes in cognition or digital familiarity, studied in real community and family settings."
+        },
+        {
+          "questionId": "rq-evaluate",
+          "heading": "How progress and benefit are understood",
+          "body": "Evaluation focused on sustained engagement, sense of competence and connection, cognitive and social benefits, digital confidence, and contribution to well-being — rather than traditional high-stakes assessment."
+        }
+      ]
+    }
+  ],
+  "roadmap": {
+    "heading": "Roadmap",
+    "intro": "As a new centre, we are deliberately transparent about our growth path:",
+    "phases": [
+      {
+        "id": "phase-foundation",
+        "order": 1,
+        "title": "Foundation",
+        "body": "Establish core team, launch the website and brand, define priority research themes, begin seed projects, and open collaboration pathways.",
+        "progress": "done",
+        "status": "confirmed"
+      },
+      {
+        "id": "phase-momentum",
+        "order": 2,
+        "title": "Momentum",
+        "body": "Produce early research outputs, pilot interventions, grow the team, advance the Learning Middleware toward open release, and establish first international and national partnerships.",
+        "progress": "planned",
+        "status": "pending-praveen",
+        "fieldStatus": {
+          "progress": "pending-praveen"
+        }
+      },
+      {
+        "id": "phase-scale-impact",
+        "order": 3,
+        "title": "Scale & Impact",
+        "body": "Expand across all four pillars, release open infrastructure, develop professional learning programmes, and demonstrate measurable impact with education systems and organisations.",
+        "progress": "planned",
+        "status": "confirmed"
+      }
+    ]
+  },
+  "platform": {
+    "eyebrow": "Flagship platform",
+    "homeEyebrow": "Flagship Platform",
+    "name": "Learning Middleware",
+    "summary": "An open technology layer designed to make the tools of learning sciences available to educators, researchers, and institutions across the entire spectrum of learners. By releasing it as open source, we aim to lower barriers and accelerate evidence-based innovation for K-12, higher education, professional learning, and third-age contexts.",
+    "homeCtaLabel": "Learn more about the Platform →",
+    "description": [
+      "A good deal of serious work in the learning sciences never leaves the project that produced it. The Learning Middleware is an open technology layer so that teachers, faculty, institutions, and researchers can actually use those methods.",
+      "It will be released as open source. This is not a platform for its own sake. It is a way to lower the cost of doing evidence-based work, and to make the Centre’s research usable beyond {parent.shortName}.",
+      "The middleware is intended to support work across schools, colleges and universities, professional and executive learning, and later life."
+    ],
+    "audiencesHeading": "Who it serves",
+    "audiences": [
+      "Educators and instructional designers",
+      "Researchers in learning sciences and educational technology",
+      "Universities, schools, and training organisations",
+      "Platform developers and open-source contributors"
+    ],
+    "statusHeading": "Status",
+    "statusText": "The middleware has been conceptualised and is being developed toward a general, open-source release. Detailed architecture, documentation, and early-adopter pathways will be published as the work matures.",
+    "repoUrl": null,
+    "docsUrl": null,
+    "license": null,
+    "fieldStatus": {
+      "repoUrl": "pending-praveen",
+      "docsUrl": "pending-praveen",
+      "license": "pending-praveen"
+    },
+    "cta": {
+      "heading": "Collaborate on the platform",
+      "body": "We welcome early adopters, co-design partners, and contributors.",
+      "pageId": "join",
+      "label": "Join Us →"
+    }
+  },
+  "programmes": {
+    "heading": "Programmes",
+    "summary": "Academic programmes, community labs, and strategic initiatives anchored at {org.shortName}.",
+    "status": "pending-praveen",
+    "items": [
+      {
+        "id": "msit",
+        "name": "MSIT",
+        "description": null,
+        "url": null,
+        "domainId": "higher-education",
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      },
+      {
+        "id": "dfl-ug-minor",
+        "name": "DFL UG minor",
+        "description": null,
+        "url": null,
+        "domainId": "higher-education",
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      },
+      {
+        "id": "online-msds",
+        "name": "online MSDS",
+        "description": null,
+        "url": null,
+        "domainId": "professionals",
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      },
+      {
+        "id": "silver-rooms",
+        "name": "Silver Rooms",
+        "description": null,
+        "url": null,
+        "domainId": "third-age",
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      },
+      {
+        "id": "eksaq-mou",
+        "name": "EKSAQ MoU",
+        "description": null,
+        "url": null,
+        "domainId": "k12",
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      },
+      {
+        "id": "ai-in-education-manifesto",
+        "name": "AI-in-education manifesto",
+        "description": null,
+        "url": null,
+        "domainId": null,
+        "status": "pending-praveen",
+        "published": false,
+        "fieldStatus": {
+          "description": "pending-praveen",
+          "url": "pending-praveen"
+        }
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Research Projects",
+    "intro": "Active and proposed research projects tracked across {org.shortName} domains and fundamental questions.",
+    "items": [
+      {
+        "id": "learning-middleware-core",
+        "code": "CETLS-P01",
+        "title": "Learning Middleware Core Architecture",
+        "summary": "Open technology layer for learner modelling, mastery-based progression, and process telemetry across K-12, higher education, professional, and third-age learning.",
+        "status": "confirmed",
+        "published": false,
+        "visibility": "internal",
+        "stage": "active",
+        "health": "on-track",
+        "domainIds": ["k12", "higher-education", "professionals", "third-age"],
+        "questionIds": ["rq-teach", "rq-learn", "rq-evaluate"],
+        "programmeId": null,
+        "usesMiddleware": true,
+        "leadPersonId": "praveen-garimella",
+        "memberPersonIds": ["vasudeva-varma", "praveen-garimella", "karthik-vaidhyanathan", "venkatesh-chopella"],
+        "startDate": "2026-09-05",
+        "targetDate": "2027-03-31",
+        "repoUrl": null,
+        "docUrl": null,
+        "fieldStatus": {
+          "repoUrl": "pending-praveen",
+          "docUrl": "pending-praveen"
+        },
+        "updates": [
+          {
+            "id": "upd-2026-09-05-middleware-kickoff",
+            "date": "2026-09-05",
+            "authorPersonId": "praveen-garimella",
+            "type": "milestone",
+            "health": "on-track",
+            "title": "Conceptual architecture and open-source charter established",
+            "body": "Defined the core abstraction layers for knowledge tracing, instructional scaffolding, and telemetry pipelines so research prototypes can be deployed across partner institutions.",
+            "nextSteps": "Finalize repository structure, open-source license selection, and initial SDK specifications.",
+            "blockers": null,
+            "externalUrl": null,
+            "published": false
+          }
+        ]
+      },
+      {
+        "id": "msit-mastery-redesign",
+        "code": "CETLS-P02",
+        "title": "MSIT Mastery-Based Learning & AI Tutoring",
+        "summary": "Learning-by-doing curriculum and AI-assisted mastery progression for the MSIT programme, evaluating process-level competency in software and data engineering.",
+        "status": "pending-praveen",
+        "published": false,
+        "visibility": "internal",
+        "stage": "active",
+        "health": "on-track",
+        "domainIds": ["higher-education"],
+        "questionIds": ["rq-what", "rq-teach", "rq-learn", "rq-evaluate"],
+        "programmeId": "msit",
+        "usesMiddleware": true,
+        "leadPersonId": "praveen-garimella",
+        "memberPersonIds": ["vasudeva-varma", "praveen-garimella", "raghu-reddy", "suresh-purini"],
+        "startDate": "2026-09-05",
+        "targetDate": "2027-06-30",
+        "repoUrl": null,
+        "docUrl": null,
+        "updates": [
+          {
+            "id": "upd-2026-09-15-msit-baseline",
+            "date": "2026-09-15",
+            "authorPersonId": "praveen-garimella",
+            "type": "progress",
+            "health": "on-track",
+            "title": "Competency rubrics and process-data checkpoints mapped",
+            "body": "Aligned course modules with AI-era problem-solving competencies and authentic project evaluations.",
+            "nextSteps": "Run pilot telemetry integration with Learning Middleware.",
+            "blockers": null,
+            "externalUrl": null,
+            "published": false
+          }
+        ]
+      },
+      {
+        "id": "eksaq-k12-school-pilots",
+        "code": "CETLS-P03",
+        "title": "EKSAQ K-12 Multilingual Classroom Pilots",
+        "summary": "Co-design and evaluation of AI-supported classroom orchestration and foundational learning interventions in Indian schools under the EKSAQ partnership.",
+        "status": "pending-praveen",
+        "published": false,
+        "visibility": "internal",
+        "stage": "pilot",
+        "health": "on-track",
+        "domainIds": ["k12"],
+        "questionIds": ["rq-teach", "rq-learn", "rq-evaluate"],
+        "programmeId": "eksaq-mou",
+        "usesMiddleware": true,
+        "leadPersonId": "vasudeva-varma",
+        "memberPersonIds": ["vasudeva-varma", "praveen-garimella", "soma-paul", "chiranjeevi-yarra"],
+        "startDate": "2026-09-05",
+        "targetDate": "2027-04-30",
+        "repoUrl": null,
+        "docUrl": null,
+        "updates": [
+          {
+            "id": "upd-2026-09-20-eksaq-scoping",
+            "date": "2026-09-20",
+            "authorPersonId": "vasudeva-varma",
+            "type": "milestone",
+            "health": "on-track",
+            "title": "Joint research scope defined for K-12 classroom studies",
+            "body": "Identified priority grade levels and teacher-orchestration workflows for initial school pilots.",
+            "nextSteps": "Finalize baseline observation protocols and school onboarding schedule.",
+            "blockers": null,
+            "externalUrl": null,
+            "published": false
+          }
+        ]
+      },
+      {
+        "id": "silver-rooms-third-age",
+        "code": "CETLS-P04",
+        "title": "Silver Rooms: Community & Intergenerational Third-Age Learning",
+        "summary": "Designing accessible, low-barrier, socially connected learning spaces and gentle AI companions for older adults in Indian community settings.",
+        "status": "pending-praveen",
+        "published": false,
+        "visibility": "internal",
+        "stage": "proposed",
+        "health": "on-track",
+        "domainIds": ["third-age"],
+        "questionIds": ["rq-what", "rq-teach", "rq-learn", "rq-evaluate"],
+        "programmeId": "silver-rooms",
+        "usesMiddleware": false,
+        "leadPersonId": "kavita-vemuri",
+        "memberPersonIds": ["kavita-vemuri", "bapi-raju", "vishnu-sreekumar", "bhaktee-dongaonkar"],
+        "startDate": "2026-10-01",
+        "targetDate": "2027-08-31",
+        "repoUrl": null,
+        "docUrl": null,
+        "updates": [
+          {
+            "id": "upd-2026-10-05-silver-rooms-design",
+            "date": "2026-10-05",
+            "authorPersonId": "kavita-vemuri",
+            "type": "progress",
+            "health": "on-track",
+            "title": "Participatory design protocol drafted for older adult cohorts",
+            "body": "Outlining cognitive engagement, digital confidence, and intergenerational storytelling modules.",
+            "nextSteps": "Identify community partner venues in Hyderabad for initial co-design sessions.",
+            "blockers": null,
+            "externalUrl": null,
+            "published": false
+          }
+        ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "id": "raj-reddy",
+      "legacyAnchor": "reddy",
+      "name": "Prof. Raj Reddy",
+      "honorific": "Prof.",
+      "photo": "/people/raj-reddy.jpg",
+      "headline": "Moza Bint Nasser University Professor of Computer Science and Robotics, Carnegie Mellon University",
+      "subtitleLines": [
+        "Moza Bint Nasser University Professor of Computer Science and Robotics, Carnegie Mellon University",
+        "Founding Chairman, {parent.shortName}"
+      ],
+      "shortAffiliation": "Carnegie Mellon University",
+      "bioShort": "Dabbala Rajagopal \"Raj\" Reddy is an Indian-American computer scientist and one of the early pioneers of artificial intelligence. He serves as the Chief Mentor for {org.shortName}, guiding its research and vision at the intersection of AI and education. He and Edward Feigenbaum won the 1994 ACM Turing Award for their pioneering work in artificial intelligence.",
+      "bio": "Dabbala Rajagopal \"Raj\" Reddy is an Indian-American computer scientist and one of the early pioneers of artificial intelligence. He has served on the faculty of Stanford and Carnegie Mellon for over 50 years and was the founding director of the Robotics Institute at Carnegie Mellon University. As the founding chairman of the {parent.name} ({parent.abbreviation}), he has been instrumental in shaping the institution's vision. He and Edward Feigenbaum won the 1994 ACM Turing Award for their pioneering work in artificial intelligence. He serves as the Chief Mentor for {org.shortName}, guiding its research and vision at the intersection of AI and education.",
+      "links": [
+        { "label": "Profile →", "url": "https://en.wikipedia.org/wiki/Raj_Reddy" }
+      ],
+      "email": null,
+      "status": "pending-praveen",
+      "published": true,
+      "fieldStatus": {
+        "bio": "pending-praveen",
+        "bioShort": "pending-praveen"
+      }
+    },
+    {
+      "id": "ashok-goel",
+      "legacyAnchor": "goel",
+      "name": "Ashok K. Goel",
+      "honorific": "Prof.",
+      "photo": "/people/ashok-goel.png",
+      "headline": "Professor of Computer Science and Human-Centered Computing, Georgia Institute of Technology",
+      "subtitleLines": [
+        "Executive Director, NSF National AI Institute for Adult Learning and Online Education",
+        "Chief Scientist, Center for 21st Century Universities"
+      ],
+      "shortAffiliation": "Georgia Tech",
+      "bioShort": null,
+      "bio": "Ashok Goel works at the intersection of artificial intelligence, cognitive science, and learning. For more than a decade his research has focused on AI in education and education in AI. His laboratory created Jill Watson, among the first virtual teaching assistants used at scale in online higher education, and he leads the US National Science Foundation’s AI Institute for Adult Learning and Online Education. A Fellow of AAAI and the Cognitive Science Society, he received AAAI’s Outstanding AI Educator Award. He advises {org.shortName} on how AI can support teaching presence, adult and online learning, and institute-scale experimentation rather than one-off tools.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.cc.gatech.edu/people/ashok-goel" }
+      ],
+      "email": null,
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "ryan-baker",
+      "legacyAnchor": "baker",
+      "name": "Ryan S. Baker",
+      "honorific": "Prof.",
+      "photo": "/people/ryan-baker.png",
+      "headline": "Professor of Artificial Intelligence and Education, Adelaide University",
+      "subtitleLines": [
+        "Director, Penn Center for Learning Analytics",
+        "Adjunct Professor, University of Pennsylvania Graduate School of Education"
+      ],
+      "shortAffiliation": "Adelaide University / Penn",
+      "bioShort": null,
+      "bio": "Ryan Baker uses educational data mining and learning analytics to study how students actually use digital learning environments — and what that use predicts. He has built models of engagement, affect, and “gaming the system” across intelligent tutors, games, and MOOCs, and developed the BROMP classroom observation protocol used by researchers in several countries. Founding president of the International Educational Data Mining Society and Associate Editor of the Journal of Educational Data Mining, he teaches the long-running MOOC Big Data and Education. He advises {org.shortName} on evidence, measurement, and the responsible use of learner data across K-12 and higher education.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.upenn.edu/learninganalytics/ryanbaker/" }
+      ],
+      "email": null,
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "matthew-kam",
+      "legacyAnchor": "kam",
+      "name": "Matthew Kam",
+      "honorific": "Dr.",
+      "photo": "/people/matthew-kam.png",
+      "headline": "Former Employee of Google",
+      "subtitleLines": [
+        "Former Staff User Experience Researcher, Software Engineering Education"
+      ],
+      "shortAffiliation": "Former Google",
+      "bioShort": null,
+      "bio": "Matthew Kam studies how learning technologies are designed and used at scale, and how AI is changing the work people must learn to do. At Google he led research that shaped products used by more than 100 million students and teachers, including Chromebooks in education, Google Classroom, Google Forms, and Expeditions. His earlier academic work at UC Berkeley and Carnegie Mellon designed mobile literacy games with children in rural and low-income schools in India. He advises organizations including Google.org, UNICEF, and the Computing Research Association. For {org.shortName} he brings human-centered product research, workforce-relevant AI learning, and design for large, diverse school systems.",
+      "links": [
+        { "label": "Profile →", "url": "https://scholar.google.com/citations?user=HDDSjm0AAAAJ" }
+      ],
+      "email": null,
+      "status": "pending-praveen",
+      "published": true
+    },
+    {
+      "id": "derek-lomas",
+      "legacyAnchor": "lomas",
+      "name": "J. Derek Lomas",
+      "honorific": "Prof.",
+      "photo": "/people/derek-lomas.png",
+      "headline": "Professor of Positive AI, Faculty of Industrial Design Engineering, TU Delft",
+      "subtitleLines": [
+        "Director, AI & Experience Design Lab",
+        "Cofounder, Playpower Labs and Smart Paper"
+      ],
+      "shortAffiliation": "TU Delft",
+      "bioShort": null,
+      "bio": "Derek Lomas designs AI systems that support learning and wellbeing, not only efficiency. Trained in cognitive science (Yale), design (UC San Diego), and HCI (Carnegie Mellon, with Ken Koedinger and Jodi Forlizzi), he used large-scale experiments to optimize educational games for motivation and learning. Through Playpower Labs and Smart Paper he has reached millions of learners; Smart Paper’s computer-vision assessment of paper work has been used in 65,000 schools in India, reaching 4.7 million students. He advises {org.shortName} on learning-experience design, AI at classroom scale in Indian contexts, and keeping human judgement at the centre of automated systems.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.tudelft.nl/en/ide/about-ide/people/lomas-j-d" }
+      ],
+      "email": null,
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "ken-koedinger",
+      "legacyAnchor": null,
+      "name": "Ken Koedinger",
+      "honorific": "Prof.",
+      "photo": null,
+      "headline": null,
+      "subtitleLines": [],
+      "shortAffiliation": "Carnegie Mellon University",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "pending-praveen",
+      "published": false,
+      "fieldStatus": {
+        "photo": "pending-praveen",
+        "headline": "pending-praveen",
+        "bio": "pending-praveen",
+        "links": "pending-praveen"
+      }
+    },
+    {
+      "id": "candace-thille",
+      "legacyAnchor": null,
+      "name": "Candace Thille",
+      "honorific": "Dr.",
+      "photo": null,
+      "headline": null,
+      "subtitleLines": [],
+      "shortAffiliation": "Stanford University",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "pending-praveen",
+      "published": false,
+      "fieldStatus": {
+        "photo": "pending-praveen",
+        "headline": "pending-praveen",
+        "bio": "pending-praveen",
+        "links": "pending-praveen"
+      }
+    },
+    {
+      "id": "vasudeva-varma",
+      "legacyAnchor": null,
+      "name": "Vasudeva Varma",
+      "honorific": "Prof.",
+      "photo": "/people/vasudeva-varma.jpg",
+      "headline": "Professor at {parent.shortName}",
+      "subtitleLines": [
+        "Head of {org.shortName}"
+      ],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": "Vasudeva Varma is a Professor and the Head of the {org.name} ({org.shortName}) at {parent.shortName}. He previously served as the Dean of Research and Development and CEO of {parent.shortName}. His research focuses on Information Retrieval, Extraction, and Access, with specific interests in Social Media Analysis, Semantic Search, and Text Generation. He is a recipient of the Google Research Award for his work in Artificial Intelligence and Machine Learning.",
+      "links": [
+        { "label": "Profile →", "url": "https://faculty.iiit.ac.in/~vv/" }
+      ],
+      "email": "vv@iiit.ac.in",
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "praveen-garimella",
+      "legacyAnchor": null,
+      "name": "Praveen Garimella",
+      "honorific": null,
+      "photo": "/people/praveen-garimella.jpg",
+      "headline": "Associate Professor of Practice",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": "Praveen Garimella is an educational technology practitioner, learning scientist, and systems architect. He serves as an Associate Professor of Practice at {org.shortName}, {parent.shortName}, and as an Adjunct Faculty member in the Software & Societal Systems Department at Carnegie Mellon University. With over two decades of experience at the intersection of cognitive science, AI, and platform engineering, he focuses on designing intelligent tutoring systems and mastery-based learning ecosystems.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.linkedin.com/in/praveengarimella/" }
+      ],
+      "email": "praveeng@iiit.ac.in",
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "sandeep-kumar-shukla",
+      "legacyAnchor": null,
+      "name": "Prof. Sandeep Kumar Shukla",
+      "honorific": "Prof.",
+      "photo": null,
+      "headline": "Director, {parent.shortName}",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "pending-praveen",
+      "published": false,
+      "fieldStatus": {
+        "photo": "pending-praveen",
+        "bio": "pending-praveen",
+        "links": "pending-praveen"
+      }
+    },
+    {
+      "id": "santanu-paul",
+      "legacyAnchor": null,
+      "name": "Dr. Santanu Paul",
+      "honorific": "Dr.",
+      "photo": "/people/santanu-paul.jpg",
+      "headline": "Adjunct Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "TalentSprint",
+      "bioShort": null,
+      "bio": "Dr. Santanu Paul is the founding CEO and Managing Director of TalentSprint. He has served as Senior Vice President for Global Delivery Operations at Virtusa Corporation. He holds a Ph.D. in Computer Science from the University of Michigan, Ann Arbor, and a B.Tech. in Computer Science from IIT Madras. He is a Visiting Professor at IIT Hyderabad and serves on the boards of organizations such as NPCI and NSDL Payments Bank.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.linkedin.com/in/santanup/" }
+      ],
+      "email": null,
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "vamshi-ambati",
+      "legacyAnchor": null,
+      "name": "Dr. Vamshi Ambati",
+      "honorific": "Dr.",
+      "photo": "/people/vamshi-ambati.jpg",
+      "headline": "Adjunct Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "Virama Ventures",
+      "bioShort": null,
+      "bio": "Dr. Vamshi Ambati is an AI entrepreneur, researcher, and investor. He earned his Ph.D. from the Language Technologies Institute at Carnegie Mellon University. He has founded multiple companies, including LatentStructure and Predera, and has held technical roles at PayPal and Base CRM. He is currently an investor at Virama Ventures.",
+      "links": [
+        { "label": "Profile →", "url": "https://www.linkedin.com/in/vamshiambati/" }
+      ],
+      "email": null,
+      "status": "confirmed",
+      "published": true
+    },
+    {
+      "id": "kavita-vemuri",
+      "legacyAnchor": null,
+      "name": "Kavita Vemuri",
+      "honorific": "Prof.",
+      "photo": "/people/kavita-vemuri.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "bapi-raju",
+      "legacyAnchor": null,
+      "name": "Bapi Raju",
+      "honorific": "Prof.",
+      "photo": "/people/bapi-raju.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "vishnu-sreekumar",
+      "legacyAnchor": null,
+      "name": "Vishnu Sreekumar",
+      "honorific": "Dr.",
+      "photo": "/people/vishnu-sreekumar.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "bhaktee-dongaonkar",
+      "legacyAnchor": null,
+      "name": "Bhaktee Dongaonkar",
+      "honorific": "Dr.",
+      "photo": "/people/bhaktee-dongaonkar.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "venkatesh-chopella",
+      "legacyAnchor": null,
+      "name": "Venkatesh Chopella",
+      "honorific": "Prof.",
+      "photo": "/people/venkatesh-chopella.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "soma-paul",
+      "legacyAnchor": null,
+      "name": "Soma Paul",
+      "honorific": "Prof.",
+      "photo": "/people/soma-paul.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "suresh-purini",
+      "legacyAnchor": null,
+      "name": "Suresh Purini",
+      "honorific": "Prof.",
+      "photo": "/people/suresh-purini.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "chiranjeevi-yarra",
+      "legacyAnchor": null,
+      "name": "Chiranjeevi Yarra",
+      "honorific": "Dr.",
+      "photo": "/people/chiranjeevi-yarra.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "anoop-namboodiri",
+      "legacyAnchor": null,
+      "name": "Anoop Namboodiri",
+      "honorific": "Prof.",
+      "photo": "/people/anoop-namboodiri.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "jawahar-cv",
+      "legacyAnchor": null,
+      "name": "Jawahar C V",
+      "honorific": "Prof.",
+      "photo": "/people/jawahar-cv.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "karthik-vaidhyanathan",
+      "legacyAnchor": null,
+      "name": "Karthik Vaidhyanathan",
+      "honorific": "Dr.",
+      "photo": "/people/karthik-vaidhyanathan.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "prabhakar-bhimalapuram",
+      "legacyAnchor": null,
+      "name": "Prabhakar Bhimalapuram",
+      "honorific": "Dr.",
+      "photo": "/people/prabhakar-bhimalapuram.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "sachin-chaudhari",
+      "legacyAnchor": null,
+      "name": "Sachin Chaudhari",
+      "honorific": "Dr.",
+      "photo": "/people/sachin-chaudhari.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "aftab-hussain",
+      "legacyAnchor": null,
+      "name": "Aftab Hussain",
+      "honorific": "Dr.",
+      "photo": "/people/aftab-hussain.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    },
+    {
+      "id": "raghu-reddy",
+      "legacyAnchor": null,
+      "name": "Raghu Reddy",
+      "honorific": "Prof.",
+      "photo": "/people/raghu-reddy.png",
+      "headline": "Affiliate Faculty",
+      "subtitleLines": [],
+      "shortAffiliation": "{parent.shortName}",
+      "bioShort": null,
+      "bio": null,
+      "links": [],
+      "email": null,
+      "status": "confirmed",
+      "published": true,
+      "fieldStatus": { "bio": "pending-praveen", "links": "pending-praveen" }
+    }
+  ],
+  "groups": [
+    {
+      "id": "chief-mentor",
+      "order": 1,
+      "name": "Chief Mentor",
+      "homeEyebrow": "People",
+      "homeCtaLabel": "Meet the leadership team →",
+      "summary": null,
+      "peopleIntro": null,
+      "description": null,
+      "members": [
+        {
+          "personId": "raj-reddy",
+          "roleTitle": "Chief Mentor for {org.shortName}",
+          "roleLines": ["Chief Mentor for {org.shortName}"],
+          "status": "pending-praveen",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "advisory",
+      "order": 2,
+      "name": "International Advisory Committee",
+      "homeEyebrow": null,
+      "homeCtaLabel": "Meet the committee →",
+      "summary": "The International Advisory Committee advises {org.shortName} on research, design, and evidence at the meeting point of AI, educational technology, and the learning sciences.",
+      "peopleIntro": "The committee advises the {org.name} on research, design, and evidence at the meeting point of AI, educational technology, and the learning sciences.",
+      "description": "The International Advisory Committee advises the {org.name} ({org.shortName}) at {parent.shortName} on research, design, and evidence at the meeting point of AI, educational technology, and the learning sciences. Members bring complementary strengths in cognitive systems and online learning, educational data mining, human-centered product research at scale, and the design of AI for learning and wellbeing — including work already grounded in Indian classrooms.",
+      "fieldStatus": {
+        "description": "pending-praveen",
+        "members": "pending-praveen"
+      },
+      "members": [
+        {
+          "personId": "ashok-goel",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "confirmed",
+          "published": true
+        },
+        {
+          "personId": "ryan-baker",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "confirmed",
+          "published": true
+        },
+        {
+          "personId": "matthew-kam",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "pending-praveen",
+          "published": true
+        },
+        {
+          "personId": "derek-lomas",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "confirmed",
+          "published": true
+        },
+        {
+          "personId": "ken-koedinger",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "pending-praveen",
+          "published": false
+        },
+        {
+          "personId": "candace-thille",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "pending-praveen",
+          "published": false
+        },
+        {
+          "personId": "raj-reddy",
+          "roleTitle": "Advisory Committee Member",
+          "roleLines": [],
+          "status": "pending-praveen",
+          "published": false
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "order": 3,
+      "name": "Leadership",
+      "homeEyebrow": null,
+      "homeCtaLabel": null,
+      "summary": null,
+      "peopleIntro": null,
+      "description": null,
+      "members": [
+        {
+          "personId": "vasudeva-varma",
+          "roleTitle": "Head of {org.shortName}",
+          "roleLines": ["Professor at {parent.shortName}", "Head of {org.shortName}"],
+          "status": "confirmed",
+          "published": true
+        },
+        {
+          "personId": "praveen-garimella",
+          "roleTitle": "Associate Professor of Practice",
+          "roleLines": ["Associate Professor of Practice"],
+          "status": "confirmed",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "institute-leadership",
+      "order": 4,
+      "name": "Institute Leadership",
+      "homeEyebrow": null,
+      "homeCtaLabel": null,
+      "summary": null,
+      "peopleIntro": null,
+      "description": null,
+      "members": [
+        {
+          "personId": "sandeep-kumar-shukla",
+          "roleTitle": "Director, {parent.shortName}",
+          "roleLines": ["Director, {parent.shortName}"],
+          "status": "pending-praveen",
+          "published": false
+        }
+      ]
+    },
+    {
+      "id": "adjunct-faculty",
+      "order": 5,
+      "name": "Adjunct Faculty",
+      "homeEyebrow": null,
+      "homeCtaLabel": null,
+      "summary": null,
+      "peopleIntro": null,
+      "description": null,
+      "members": [
+        {
+          "personId": "santanu-paul",
+          "roleTitle": "Adjunct Faculty",
+          "roleLines": ["Adjunct Faculty"],
+          "status": "confirmed",
+          "published": true
+        },
+        {
+          "personId": "vamshi-ambati",
+          "roleTitle": "Adjunct Faculty",
+          "roleLines": ["Adjunct Faculty"],
+          "status": "confirmed",
+          "published": true
+        }
+      ]
+    },
+    {
+      "id": "affiliate-faculty",
+      "order": 6,
+      "name": "Affiliate Faculty",
+      "homeEyebrow": null,
+      "homeCtaLabel": null,
+      "summary": null,
+      "peopleIntro": null,
+      "description": null,
+      "members": [
+        { "personId": "kavita-vemuri", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "bapi-raju", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "vishnu-sreekumar", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "bhaktee-dongaonkar", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "venkatesh-chopella", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "soma-paul", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "suresh-purini", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "chiranjeevi-yarra", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "anoop-namboodiri", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "jawahar-cv", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "karthik-vaidhyanathan", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "prabhakar-bhimalapuram", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "sachin-chaudhari", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "aftab-hussain", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true },
+        { "personId": "raghu-reddy", "roleTitle": "Affiliate Faculty", "roleLines": ["Affiliate Faculty"], "status": "confirmed", "published": true }
+      ]
+    }
+  ],
+  "join": {
+    "heading": "Join Us",
+    "intro": "Whether you are a researcher, student, educator, policymaker, or innovator, there are many ways to engage with {org.shortName}.",
+    "homeTeaser": {
+      "heading": "Join the Centre",
+      "body": "Whether you are a researcher, student, educator, or partner — there are many ways to engage with {org.shortName}.",
+      "pageId": "join",
+      "ctaLabel": "Explore Opportunities"
+    },
+    "pathways": [
+      {
+        "id": "students",
+        "title": "Students",
+        "body": "PhD, MS by Research, research assistantships, internships, and undergraduate research in learning sciences and educational technology."
+      },
+      {
+        "id": "researchers-postdocs",
+        "title": "Researchers & postdocs",
+        "body": "Join a founding research team working across the lifespan, with space to build an independent agenda and collaborate internationally."
+      },
+      {
+        "id": "faculty-collaborators",
+        "title": "Faculty collaborators",
+        "body": "Co-supervise students, co-author, and design joint projects with colleagues at {parent.shortName} and partner institutions."
+      },
+      {
+        "id": "education-systems-industry",
+        "title": "Education systems & industry",
+        "body": "Partner on pilots, sponsored research, workforce learning, and co-design of tools that serve schools, universities, and organisations."
+      },
+      {
+        "id": "educators-practitioners",
+        "title": "Educators & practitioners",
+        "body": "Workshops, open resources, and co-design of classroom, campus, and workplace interventions."
+      },
+      {
+        "id": "middleware-contributors",
+        "title": "Middleware contributors",
+        "body": "Early adopters, integrators, and open-source collaborators helping make learning-science tools widely usable."
+      }
+    ],
+    "outro": {
+      "prefix": "To express interest, write to us via the",
+      "linkLabel": "contact page",
+      "pageId": "contact",
+      "suffix": ". Please include a short note about how you would like to engage."
+    }
+  },
+  "news": {
+    "heading": "News",
+    "intro": "Announcements, events, and updates from the centre.",
+    "items": [
+      {
+        "id": "news-2026-09-05-inauguration",
+        "date": "2026-09-05",
+        "title": "Inauguration of {org.shortName} at {parent.shortName}",
+        "venue": "KRB Auditorium, {parent.shortName}",
+        "body": "The {org.name} was inaugurated at {parent.shortName} on 5 September 2026 at the KRB Auditorium. {org.shortName} is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
+        "liveBody": "The Centre for Educational Technology and Learning Sciences will be inaugurated at IIIT Hyderabad. CETLS is a research centre on how people learn, and on how learning should be designed, from school through working life and into later years.",
+        "status": "confirmed",
+        "published": true
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "intro": "Reach the centre for research collaborations, student opportunities, partnerships, and the Learning Middleware.",
+    "email": null,
+    "websiteNote": null,
+    "fieldStatus": {
+      "email": "pending-praveen"
+    },
+    "contacts": [
+      {
+        "personId": "vasudeva-varma",
+        "roleLabel": "Head of {org.shortName}",
+        "showHonorific": true
+      },
+      {
+        "personId": "praveen-garimella",
+        "roleLabel": "Associate Professor of Practice",
+        "showHonorific": false
+      }
+    ],
+    "form": {
+      "endpoint": "https://formspree.io/f/xyeydqww",
+      "status": "pending-praveen",
+      "fields": [
+        { "name": "name", "label": "Name", "type": "text", "required": true },
+        { "name": "email", "label": "Email", "type": "email", "required": true },
+        { "name": "message", "label": "How can we help?", "type": "textarea", "rows": 5, "required": true }
+      ],
+      "submitLabel": "Send message",
+      "submittingLabel": "Sending...",
+      "successHeading": "Thank you!",
+      "successBody": "Your message has been sent successfully. We will follow up with you shortly.",
+      "resetLabel": "Send another message",
+      "errorFallback": "Failed to send message. Please try again or email us directly.",
+      "networkError": "A network error occurred. Please check your connection or email us directly."
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "title": "Home",
+      "seo": {
+        "description": null,
+        "descriptionRef": "org.metaDescription",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "org.hero",
+        "research.homeIntro",
+        "domains",
+        "platform",
+        "groups[chief-mentor]",
+        "groups[advisory]",
+        "programmes",
+        "join.homeTeaser"
+      ]
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "title": "About {org.shortName}",
+      "seo": {
+        "description": null,
+        "descriptionRef": "org.mission.value",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "org.vision",
+        "org.mission",
+        "org.approach",
+        "researchQuestions",
+        "org.whyIiith",
+        "groups[advisory]",
+        "roadmap",
+        "programmes"
+      ]
+    },
+    {
+      "id": "research",
+      "path": "/research",
+      "title": "Research",
+      "seo": {
+        "description": null,
+        "descriptionRef": "research.pageIntro",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "research.pageIntro",
+        "domains",
+        "research.crossCutting"
+      ]
+    },
+    {
+      "id": "research-k12",
+      "path": "/research/k12",
+      "title": "K-12 Education",
+      "seo": {
+        "description": null,
+        "descriptionRef": "domains[k12].summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "domains[k12]",
+        "platform"
+      ]
+    },
+    {
+      "id": "research-higher-education",
+      "path": "/research/higher-education",
+      "title": "Higher Education",
+      "seo": {
+        "description": null,
+        "descriptionRef": "domains[higher-education].summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "domains[higher-education]",
+        "platform"
+      ]
+    },
+    {
+      "id": "research-professionals",
+      "path": "/research/professionals",
+      "title": "Flexible Learning",
+      "seo": {
+        "description": null,
+        "descriptionRef": "domains[professionals].summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "domains[professionals]",
+        "platform"
+      ]
+    },
+    {
+      "id": "research-third-age",
+      "path": "/research/third-age",
+      "title": "Third-Age Learning",
+      "seo": {
+        "description": null,
+        "descriptionRef": "domains[third-age].summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "domains[third-age]",
+        "platform"
+      ]
+    },
+    {
+      "id": "platform",
+      "path": "/platform",
+      "title": "Learning Middleware",
+      "seo": {
+        "description": null,
+        "descriptionRef": "platform.summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "platform.description",
+        "platform.audiences",
+        "platform.statusText",
+        "platform.cta"
+      ]
+    },
+    {
+      "id": "people",
+      "path": "/people",
+      "title": "People",
+      "seo": {
+        "description": "Meet the Chief Mentor, International Advisory Committee, leadership, adjunct faculty, and affiliate faculty of {org.name} ({org.shortName}) at {parent.shortName}.",
+        "descriptionRef": null,
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false,
+        "fieldStatus": {
+          "description": "pending-praveen"
+        }
+      },
+      "sections": [
+        "groups"
+      ]
+    },
+    {
+      "id": "advisory",
+      "path": "/advisory",
+      "title": "International Advisory Committee",
+      "seo": {
+        "description": null,
+        "descriptionRef": "groups[advisory].summary",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "groups[advisory]"
+      ]
+    },
+    {
+      "id": "join",
+      "path": "/join",
+      "title": "Join Us",
+      "seo": {
+        "description": null,
+        "descriptionRef": "join.intro",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "join.intro",
+        "join.pathways",
+        "join.outro"
+      ]
+    },
+    {
+      "id": "news",
+      "path": "/news",
+      "title": "News",
+      "seo": {
+        "description": null,
+        "descriptionRef": "news.intro",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "news.intro",
+        "news.items"
+      ]
+    },
+    {
+      "id": "contact",
+      "path": "/contact",
+      "title": "Contact",
+      "seo": {
+        "description": null,
+        "descriptionRef": "contact.intro",
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "contact.intro",
+        "org.address",
+        "contact.contacts",
+        "contact.form"
+      ]
+    },
+    {
+      "id": "login",
+      "path": "/login",
+      "title": "Faculty & Staff Sign In",
+      "seo": {
+        "description": "Sign in to the {org.shortName} internal faculty and staff research portal.",
+        "descriptionRef": null,
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": true
+      },
+      "sections": [
+        "auth"
+      ]
+    },
+    {
+      "id": "portal",
+      "path": "/portal",
+      "title": "Internal Projects Portal",
+      "seo": {
+        "description": "Internal research project tracker and milestone updates for {org.shortName} faculty and staff.",
+        "descriptionRef": null,
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": true
+      },
+      "sections": [
+        "projects"
+      ]
+    }
+  ]
+}

@@ -1,10 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PillarPage } from "@/components/pillar-page";
-import { pillars } from "@/lib/content";
-
-const pillar = pillars[2];
+import { pageMetadata } from "@/lib/seo";
 
 export const Route = createFileRoute("/research/professionals")({
-  head: () => ({ meta: [{ title: "Flexible Learning | CETLS" }] }),
-  component: () => <PillarPage pillar={pillar} />,
+  head: () => pageMetadata("research-professionals"),
+  component: () => <PillarPage domainId="professionals" />,
 });

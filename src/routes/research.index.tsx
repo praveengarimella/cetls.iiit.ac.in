@@ -1,60 +1,64 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site-shell";
-import { approaches, pillars } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+import { data, formatOrder, getDomains, getPage, t } from "@/lib/site-data";
 
 export const Route = createFileRoute("/research/")({
-  head: () => ({ meta: [{ title: "Research | CETLS" }] }),
+  head: () => pageMetadata("research"),
   component: ResearchPage,
 });
 
 function ResearchPage() {
+  const domains = getDomains();
+  const platformPath = getPage("platform").path;
+
   return (
     <SiteShell>
       <main className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16">
         <div className="max-w-3xl">
-          <h1 className="font-display text-4xl font-semibold tracking-tight">Research</h1>
+          <h1 className="font-display text-4xl font-semibold tracking-tight">
+            {t(data.research.pageHeading)}
+          </h1>
           <p className="mt-5 text-xl leading-relaxed text-muted">
-            We organise research and design around four domains across the lifespan. In
-            each domain we address the same fundamental questions — what should be learned,
-            how teaching and facilitation should be designed, how people learn, and how
-            progress should be understood — adapted to the distinctive realities of that
-            stage of life.
+            {t(data.research.pageIntro)}
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {pillars.map((p) => (
+          {domains.map((d) => (
             <Link
-              key={p.slug}
-              to={p.href}
+              key={d.id}
+              to={d.path}
               className="group rounded-xl border border-border bg-surface p-7 transition-shadow hover:border-primary hover:shadow-sm"
             >
-              <p className="text-sm font-medium text-accent">{p.number}</p>
+              <p className="text-sm font-medium text-accent">{formatOrder(d.order)}</p>
               <h2 className="mt-2 font-display text-xl font-semibold group-hover:text-accent">
-                {p.title}
+                {t(d.title)}
               </h2>
-              <p className="mt-3 leading-relaxed text-muted">{p.card}</p>
+              <p className="mt-3 leading-relaxed text-muted">{t(d.summary)}</p>
             </Link>
           ))}
         </div>
 
         <section className="mt-16 max-w-3xl">
-          <h2 className="font-display text-2xl font-semibold">Cross-cutting approaches</h2>
-          <p className="mt-3 text-muted">Across all four domains we draw on:</p>
+          <h2 className="font-display text-2xl font-semibold">
+            {t(data.research.crossCutting.heading)}
+          </h2>
+          <p className="mt-3 text-muted">{t(data.research.crossCutting.intro)}</p>
           <ul className="mt-4 space-y-3 text-muted">
-            {approaches.map((a) => (
-              <li key={a} className="flex gap-3">
+            {data.research.crossCutting.items.map((item) => (
+              <li key={item} className="flex gap-3">
                 <span className="text-primary">•</span>
-                {a}
+                {t(item)}
               </li>
             ))}
           </ul>
           <p className="mt-6 leading-relaxed text-muted">
-            These approaches are supported by the{" "}
-            <Link to="/platform" className="font-medium text-primary hover:underline">
-              Learning Middleware
+            {t(data.research.crossCutting.outroPrefix)}{" "}
+            <Link to={platformPath} className="font-medium text-primary hover:underline">
+              {t(data.platform.name)}
             </Link>
-            , our open infrastructure for the science and design of learning.
+            {t(data.research.crossCutting.outroSuffix)}
           </p>
         </section>
       </main>
