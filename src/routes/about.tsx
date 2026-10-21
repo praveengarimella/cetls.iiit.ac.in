@@ -37,6 +37,7 @@ const PROGRESS_BADGE: Record<RoadmapProgress, { label: string; className: string
 function AboutPage() {
   const aboutPage = getPage("about");
   const advisoryPath = getPage("advisory").path;
+  const inauguralPath = getPage("inaugural").path;
   const advisoryGroup = getGroup("advisory");
   const advisoryMembers = publishedMembers("advisory");
   const questions = getResearchQuestions();
@@ -133,6 +134,16 @@ function AboutPage() {
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">
                     {t(phase.body)}
                   </p>
+                  {phase.id === "phase-1" && data.news.items[0]?.ctaLabel && (
+                    <div className="mt-3">
+                      <Link
+                        to={inauguralPath}
+                        className="text-xs font-medium text-primary hover:underline"
+                      >
+                        {t(data.news.items[0].ctaLabel)} →
+                      </Link>
+                    </div>
+                  )}
                 </div>
               );
             })}

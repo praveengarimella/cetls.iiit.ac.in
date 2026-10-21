@@ -56,7 +56,6 @@
     "nav": [
       { "pageId": "home", "label": "Home" },
       { "pageId": "about", "label": "About" },
-      { "pageId": "inaugural", "label": "Inaugural" },
       { "pageId": "research", "label": "Research" },
       { "pageId": "platform", "label": "Platform" },
       { "pageId": "people", "label": "People" },
