@@ -39,12 +39,25 @@ function escapeXml(s) {
 
 // 1. public/sitemap.xml
 const indexablePages = data.pages.filter((p) => !p.seo?.noindex);
-const sitemapUrls = indexablePages
-  .map((p) => {
+let eventUrls = [];
+try {
+  const eventsData = JSON.parse(readFileSync(join(ROOT, "data/events.json"), "utf8"));
+  eventUrls = (eventsData.events ?? [])
+    .filter((ev) => !ev.deleted && ["published", "pending", "cancelled"].includes(ev.status))
+    .map((ev) => {
+      const loc = new URL(`/events/${ev.slug}`, data.site.baseUrl).toString();
+      return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n  </url>`;
+    });
+} catch {
+  // Fallback if data/events.json is not present
+}
+const sitemapUrls = [
+  ...indexablePages.map((p) => {
     const loc = new URL(p.path, data.site.baseUrl).toString();
     return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n  </url>`;
-  })
-  .join("\n");
+  }),
+  ...eventUrls,
+].join("\n");
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

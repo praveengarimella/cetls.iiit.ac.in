@@ -58,6 +58,7 @@
       { "pageId": "about", "label": "About" },
       { "pageId": "research", "label": "Research" },
       { "pageId": "platform", "label": "Platform" },
+      { "pageId": "events", "label": "Events" },
       { "pageId": "people", "label": "People" },
       { "pageId": "join", "label": "Join Us" },
       { "pageId": "news", "label": "News" },
@@ -73,6 +74,7 @@
           "title": "Explore",
           "links": [
             { "pageId": "inaugural", "label": "Inaugural Event" },
+            { "pageId": "events", "label": "Events Calendar" },
             { "pageId": "research", "label": "Research" },
             { "pageId": "platform", "label": "Platform" },
             { "pageId": "people", "label": "People" },
@@ -85,7 +87,8 @@
             { "pageId": "join", "label": "Join Us" },
             { "pageId": "news", "label": "News" },
             { "pageId": "contact", "label": "Contact" },
-            { "pageId": "portal", "label": "Faculty Portal" }
+            { "pageId": "portal", "label": "Faculty Portal" },
+            { "pageId": "admin", "label": "Events Admin" }
           ]
         }
       ],
@@ -99,7 +102,7 @@
     },
     "robots": {
       "allow": ["/"],
-      "disallow": ["/portal", "/login", "/api"]
+      "disallow": ["/portal", "/admin", "/login", "/api"]
     }
   },
   "org": {
@@ -1844,6 +1847,36 @@
       },
       "sections": [
         "projects"
+      ]
+    },
+    {
+      "id": "events",
+      "path": "/events",
+      "title": "Events Calendar",
+      "seo": {
+        "description": "Public calendar of roundtables, workshops, talks, launches, and research convenings at {org.name} ({org.shortName}), {parent.shortName}.",
+        "descriptionRef": null,
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": false
+      },
+      "sections": [
+        "events"
+      ]
+    },
+    {
+      "id": "admin",
+      "path": "/admin",
+      "title": "Events Calendar Administration",
+      "seo": {
+        "description": "Administration and approval console for {org.shortName} events.",
+        "descriptionRef": null,
+        "ogTitle": null,
+        "ogImage": null,
+        "noindex": true
+      },
+      "sections": [
+        "events-admin"
       ]
     }
   ]

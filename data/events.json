@@ -1,0 +1,94 @@
+{
+  "version": "0.2",
+  "timezone": "Asia/Kolkata",
+  "coverageStart": "2026-09-05",
+  "coverageEnd": "2027-09-04",
+  "events": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "slug": "cetls-relaunch-2026",
+      "title": "CETLS Relaunch",
+      "summary": "Inaugural launch and research roundtables of the Centre for Educational Technology and Learning Sciences at IIIT Hyderabad.",
+      "description": "Inaugural launch of the Centre for Educational Technology and Learning Sciences (CETLS) at IIIT Hyderabad, featuring addresses by Chief Guest R. Chandrashekhar (former President, NASSCOM), Chief Mentor Prof. Raj Reddy, Director Prof. Sandeep Kumar Shukla, and founding Head Prof. Vasudeva Varma, followed by afternoon roundtables on AI in K-12 education.",
+      "category": "launch",
+      "domains": ["k12", "higher-ed", "professionals-executives", "third-age"],
+      "start": "2026-09-05T10:00:00+05:30",
+      "end": "2026-09-05T17:30:00+05:30",
+      "allDay": false,
+      "timezone": "Asia/Kolkata",
+      "recurrence": null,
+      "mode": "in-person",
+      "venue": {
+        "name": "KRB Auditorium, IIIT Hyderabad",
+        "address": "Prof. C R Rao Road, Gachibowli",
+        "city": "Hyderabad",
+        "mapUrl": "https://maps.google.com/?q=KRB+Auditorium+IIIT+Hyderabad"
+      },
+      "onlineUrl": null,
+      "access": "open",
+      "series": [],
+      "partners": [],
+      "image": {
+        "url": "/inaugural/unveiling.jpg",
+        "alt": "Unveiling of the CETLS plaque at IIIT Hyderabad on 5 September 2026"
+      },
+      "status": "published",
+      "approvedBy": "praveeng@iiit.ac.in",
+      "approvedAt": "2026-09-05T09:00:00+05:30",
+      "pendingFields": [],
+      "cancelReason": null,
+      "links": [
+        {
+          "label": "Inaugural Report & Gallery",
+          "url": "https://cetls.iiit.ac.in/inaugural"
+        },
+        {
+          "label": "Press Coverage (iiit.ac.in)",
+          "url": "https://www.iiit.ac.in/iiit-h-launches-cetls"
+        }
+      ],
+      "deleted": false,
+      "createdBy": "praveeng@iiit.ac.in",
+      "createdAt": "2026-09-01T10:00:00+05:30",
+      "updatedBy": "praveeng@iiit.ac.in",
+      "updatedAt": "2026-09-05T09:00:00+05:30"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "slug": "ai-in-education-delhi-roundtable-2026",
+      "title": "AI in Education Delhi Roundtable (CETLS x EKSAQ)",
+      "summary": "Invitation-only roundtable in New Delhi under the CETLS x EKSAQ AI in Education Knowledge Initiative.",
+      "description": "Convening researchers, education leaders, and practitioners in New Delhi under the CETLS x EKSAQ AI in Education Knowledge Initiative to examine evidence-backed AI adoption in Indian learning systems.",
+      "category": "roundtable",
+      "domains": ["k12", "higher-ed"],
+      "start": "2026-11-24T09:30:00+05:30",
+      "end": "2026-11-24T17:00:00+05:30",
+      "allDay": true,
+      "timezone": "Asia/Kolkata",
+      "recurrence": null,
+      "mode": "in-person",
+      "venue": {
+        "name": "IIC or IHC (pending)",
+        "address": "",
+        "city": "New Delhi",
+        "mapUrl": ""
+      },
+      "onlineUrl": null,
+      "access": "invitation-only",
+      "series": ["eksaq-partnership"],
+      "partners": ["EKSAQ"],
+      "image": null,
+      "status": "pending",
+      "approvedBy": "praveeng@iiit.ac.in",
+      "approvedAt": "2026-11-04T10:00:00+05:30",
+      "pendingFields": ["venue.name", "start time", "end time"],
+      "cancelReason": null,
+      "links": [],
+      "deleted": false,
+      "createdBy": "praveeng@iiit.ac.in",
+      "createdAt": "2026-11-04T10:00:00+05:30",
+      "updatedBy": "praveeng@iiit.ac.in",
+      "updatedAt": "2026-11-04T10:00:00+05:30"
+    }
+  ]
+}

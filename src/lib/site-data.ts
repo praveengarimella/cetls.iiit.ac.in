@@ -1,4 +1,4 @@
-import raw from "../../data/site-data.json";
+import raw from "../../data/site-data.json" with { type: "json" };
 import type {
   Domain,
   Group,
@@ -11,7 +11,7 @@ import type {
   ResearchQuestion,
   RoadmapPhase,
   SiteData,
-} from "./site-data.types";
+} from "./site-data.types.ts";
 
 export const data = raw as unknown as SiteData;
 

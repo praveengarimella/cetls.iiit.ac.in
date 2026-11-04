@@ -11,8 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AdvisoryRouteImport } from './routes/advisory'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as EventsDoticsRouteImport } from './routes/events[.]ics'
 import { Route as InauguralRouteImport } from './routes/inaugural'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as LoginRouteImport } from './routes/login'
@@ -21,12 +24,26 @@ import { Route as PeopleRouteImport } from './routes/people'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ResearchRouteImport } from './routes/research'
+import { Route as EventsIndexRouteImport } from './routes/events.index'
+import { Route as EventsSlugRouteImport } from './routes/events.$slug'
 import { Route as ResearchIndexRouteImport } from './routes/research.index'
 import { Route as ResearchHigherEducationRouteImport } from './routes/research.higher-education'
 import { Route as ResearchK12RouteImport } from './routes/research.k12'
 import { Route as ResearchProfessionalsRouteImport } from './routes/research.professionals'
 import { Route as ResearchThirdAgeRouteImport } from './routes/research.third-age'
+import { Route as ApiAdminAuditRouteImport } from './routes/api/admin/audit'
+import { Route as ApiAdminUploadsRouteImport } from './routes/api/admin/uploads'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiEventsIndexRouteImport } from './routes/api/events/index'
+import { Route as ApiEventsSlugRouteImport } from './routes/api/events/$slug'
+import { Route as ApiUploadsIdRouteImport } from './routes/api/uploads/$id'
+import { Route as ApiAdminEventsIndexRouteImport } from './routes/api/admin/events/index'
+import { Route as ApiAdminEventsIdRouteImport } from './routes/api/admin/events/$id'
+import { Route as ApiAdminEventsIdApproveRouteImport } from './routes/api/admin/events/$id.approve'
+import { Route as ApiAdminEventsIdCancelRouteImport } from './routes/api/admin/events/$id.cancel'
+import { Route as ApiAdminEventsIdDuplicateRouteImport } from './routes/api/admin/events/$id.duplicate'
+import { Route as ApiAdminEventsIdRestoreRouteImport } from './routes/api/admin/events/$id.restore'
+import { Route as ApiAdminEventsIdSubmitRouteImport } from './routes/api/admin/events/$id.submit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,6 +55,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdvisoryRoute = AdvisoryRouteImport.update({
   id: '/advisory',
   path: '/advisory',
@@ -46,6 +68,16 @@ const AdvisoryRoute = AdvisoryRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsDoticsRoute = EventsDoticsRouteImport.update({
+  id: '/events.ics',
+  path: '/events.ics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InauguralRoute = InauguralRouteImport.update({
@@ -88,6 +120,16 @@ const ResearchRoute = ResearchRouteImport.update({
   path: '/research',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EventsIndexRoute = EventsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => EventsRoute,
+} as any)
+const EventsSlugRoute = EventsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EventsRoute,
+} as any)
 const ResearchIndexRoute = ResearchIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -113,17 +155,81 @@ const ResearchThirdAgeRoute = ResearchThirdAgeRouteImport.update({
   path: '/third-age',
   getParentRoute: () => ResearchRoute,
 } as any)
+const ApiAdminAuditRoute = ApiAdminAuditRouteImport.update({
+  id: '/api/admin/audit',
+  path: '/api/admin/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminUploadsRoute = ApiAdminUploadsRouteImport.update({
+  id: '/api/admin/uploads',
+  path: '/api/admin/uploads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiEventsIndexRoute = ApiEventsIndexRouteImport.update({
+  id: '/api/events/',
+  path: '/api/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiEventsSlugRoute = ApiEventsSlugRouteImport.update({
+  id: '/api/events/$slug',
+  path: '/api/events/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUploadsIdRoute = ApiUploadsIdRouteImport.update({
+  id: '/api/uploads/$id',
+  path: '/api/uploads/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminEventsIndexRoute = ApiAdminEventsIndexRouteImport.update({
+  id: '/api/admin/events/',
+  path: '/api/admin/events/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminEventsIdRoute = ApiAdminEventsIdRouteImport.update({
+  id: '/api/admin/events/$id',
+  path: '/api/admin/events/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminEventsIdApproveRoute = ApiAdminEventsIdApproveRouteImport.update({
+  id: '/approve',
+  path: '/approve',
+  getParentRoute: () => ApiAdminEventsIdRoute,
+} as any)
+const ApiAdminEventsIdCancelRoute = ApiAdminEventsIdCancelRouteImport.update({
+  id: '/cancel',
+  path: '/cancel',
+  getParentRoute: () => ApiAdminEventsIdRoute,
+} as any)
+const ApiAdminEventsIdDuplicateRoute =
+  ApiAdminEventsIdDuplicateRouteImport.update({
+    id: '/duplicate',
+    path: '/duplicate',
+    getParentRoute: () => ApiAdminEventsIdRoute,
+  } as any)
+const ApiAdminEventsIdRestoreRoute = ApiAdminEventsIdRestoreRouteImport.update({
+  id: '/restore',
+  path: '/restore',
+  getParentRoute: () => ApiAdminEventsIdRoute,
+} as any)
+const ApiAdminEventsIdSubmitRoute = ApiAdminEventsIdSubmitRouteImport.update({
+  id: '/submit',
+  path: '/submit',
+  getParentRoute: () => ApiAdminEventsIdRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/events': typeof EventsRouteWithChildren
+  '/events.ics': typeof EventsDoticsRoute
   '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
@@ -132,18 +238,34 @@ export interface FileRoutesByFullPath {
   '/platform': typeof PlatformRoute
   '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
+  '/events/$slug': typeof EventsSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
+  '/events/': typeof EventsIndexRoute
   '/research/': typeof ResearchIndexRoute
+  '/api/admin/audit': typeof ApiAdminAuditRoute
+  '/api/admin/uploads': typeof ApiAdminUploadsRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/events/$slug': typeof ApiEventsSlugRoute
+  '/api/uploads/$id': typeof ApiUploadsIdRoute
+  '/api/events/': typeof ApiEventsIndexRoute
+  '/api/admin/events/$id': typeof ApiAdminEventsIdRouteWithChildren
+  '/api/admin/events/': typeof ApiAdminEventsIndexRoute
+  '/api/admin/events/$id/approve': typeof ApiAdminEventsIdApproveRoute
+  '/api/admin/events/$id/cancel': typeof ApiAdminEventsIdCancelRoute
+  '/api/admin/events/$id/duplicate': typeof ApiAdminEventsIdDuplicateRoute
+  '/api/admin/events/$id/restore': typeof ApiAdminEventsIdRestoreRoute
+  '/api/admin/events/$id/submit': typeof ApiAdminEventsIdSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/events.ics': typeof EventsDoticsRoute
   '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
@@ -151,19 +273,36 @@ export interface FileRoutesByTo {
   '/people': typeof PeopleRoute
   '/platform': typeof PlatformRoute
   '/portal': typeof PortalRoute
+  '/events/$slug': typeof EventsSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
+  '/events': typeof EventsIndexRoute
   '/research': typeof ResearchIndexRoute
+  '/api/admin/audit': typeof ApiAdminAuditRoute
+  '/api/admin/uploads': typeof ApiAdminUploadsRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/events/$slug': typeof ApiEventsSlugRoute
+  '/api/uploads/$id': typeof ApiUploadsIdRoute
+  '/api/events': typeof ApiEventsIndexRoute
+  '/api/admin/events/$id': typeof ApiAdminEventsIdRouteWithChildren
+  '/api/admin/events': typeof ApiAdminEventsIndexRoute
+  '/api/admin/events/$id/approve': typeof ApiAdminEventsIdApproveRoute
+  '/api/admin/events/$id/cancel': typeof ApiAdminEventsIdCancelRoute
+  '/api/admin/events/$id/duplicate': typeof ApiAdminEventsIdDuplicateRoute
+  '/api/admin/events/$id/restore': typeof ApiAdminEventsIdRestoreRoute
+  '/api/admin/events/$id/submit': typeof ApiAdminEventsIdSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/advisory': typeof AdvisoryRoute
   '/contact': typeof ContactRoute
+  '/events': typeof EventsRouteWithChildren
+  '/events.ics': typeof EventsDoticsRoute
   '/inaugural': typeof InauguralRoute
   '/join': typeof JoinRoute
   '/login': typeof LoginRoute
@@ -172,20 +311,37 @@ export interface FileRoutesById {
   '/platform': typeof PlatformRoute
   '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
+  '/events/$slug': typeof EventsSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
   '/research/third-age': typeof ResearchThirdAgeRoute
+  '/events/': typeof EventsIndexRoute
   '/research/': typeof ResearchIndexRoute
+  '/api/admin/audit': typeof ApiAdminAuditRoute
+  '/api/admin/uploads': typeof ApiAdminUploadsRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/events/$slug': typeof ApiEventsSlugRoute
+  '/api/uploads/$id': typeof ApiUploadsIdRoute
+  '/api/events/': typeof ApiEventsIndexRoute
+  '/api/admin/events/$id': typeof ApiAdminEventsIdRouteWithChildren
+  '/api/admin/events/': typeof ApiAdminEventsIndexRoute
+  '/api/admin/events/$id/approve': typeof ApiAdminEventsIdApproveRoute
+  '/api/admin/events/$id/cancel': typeof ApiAdminEventsIdCancelRoute
+  '/api/admin/events/$id/duplicate': typeof ApiAdminEventsIdDuplicateRoute
+  '/api/admin/events/$id/restore': typeof ApiAdminEventsIdRestoreRoute
+  '/api/admin/events/$id/submit': typeof ApiAdminEventsIdSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/advisory'
     | '/contact'
+    | '/events'
+    | '/events.ics'
     | '/inaugural'
     | '/join'
     | '/login'
@@ -194,18 +350,34 @@ export interface FileRouteTypes {
     | '/platform'
     | '/portal'
     | '/research'
+    | '/events/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
+    | '/events/'
     | '/research/'
+    | '/api/admin/audit'
+    | '/api/admin/uploads'
     | '/api/auth/$'
+    | '/api/events/$slug'
+    | '/api/uploads/$id'
+    | '/api/events/'
+    | '/api/admin/events/$id'
+    | '/api/admin/events/'
+    | '/api/admin/events/$id/approve'
+    | '/api/admin/events/$id/cancel'
+    | '/api/admin/events/$id/duplicate'
+    | '/api/admin/events/$id/restore'
+    | '/api/admin/events/$id/submit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/admin'
     | '/advisory'
     | '/contact'
+    | '/events.ics'
     | '/inaugural'
     | '/join'
     | '/login'
@@ -213,18 +385,35 @@ export interface FileRouteTypes {
     | '/people'
     | '/platform'
     | '/portal'
+    | '/events/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
+    | '/events'
     | '/research'
+    | '/api/admin/audit'
+    | '/api/admin/uploads'
     | '/api/auth/$'
+    | '/api/events/$slug'
+    | '/api/uploads/$id'
+    | '/api/events'
+    | '/api/admin/events/$id'
+    | '/api/admin/events'
+    | '/api/admin/events/$id/approve'
+    | '/api/admin/events/$id/cancel'
+    | '/api/admin/events/$id/duplicate'
+    | '/api/admin/events/$id/restore'
+    | '/api/admin/events/$id/submit'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/advisory'
     | '/contact'
+    | '/events'
+    | '/events.ics'
     | '/inaugural'
     | '/join'
     | '/login'
@@ -233,19 +422,36 @@ export interface FileRouteTypes {
     | '/platform'
     | '/portal'
     | '/research'
+    | '/events/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
     | '/research/third-age'
+    | '/events/'
     | '/research/'
+    | '/api/admin/audit'
+    | '/api/admin/uploads'
     | '/api/auth/$'
+    | '/api/events/$slug'
+    | '/api/uploads/$id'
+    | '/api/events/'
+    | '/api/admin/events/$id'
+    | '/api/admin/events/'
+    | '/api/admin/events/$id/approve'
+    | '/api/admin/events/$id/cancel'
+    | '/api/admin/events/$id/duplicate'
+    | '/api/admin/events/$id/restore'
+    | '/api/admin/events/$id/submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   AdvisoryRoute: typeof AdvisoryRoute
   ContactRoute: typeof ContactRoute
+  EventsRoute: typeof EventsRouteWithChildren
+  EventsDoticsRoute: typeof EventsDoticsRoute
   InauguralRoute: typeof InauguralRoute
   JoinRoute: typeof JoinRoute
   LoginRoute: typeof LoginRoute
@@ -254,7 +460,14 @@ export interface RootRouteChildren {
   PlatformRoute: typeof PlatformRoute
   PortalRoute: typeof PortalRoute
   ResearchRoute: typeof ResearchRouteWithChildren
+  ApiAdminAuditRoute: typeof ApiAdminAuditRoute
+  ApiAdminUploadsRoute: typeof ApiAdminUploadsRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiEventsSlugRoute: typeof ApiEventsSlugRoute
+  ApiUploadsIdRoute: typeof ApiUploadsIdRoute
+  ApiEventsIndexRoute: typeof ApiEventsIndexRoute
+  ApiAdminEventsIdRoute: typeof ApiAdminEventsIdRouteWithChildren
+  ApiAdminEventsIndexRoute: typeof ApiAdminEventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -273,6 +486,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/advisory': {
       id: '/advisory'
       path: '/advisory'
@@ -285,6 +505,20 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events.ics': {
+      id: '/events.ics'
+      path: '/events.ics'
+      fullPath: '/events.ics'
+      preLoaderRoute: typeof EventsDoticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inaugural': {
@@ -343,6 +577,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/events/': {
+      id: '/events/'
+      path: '/'
+      fullPath: '/events/'
+      preLoaderRoute: typeof EventsIndexRouteImport
+      parentRoute: typeof EventsRoute
+    }
+    '/events/$slug': {
+      id: '/events/$slug'
+      path: '/$slug'
+      fullPath: '/events/$slug'
+      preLoaderRoute: typeof EventsSlugRouteImport
+      parentRoute: typeof EventsRoute
+    }
     '/research/': {
       id: '/research/'
       path: '/'
@@ -378,6 +626,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResearchThirdAgeRouteImport
       parentRoute: typeof ResearchRoute
     }
+    '/api/admin/audit': {
+      id: '/api/admin/audit'
+      path: '/api/admin/audit'
+      fullPath: '/api/admin/audit'
+      preLoaderRoute: typeof ApiAdminAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/uploads': {
+      id: '/api/admin/uploads'
+      path: '/api/admin/uploads'
+      fullPath: '/api/admin/uploads'
+      preLoaderRoute: typeof ApiAdminUploadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -385,8 +647,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/events/': {
+      id: '/api/events/'
+      path: '/api/events'
+      fullPath: '/api/events/'
+      preLoaderRoute: typeof ApiEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/events/$slug': {
+      id: '/api/events/$slug'
+      path: '/api/events/$slug'
+      fullPath: '/api/events/$slug'
+      preLoaderRoute: typeof ApiEventsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/uploads/$id': {
+      id: '/api/uploads/$id'
+      path: '/api/uploads/$id'
+      fullPath: '/api/uploads/$id'
+      preLoaderRoute: typeof ApiUploadsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/events/': {
+      id: '/api/admin/events/'
+      path: '/api/admin/events'
+      fullPath: '/api/admin/events/'
+      preLoaderRoute: typeof ApiAdminEventsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/events/$id': {
+      id: '/api/admin/events/$id'
+      path: '/api/admin/events/$id'
+      fullPath: '/api/admin/events/$id'
+      preLoaderRoute: typeof ApiAdminEventsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/events/$id/approve': {
+      id: '/api/admin/events/$id/approve'
+      path: '/approve'
+      fullPath: '/api/admin/events/$id/approve'
+      preLoaderRoute: typeof ApiAdminEventsIdApproveRouteImport
+      parentRoute: typeof ApiAdminEventsIdRoute
+    }
+    '/api/admin/events/$id/cancel': {
+      id: '/api/admin/events/$id/cancel'
+      path: '/cancel'
+      fullPath: '/api/admin/events/$id/cancel'
+      preLoaderRoute: typeof ApiAdminEventsIdCancelRouteImport
+      parentRoute: typeof ApiAdminEventsIdRoute
+    }
+    '/api/admin/events/$id/duplicate': {
+      id: '/api/admin/events/$id/duplicate'
+      path: '/duplicate'
+      fullPath: '/api/admin/events/$id/duplicate'
+      preLoaderRoute: typeof ApiAdminEventsIdDuplicateRouteImport
+      parentRoute: typeof ApiAdminEventsIdRoute
+    }
+    '/api/admin/events/$id/restore': {
+      id: '/api/admin/events/$id/restore'
+      path: '/restore'
+      fullPath: '/api/admin/events/$id/restore'
+      preLoaderRoute: typeof ApiAdminEventsIdRestoreRouteImport
+      parentRoute: typeof ApiAdminEventsIdRoute
+    }
+    '/api/admin/events/$id/submit': {
+      id: '/api/admin/events/$id/submit'
+      path: '/submit'
+      fullPath: '/api/admin/events/$id/submit'
+      preLoaderRoute: typeof ApiAdminEventsIdSubmitRouteImport
+      parentRoute: typeof ApiAdminEventsIdRoute
+    }
   }
 }
+
+interface EventsRouteChildren {
+  EventsSlugRoute: typeof EventsSlugRoute
+  EventsIndexRoute: typeof EventsIndexRoute
+}
+
+const EventsRouteChildren: EventsRouteChildren = {
+  EventsSlugRoute: EventsSlugRoute,
+  EventsIndexRoute: EventsIndexRoute,
+}
+
+const EventsRouteWithChildren =
+  EventsRoute._addFileChildren(EventsRouteChildren)
 
 interface ResearchRouteChildren {
   ResearchHigherEducationRoute: typeof ResearchHigherEducationRoute
@@ -408,11 +753,33 @@ const ResearchRouteWithChildren = ResearchRoute._addFileChildren(
   ResearchRouteChildren,
 )
 
+interface ApiAdminEventsIdRouteChildren {
+  ApiAdminEventsIdApproveRoute: typeof ApiAdminEventsIdApproveRoute
+  ApiAdminEventsIdCancelRoute: typeof ApiAdminEventsIdCancelRoute
+  ApiAdminEventsIdDuplicateRoute: typeof ApiAdminEventsIdDuplicateRoute
+  ApiAdminEventsIdRestoreRoute: typeof ApiAdminEventsIdRestoreRoute
+  ApiAdminEventsIdSubmitRoute: typeof ApiAdminEventsIdSubmitRoute
+}
+
+const ApiAdminEventsIdRouteChildren: ApiAdminEventsIdRouteChildren = {
+  ApiAdminEventsIdApproveRoute: ApiAdminEventsIdApproveRoute,
+  ApiAdminEventsIdCancelRoute: ApiAdminEventsIdCancelRoute,
+  ApiAdminEventsIdDuplicateRoute: ApiAdminEventsIdDuplicateRoute,
+  ApiAdminEventsIdRestoreRoute: ApiAdminEventsIdRestoreRoute,
+  ApiAdminEventsIdSubmitRoute: ApiAdminEventsIdSubmitRoute,
+}
+
+const ApiAdminEventsIdRouteWithChildren =
+  ApiAdminEventsIdRoute._addFileChildren(ApiAdminEventsIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   AdvisoryRoute: AdvisoryRoute,
   ContactRoute: ContactRoute,
+  EventsRoute: EventsRouteWithChildren,
+  EventsDoticsRoute: EventsDoticsRoute,
   InauguralRoute: InauguralRoute,
   JoinRoute: JoinRoute,
   LoginRoute: LoginRoute,
@@ -421,7 +788,14 @@ const rootRouteChildren: RootRouteChildren = {
   PlatformRoute: PlatformRoute,
   PortalRoute: PortalRoute,
   ResearchRoute: ResearchRouteWithChildren,
+  ApiAdminAuditRoute: ApiAdminAuditRoute,
+  ApiAdminUploadsRoute: ApiAdminUploadsRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiEventsSlugRoute: ApiEventsSlugRoute,
+  ApiUploadsIdRoute: ApiUploadsIdRoute,
+  ApiEventsIndexRoute: ApiEventsIndexRoute,
+  ApiAdminEventsIdRoute: ApiAdminEventsIdRouteWithChildren,
+  ApiAdminEventsIndexRoute: ApiAdminEventsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

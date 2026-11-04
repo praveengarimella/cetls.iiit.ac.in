@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { AdvisoryList } from "@/components/advisory-list";
+import { UpcomingEventsWidget } from "@/components/events/upcoming-events-widget";
 import { ChiefMentorHomeCard } from "@/components/person-card";
 import { ProgrammesSection } from "@/components/programmes-section";
 import { SiteShell } from "@/components/site-shell";
+import { getPublicEventsFn } from "@/lib/events/events-api";
+import { getSeedEvents } from "@/lib/events/seed-data";
 import { pageMetadata } from "@/lib/seo";
 import {
   data,
@@ -18,10 +21,19 @@ import {
 
 export const Route = createFileRoute("/")({
   head: () => pageMetadata("home"),
+  loader: async () => {
+    try {
+      const res = await getPublicEventsFn({ data: {} });
+      return { events: res.events };
+    } catch {
+      return { events: getSeedEvents() };
+    }
+  },
   component: Home,
 });
 
 function Home() {
+  const { events } = Route.useLoaderData();
   const domains = getDomains();
   const chiefMentorGroup = getGroup("chief-mentor");
   const chiefMentors = publishedMembers("chief-mentor");
@@ -87,6 +99,8 @@ function Home() {
             </div>
           </div>
         </section>
+
+        <UpcomingEventsWidget events={events} />
 
         <section className="border-y border-border bg-surface">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-20">
