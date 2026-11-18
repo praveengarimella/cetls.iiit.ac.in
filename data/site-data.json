@@ -87,8 +87,7 @@
             { "pageId": "join", "label": "Join Us" },
             { "pageId": "news", "label": "News" },
             { "pageId": "contact", "label": "Contact" },
-            { "pageId": "portal", "label": "Faculty Portal" },
-            { "pageId": "admin", "label": "Events Admin" }
+            { "pageId": "admin", "label": "Admin Portal" }
           ]
         }
       ],
@@ -1867,9 +1866,9 @@
     {
       "id": "admin",
       "path": "/admin",
-      "title": "Events Calendar Administration",
+      "title": "Administration & CMS Portal",
       "seo": {
-        "description": "Administration and approval console for {org.shortName} events.",
+        "description": "Unified administration, content management, events, and research projects portal for {org.shortName}.",
         "descriptionRef": null,
         "ogTitle": null,
         "ogImage": null,

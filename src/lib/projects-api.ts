@@ -1,4 +1,4 @@
-import { createServerFn } from "@tanstack/react-start";
+import { createMiddleware, createServerFn } from "@tanstack/react-start";
 import { authMiddleware } from "@/lib/auth/middleware";
 import { getSql, type Sql } from "@/lib/db";
 import { data, t } from "@/lib/site-data";
@@ -8,6 +8,17 @@ import type {
   ProjectUpdateType,
   ProjectVisibility,
 } from "@/lib/site-data.types";
+
+const SHARED_TEAM_SCOPE = "cetls-shared";
+
+const optionalBearerMiddleware = createMiddleware({ type: "function" })
+  .client(async ({ next }) => {
+    const { getBearerToken } = await import("@/lib/auth/client");
+    return next({ sendContext: { bearerToken: getBearerToken() ?? undefined } });
+  })
+  .server(async ({ next, context }) => {
+    return next({ context: { bearerToken: context.bearerToken } });
+  });
 
 export interface PortalProjectUpdateRecord {
   id: number;
@@ -95,9 +106,9 @@ function parseJsonArray(raw: string): string[] {
   }
 }
 
-async function ensureSeedProjectsForUser(sql: Sql, userId: string): Promise<void> {
+async function ensureSharedSeedProjects(sql: Sql): Promise<void> {
   const existing = await sql<{ cnt: number }>`
-    select count(*) as cnt from portal_projects where user_id = ${userId}
+    select count(*)::int as cnt from portal_projects where user_id = ${SHARED_TEAM_SCOPE}
   `;
   if ((existing[0]?.cnt ?? 0) > 0) return;
 
@@ -108,7 +119,7 @@ async function ensureSeedProjectsForUser(sql: Sql, userId: string): Promise<void
         domain_ids, question_ids, programme_id, uses_middleware,
         lead_person_id, member_person_ids, start_date, target_date, repo_url, doc_url
       ) values (
-        ${userId},
+        ${SHARED_TEAM_SCOPE},
         ${seed.id},
         ${seed.code},
         ${t(seed.title)},
@@ -139,7 +150,7 @@ async function ensureSeedProjectsForUser(sql: Sql, userId: string): Promise<void
           user_id, project_id, author_person_id, update_type, health,
           title, body, next_steps, blockers, external_url, is_public, update_date
         ) values (
-          ${userId},
+          ${SHARED_TEAM_SCOPE},
           ${projectId},
           ${upd.authorPersonId},
           ${upd.type},
@@ -158,10 +169,12 @@ async function ensureSeedProjectsForUser(sql: Sql, userId: string): Promise<void
 }
 
 export const listPortalProjects = createServerFn({ method: "GET" })
-  .middleware([authMiddleware])
+  .middleware([authMiddleware, optionalBearerMiddleware])
   .handler(async ({ context }): Promise<PortalProjectRecord[]> => {
+    const { requireEventActor } = await import("@/lib/events/repository.server");
+    await requireEventActor("editor", { bearerToken: context.bearerToken });
     const sql = await getSql();
-    await ensureSeedProjectsForUser(sql, context.userId);
+    await ensureSharedSeedProjects(sql);
 
     const projectRows = await sql<RawProjectRow>`
       select
@@ -170,7 +183,7 @@ export const listPortalProjects = createServerFn({ method: "GET" })
         lead_person_id, member_person_ids, start_date, target_date,
         repo_url, doc_url, updated_at
       from portal_projects
-      where user_id = ${context.userId}
+      where user_id = ${SHARED_TEAM_SCOPE}
       order by code asc, id asc
     `;
 
@@ -180,7 +193,7 @@ export const listPortalProjects = createServerFn({ method: "GET" })
         title, body, next_steps, blockers, external_url,
         is_public, update_date, created_at
       from portal_project_updates
-      where user_id = ${context.userId}
+      where user_id = ${SHARED_TEAM_SCOPE}
       order by update_date desc, id desc
     `;
 
@@ -249,14 +262,25 @@ export interface CreatePortalProjectInput {
 }
 
 export const createPortalProject = createServerFn({ method: "POST" })
+  .middleware([authMiddleware, optionalBearerMiddleware])
   .validator((input: CreatePortalProjectInput) => input)
-  .middleware([authMiddleware])
   .handler(async ({ context, data: input }) => {
+    const { assertCsrfOrigin, requireEventActor } = await import(
+      "@/lib/events/repository.server"
+    );
+    assertCsrfOrigin();
+    const actor = await requireEventActor("editor", {
+      bearerToken: context.bearerToken,
+    });
+
     const title = input.title.trim();
     const summary = input.summary.trim();
     if (!title || !summary) {
       throw new Error("Project title and summary are required.");
     }
+    const effectiveVisibility: ProjectVisibility =
+      actor.role === "admin" ? input.visibility : "internal";
+
     const slug =
       title
         .toLowerCase()
@@ -273,14 +297,14 @@ export const createPortalProject = createServerFn({ method: "POST" })
         domain_ids, question_ids, programme_id, uses_middleware,
         lead_person_id, member_person_ids, start_date, target_date, repo_url, doc_url
       ) values (
-        ${context.userId},
+        ${SHARED_TEAM_SCOPE},
         ${slug},
         ${input.code.trim() || "CETLS-NEW"},
         ${title},
         ${summary},
         ${input.stage},
         ${input.health},
-        ${input.visibility},
+        ${effectiveVisibility},
         ${JSON.stringify(input.domainIds)},
         ${JSON.stringify(input.questionIds)},
         ${input.programmeId || null},
@@ -315,18 +339,28 @@ export interface AddProjectUpdateInput {
 }
 
 export const addPortalProjectUpdate = createServerFn({ method: "POST" })
+  .middleware([authMiddleware, optionalBearerMiddleware])
   .validator((input: AddProjectUpdateInput) => input)
-  .middleware([authMiddleware])
   .handler(async ({ context, data: input }) => {
+    const { assertCsrfOrigin, requireEventActor } = await import(
+      "@/lib/events/repository.server"
+    );
+    assertCsrfOrigin();
+    const actor = await requireEventActor("editor", {
+      bearerToken: context.bearerToken,
+    });
+
     const title = input.title.trim();
     const body = input.body.trim();
     if (!title || !body) {
       throw new Error("Update title and summary are required.");
     }
+    const effectivePublic = actor.role === "admin" ? Boolean(input.isPublic) : false;
+
     const sql = await getSql();
     const owned = await sql<{ id: number }>`
       select id from portal_projects
-      where id = ${input.projectId} and user_id = ${context.userId}
+      where id = ${input.projectId} and user_id = ${SHARED_TEAM_SCOPE}
     `;
     if (owned.length === 0) {
       throw new Error("Project not found.");
@@ -337,7 +371,7 @@ export const addPortalProjectUpdate = createServerFn({ method: "POST" })
         user_id, project_id, author_person_id, update_type, health,
         title, body, next_steps, blockers, external_url, is_public, update_date
       ) values (
-        ${context.userId},
+        ${SHARED_TEAM_SCOPE},
         ${input.projectId},
         ${input.authorPersonId},
         ${input.updateType},
@@ -347,7 +381,7 @@ export const addPortalProjectUpdate = createServerFn({ method: "POST" })
         ${input.nextSteps?.trim() || null},
         ${input.blockers?.trim() || null},
         ${input.externalUrl?.trim() || null},
-        ${Boolean(input.isPublic)},
+        ${effectivePublic},
         ${input.updateDate || new Date().toISOString().slice(0, 10)}
       )
     `;
@@ -355,7 +389,7 @@ export const addPortalProjectUpdate = createServerFn({ method: "POST" })
     await sql`
       update portal_projects
       set health = ${input.health}, updated_at = now()
-      where id = ${input.projectId} and user_id = ${context.userId}
+      where id = ${input.projectId} and user_id = ${SHARED_TEAM_SCOPE}
     `;
     return { ok: true };
   });
@@ -370,32 +404,60 @@ export interface UpdateProjectMetaInput {
 }
 
 export const updatePortalProjectMeta = createServerFn({ method: "POST" })
+  .middleware([authMiddleware, optionalBearerMiddleware])
   .validator((input: UpdateProjectMetaInput) => input)
-  .middleware([authMiddleware])
   .handler(async ({ context, data: input }) => {
+    const { assertCsrfOrigin, requireEventActor } = await import(
+      "@/lib/events/repository.server"
+    );
+    assertCsrfOrigin();
+    const actor = await requireEventActor("editor", {
+      bearerToken: context.bearerToken,
+    });
+
     const sql = await getSql();
+    const current = await sql<{ visibility: string }>`
+      select visibility from portal_projects
+      where id = ${input.projectId} and user_id = ${SHARED_TEAM_SCOPE}
+      limit 1
+    `;
+    if (current.length === 0) throw new Error("Project not found.");
+
+    const effectiveVisibility: ProjectVisibility =
+      actor.role === "admin"
+        ? input.visibility
+        : (current[0].visibility as ProjectVisibility);
+
     await sql`
       update portal_projects
       set
         stage = ${input.stage},
         health = ${input.health},
-        visibility = ${input.visibility},
+        visibility = ${effectiveVisibility},
         repo_url = ${input.repoUrl?.trim() || null},
         doc_url = ${input.docUrl?.trim() || null},
         updated_at = now()
-      where id = ${input.projectId} and user_id = ${context.userId}
+      where id = ${input.projectId} and user_id = ${SHARED_TEAM_SCOPE}
     `;
     return { ok: true };
   });
 
 export const deletePortalProjectUpdate = createServerFn({ method: "POST" })
+  .middleware([authMiddleware, optionalBearerMiddleware])
   .validator((input: { updateId: number }) => input)
-  .middleware([authMiddleware])
   .handler(async ({ context, data: input }) => {
+    const { assertCsrfOrigin, requireEventActor } = await import(
+      "@/lib/events/repository.server"
+    );
+    assertCsrfOrigin();
+    await requireEventActor("admin", {
+      bearerToken: context.bearerToken,
+    });
+
     const sql = await getSql();
     await sql`
       delete from portal_project_updates
-      where id = ${input.updateId} and user_id = ${context.userId}
+      where id = ${input.updateId} and user_id = ${SHARED_TEAM_SCOPE}
     `;
     return { ok: true };
   });

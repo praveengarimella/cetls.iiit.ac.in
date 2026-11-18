@@ -119,10 +119,24 @@ async function recordAudit(
 }
 
 export async function ensureInitialPublishedRevision(sql: Sql): Promise<void> {
-  const existing = await sql<{ count: number }>`
-    select count(*)::int as count from cetls_site_revisions
+  const existing = await sql<{ id: number; version_number: number; created_by: string; status: string }>`
+    select id, version_number, created_by, status from cetls_site_revisions order by id asc limit 2
   `;
-  if ((existing[0]?.count ?? 0) > 0) return;
+  if (existing.length > 0) {
+    if (
+      existing.length === 1 &&
+      existing[0].version_number === 1 &&
+      existing[0].created_by === "system" &&
+      existing[0].status === "published"
+    ) {
+      await sql`
+        update cetls_site_revisions
+        set content_json = ${JSON.stringify(defaultSiteData)}
+        where id = ${existing[0].id}
+      `;
+    }
+    return;
+  }
 
   const now = nowIstIso();
   const inserted = await sql<{ id: number }>`

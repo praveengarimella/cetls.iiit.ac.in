@@ -14,6 +14,7 @@ import {
   Copy,
   Eye,
   FileEdit,
+  FolderKanban,
   History,
   ImagePlus,
   KeyRound,
@@ -40,6 +41,7 @@ import {
 } from "@/components/events/event-badges";
 import { EventCard } from "@/components/events/event-card";
 import { SiteContentManager } from "@/components/cms/site-content-manager";
+import { ProjectsManager } from "@/components/projects/projects-manager";
 import { SiteShell } from "@/components/site-shell";
 import {
   GROK_PROVIDERS,
@@ -94,6 +96,9 @@ import { data, t } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/admin")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    tab: typeof search.tab === "string" ? search.tab : undefined,
+  }),
   head: () => pageMetadata("admin"),
   component: EventsAdminPage,
 });
@@ -396,9 +401,21 @@ function EventsAdminPage() {
   const [authPassword, setAuthPassword] = useState("");
 
   // Admin navigation tabs
+  const { tab: initialTabParam } = Route.useSearch();
   const [activeTab, setActiveTab] = useState<
-    "events" | "editor" | "site-content" | "audit" | "users"
-  >("events");
+    "events" | "editor" | "site-content" | "projects" | "audit" | "users"
+  >(() => {
+    if (
+      initialTabParam === "site-content" ||
+      initialTabParam === "projects" ||
+      initialTabParam === "editor" ||
+      initialTabParam === "audit" ||
+      initialTabParam === "users"
+    ) {
+      return initialTabParam;
+    }
+    return "events";
+  });
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [showDeleted, setShowDeleted] = useState(false);
 
@@ -842,7 +859,7 @@ function EventsAdminPage() {
               </span>
               <div>
                 <p className="text-xs font-semibold tracking-wide text-accent uppercase">
-                  {data.org.shortName} · Events Administration
+                  {data.org.shortName} · Unified Admin &amp; CMS
                 </p>
                 <h1 className="font-display text-2xl font-semibold">
                   Admin &amp; Editor Sign In
@@ -851,9 +868,9 @@ function EventsAdminPage() {
             </div>
 
             <p className="text-sm leading-relaxed text-muted">
-              Sign in with your allowlisted institutional account to create, edit,
-              submit, and approve {data.org.shortName} calendar events. Shared
-              passwords are not permitted.
+              Sign in with your allowlisted institutional account to manage{" "}
+              {data.org.shortName} site content, calendar events, and centre-wide
+              research projects. Shared passwords are not permitted.
             </p>
 
             <div className="mt-4 rounded-xl border border-border bg-bg p-3.5 text-xs text-muted">
@@ -1096,7 +1113,7 @@ function EventsAdminPage() {
               </span>
             </div>
             <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight">
-              Events Calendar Administration
+              Administration &amp; CMS Portal
             </h1>
           </div>
 
@@ -1197,6 +1214,22 @@ function EventsAdminPage() {
           >
             <Layers className="size-3.5" aria-hidden="true" />
             <span>Site Content (CMS)</span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "projects"}
+            onClick={() => setActiveTab("projects")}
+            className={cn(
+              "inline-flex min-h-11 items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-colors",
+              activeTab === "projects"
+                ? "bg-primary text-primary-fg"
+                : "border border-border bg-surface text-fg hover:border-primary",
+            )}
+          >
+            <FolderKanban className="size-3.5" aria-hidden="true" />
+            <span>Research Projects</span>
           </button>
 
           {isAdmin && (
@@ -2594,6 +2627,16 @@ function EventsAdminPage() {
         {activeTab === "site-content" && (
           <section className="mt-6" aria-label="Site content management">
             <SiteContentManager
+              actorRole={dashboard.actor.role}
+              actorEmail={dashboard.actor.email}
+            />
+          </section>
+        )}
+
+        {/* TAB 6: RESEARCH PROJECTS */}
+        {activeTab === "projects" && (
+          <section className="mt-6" aria-label="Research projects management">
+            <ProjectsManager
               actorRole={dashboard.actor.role}
               actorEmail={dashboard.actor.email}
             />
