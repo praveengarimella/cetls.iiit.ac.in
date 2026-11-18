@@ -1213,7 +1213,7 @@ function EventsAdminPage() {
             )}
           >
             <Layers className="size-3.5" aria-hidden="true" />
-            <span>Site Content (CMS)</span>
+            <span>Wiki Pages</span>
           </button>
 
           <button

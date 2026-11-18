@@ -26,6 +26,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as EventsIndexRouteImport } from './routes/events.index'
 import { Route as EventsSlugRouteImport } from './routes/events.$slug'
+import { Route as PagesSlugRouteImport } from './routes/pages.$slug'
 import { Route as ResearchIndexRouteImport } from './routes/research.index'
 import { Route as ResearchHigherEducationRouteImport } from './routes/research.higher-education'
 import { Route as ResearchK12RouteImport } from './routes/research.k12'
@@ -129,6 +130,11 @@ const EventsSlugRoute = EventsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => EventsRoute,
+} as any)
+const PagesSlugRoute = PagesSlugRouteImport.update({
+  id: '/pages/$slug',
+  path: '/pages/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchIndexRoute = ResearchIndexRouteImport.update({
   id: '/',
@@ -239,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
   '/events/$slug': typeof EventsSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
@@ -274,6 +281,7 @@ export interface FileRoutesByTo {
   '/platform': typeof PlatformRoute
   '/portal': typeof PortalRoute
   '/events/$slug': typeof EventsSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
@@ -312,6 +320,7 @@ export interface FileRoutesById {
   '/portal': typeof PortalRoute
   '/research': typeof ResearchRouteWithChildren
   '/events/$slug': typeof EventsSlugRoute
+  '/pages/$slug': typeof PagesSlugRoute
   '/research/higher-education': typeof ResearchHigherEducationRoute
   '/research/k12': typeof ResearchK12Route
   '/research/professionals': typeof ResearchProfessionalsRoute
@@ -351,6 +360,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/research'
     | '/events/$slug'
+    | '/pages/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/platform'
     | '/portal'
     | '/events/$slug'
+    | '/pages/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
@@ -423,6 +434,7 @@ export interface FileRouteTypes {
     | '/portal'
     | '/research'
     | '/events/$slug'
+    | '/pages/$slug'
     | '/research/higher-education'
     | '/research/k12'
     | '/research/professionals'
@@ -460,6 +472,7 @@ export interface RootRouteChildren {
   PlatformRoute: typeof PlatformRoute
   PortalRoute: typeof PortalRoute
   ResearchRoute: typeof ResearchRouteWithChildren
+  PagesSlugRoute: typeof PagesSlugRoute
   ApiAdminAuditRoute: typeof ApiAdminAuditRoute
   ApiAdminUploadsRoute: typeof ApiAdminUploadsRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
@@ -590,6 +603,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/events/$slug'
       preLoaderRoute: typeof EventsSlugRouteImport
       parentRoute: typeof EventsRoute
+    }
+    '/pages/$slug': {
+      id: '/pages/$slug'
+      path: '/pages/$slug'
+      fullPath: '/pages/$slug'
+      preLoaderRoute: typeof PagesSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/research/': {
       id: '/research/'
@@ -788,6 +808,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlatformRoute: PlatformRoute,
   PortalRoute: PortalRoute,
   ResearchRoute: ResearchRouteWithChildren,
+  PagesSlugRoute: PagesSlugRoute,
   ApiAdminAuditRoute: ApiAdminAuditRoute,
   ApiAdminUploadsRoute: ApiAdminUploadsRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
