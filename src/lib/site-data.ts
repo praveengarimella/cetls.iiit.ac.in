@@ -13,16 +13,43 @@ import type {
   SiteData,
 } from "./site-data.types.ts";
 
-export const data = raw as unknown as SiteData;
+export const defaultSiteData = raw as unknown as SiteData;
 
-const tokens: Record<string, string> = {
-  "org.name": data.org.name.value,
-  "org.shortName": data.org.shortName,
-  "parent.name": data.org.parent.name,
-  "parent.shortName": data.org.parent.shortName,
-  "parent.abbreviation": data.org.parent.abbreviation,
-  year: String(new Date().getFullYear()),
-};
+export let data: SiteData = defaultSiteData;
+
+const byId = <T extends { id: string }>(xs: T[]) => new Map(xs.map((x) => [x.id, x]));
+
+let tokens: Record<string, string> = {};
+let peopleById = new Map<string, Person>();
+let groupsById = new Map<string, Group>();
+let domainsById = new Map<string, Domain>();
+let pagesById = new Map<string, PageConfig>();
+let questionsById = new Map<string, ResearchQuestion>();
+
+function rebuildIndexes(next: SiteData): void {
+  data = next;
+  tokens = {
+    "org.name": next.org.name.value,
+    "org.shortName": next.org.shortName,
+    "parent.name": next.org.parent.name,
+    "parent.shortName": next.org.parent.shortName,
+    "parent.abbreviation": next.org.parent.abbreviation,
+    year: String(new Date().getFullYear()),
+  };
+  peopleById = byId(next.people);
+  groupsById = byId(next.groups);
+  domainsById = byId(next.domains);
+  pagesById = byId(next.pages);
+  questionsById = byId(next.researchQuestions);
+}
+
+rebuildIndexes(defaultSiteData);
+
+/** Replace the active in-memory SiteData (used by root loader when DB has published revisions). */
+export function setActiveSiteData(next: SiteData | null | undefined): void {
+  if (!next || typeof next !== "object") return;
+  rebuildIndexes(next);
+}
 
 export function resolveTokens(s?: string | null): string {
   if (!s) return "";
@@ -30,14 +57,6 @@ export function resolveTokens(s?: string | null): string {
 }
 
 export const t = resolveTokens;
-
-const byId = <T extends { id: string }>(xs: T[]) => new Map(xs.map((x) => [x.id, x]));
-
-const peopleById = byId(data.people);
-const groupsById = byId(data.groups);
-const domainsById = byId(data.domains);
-const pagesById = byId(data.pages);
-const questionsById = byId(data.researchQuestions);
 
 export function getPerson(id: string): Person {
   const p = peopleById.get(id);

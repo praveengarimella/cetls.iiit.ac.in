@@ -1,41 +1,57 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
-import { data, t } from "@/lib/site-data";
+import { getPublishedSiteDataFn } from "@/lib/cms/cms-api";
+import { data, setActiveSiteData, t } from "@/lib/site-data";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: data.org.shortName },
-      {
-        name: "description",
-        content: t(data.org.metaDescription),
-      },
-      { name: "theme-color", content: data.site.themeColor },
-    ],
-    links: [
-      { rel: "icon", type: "image/svg+xml", href: data.site.assets.favicon },
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: data.site.fonts.preconnectUrls[0] },
-      {
-        rel: "preconnect",
-        href: data.site.fonts.preconnectUrls[1],
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: data.site.fonts.stylesheetUrl,
-      },
-      { rel: "manifest", href: data.site.assets.manifest },
-      ...(data.site.assets.appleTouchIcon
-        ? [{ rel: "apple-touch-icon", href: data.site.assets.appleTouchIcon }]
-        : []),
-    ],
-  }),
-  component: () => (
+  loader: async () => {
+    const published = await getPublishedSiteDataFn();
+    setActiveSiteData(published);
+    return published;
+  },
+  head: ({ loaderData }) => {
+    const active = loaderData ?? data;
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: active.org.shortName },
+        {
+          name: "description",
+          content: t(active.org.metaDescription),
+        },
+        { name: "theme-color", content: active.site.themeColor },
+      ],
+      links: [
+        { rel: "icon", type: "image/svg+xml", href: active.site.assets.favicon },
+        { rel: "stylesheet", href: appCss },
+        { rel: "preconnect", href: active.site.fonts.preconnectUrls[0] },
+        {
+          rel: "preconnect",
+          href: active.site.fonts.preconnectUrls[1],
+          crossOrigin: "anonymous",
+        },
+        {
+          rel: "stylesheet",
+          href: active.site.fonts.stylesheetUrl,
+        },
+        { rel: "manifest", href: active.site.assets.manifest },
+        ...(active.site.assets.appleTouchIcon
+          ? [{ rel: "apple-touch-icon", href: active.site.assets.appleTouchIcon }]
+          : []),
+      ],
+    };
+  },
+  component: RootDocument,
+});
+
+function RootDocument() {
+  const published = Route.useLoaderData();
+  setActiveSiteData(published);
+
+  return (
     <html lang="en" suppressHydrationWarning className="antialiased">
       <head>
         <HeadContent />
@@ -48,5 +64,5 @@ export const Route = createRootRoute({
         <Scripts />
       </body>
     </html>
-  ),
-});
+  );
+}

@@ -17,6 +17,7 @@ import {
   History,
   ImagePlus,
   KeyRound,
+  Layers,
   Lock,
   LogOut,
   PencilLine,
@@ -38,6 +39,7 @@ import {
   SeriesBadge,
 } from "@/components/events/event-badges";
 import { EventCard } from "@/components/events/event-card";
+import { SiteContentManager } from "@/components/cms/site-content-manager";
 import { SiteShell } from "@/components/site-shell";
 import {
   GROK_PROVIDERS,
@@ -395,7 +397,7 @@ function EventsAdminPage() {
 
   // Admin navigation tabs
   const [activeTab, setActiveTab] = useState<
-    "events" | "editor" | "audit" | "users"
+    "events" | "editor" | "site-content" | "audit" | "users"
   >("events");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [showDeleted, setShowDeleted] = useState(false);
@@ -1179,6 +1181,22 @@ function EventsAdminPage() {
           >
             <FileEdit className="size-3.5" aria-hidden="true" />
             <span>{form.id ? `Edit: ${form.title || form.slug}` : "Create Event"}</span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeTab === "site-content"}
+            onClick={() => setActiveTab("site-content")}
+            className={cn(
+              "inline-flex min-h-11 items-center gap-2 rounded-lg px-4 py-2 text-xs font-semibold transition-colors",
+              activeTab === "site-content"
+                ? "bg-primary text-primary-fg"
+                : "border border-border bg-surface text-fg hover:border-primary",
+            )}
+          >
+            <Layers className="size-3.5" aria-hidden="true" />
+            <span>Site Content (CMS)</span>
           </button>
 
           {isAdmin && (
@@ -2569,6 +2587,16 @@ function EventsAdminPage() {
                 </button>
               </form>
             </div>
+          </section>
+        )}
+
+        {/* TAB 5: SITE CONTENT CMS */}
+        {activeTab === "site-content" && (
+          <section className="mt-6" aria-label="Site content management">
+            <SiteContentManager
+              actorRole={dashboard.actor.role}
+              actorEmail={dashboard.actor.email}
+            />
           </section>
         )}
       </main>
