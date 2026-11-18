@@ -1,15 +1,29 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
-import { getPublishedSiteDataFn } from "@/lib/cms/cms-api";
 import { data, setActiveSiteData, t } from "@/lib/site-data";
+import type { SiteData } from "@/lib/site-data.types";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
   loader: async () => {
-    const published = await getPublishedSiteDataFn();
-    setActiveSiteData(published);
-    return published;
+    if (import.meta.env.SSR) {
+      const { getPublishedSiteData } = await import("@/lib/cms/repository.server");
+      const published = await getPublishedSiteData();
+      setActiveSiteData(published);
+      return published;
+    }
+    try {
+      const res = await fetch("/api/site-data");
+      if (res.ok) {
+        const published = (await res.json()) as SiteData;
+        setActiveSiteData(published);
+        return published;
+      }
+    } catch {
+      // Fallback to currently active site data if offline.
+    }
+    return data;
   },
   head: ({ loaderData }) => {
     const active = loaderData ?? data;
