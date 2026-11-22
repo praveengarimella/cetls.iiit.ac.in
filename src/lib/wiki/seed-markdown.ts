@@ -9,8 +9,11 @@ import {
   getPerson,
   getResearchQuestions,
   getRoadmapPhases,
+  publishedGroups,
+  publishedMembers,
   publishedNews,
   t,
+  type PublishedGroupMember,
 } from "@/lib/site-data";
 import type { RoadmapProgress } from "@/lib/site-data.types";
 
@@ -399,6 +402,110 @@ function buildInauguralMarkdown(): string {
   return lines.join("\n");
 }
 
+function formatPersonBlock(
+  member: PublishedGroupMember,
+  mode: "group" | "advisory",
+): string[] {
+  const { person, roleTitle, roleLines } = member;
+  const lines: string[] = [`:::person ${person.name}`];
+  lines.push(`id: ${person.id}`);
+  if (person.photo) {
+    lines.push(`photo: ${person.photo}`);
+  }
+
+  if (mode === "advisory") {
+    if (person.headline) {
+      lines.push(`role: ${t(person.headline)}`);
+    }
+    for (const sub of person.subtitleLines) {
+      lines.push(`subtitle: ${t(sub)}`);
+    }
+  } else {
+    const displayRoles = roleLines.length > 0 ? roleLines : [roleTitle];
+    for (const r of displayRoles) {
+      if (r) lines.push(`role: ${t(r)}`);
+    }
+    if (person.subtitleLines.length > 0 && displayRoles.length === 1) {
+      for (const sub of person.subtitleLines) {
+        lines.push(`subtitle: ${t(sub)}`);
+      }
+    }
+    if (person.email) {
+      lines.push(`email: ${person.email}`);
+    }
+  }
+
+  const bodyParts: string[] = [];
+  if (person.bio) {
+    bodyParts.push(t(person.bio));
+  }
+  const linkMarkdown = person.links
+    .filter((l) => Boolean(l.url))
+    .map((l) => `[${t(l.label)}](${l.url})`);
+  if (linkMarkdown.length > 0) {
+    bodyParts.push(linkMarkdown.join("  ·  "));
+  }
+
+  if (bodyParts.length > 0) {
+    lines.push("");
+    lines.push(bodyParts.join("\n\n"));
+  }
+  lines.push(":::");
+  return lines;
+}
+
+function buildPeopleMarkdown(): string {
+  const peoplePage = getPage("people");
+  const groups = publishedGroups();
+  const lines: string[] = [
+    "---",
+    "layout: directory",
+    "---",
+    "",
+    `# ${t(peoplePage.title)}`,
+    "",
+  ];
+
+  for (const group of groups) {
+    lines.push(`## ${t(group.name)}`);
+    lines.push("");
+    if (group.peopleIntro) {
+      lines.push(t(group.peopleIntro));
+      lines.push("");
+    }
+    const mode = group.id === "advisory" ? "advisory" : "group";
+    for (const member of group.publishedMembers) {
+      lines.push(...formatPersonBlock(member, mode));
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
+function buildAdvisoryMarkdown(): string {
+  const peoplePage = getPage("people");
+  const advisoryGroup = getGroup("advisory");
+  const members = publishedMembers("advisory");
+  const lines: string[] = [
+    "---",
+    `eyebrow: ${t(peoplePage.title)}`,
+    ...(advisoryGroup.description ? [`lead: ${t(advisoryGroup.description)}`] : []),
+    "layout: directory",
+    "---",
+    "",
+    `# ${t(advisoryGroup.name)}`,
+    "",
+  ];
+
+  for (const member of members) {
+    lines.push(...formatPersonBlock(member, "advisory"));
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
 function buildContactMarkdown(): string {
   return [
     "---",
@@ -447,6 +554,18 @@ export function getBuiltInSeedWikiPages(): SeedWikiPage[] {
       path: "/platform",
       title: t(data.platform.name),
       markdown: buildPlatformMarkdown(),
+    },
+    {
+      slug: "people",
+      path: "/people",
+      title: t(getPage("people").title),
+      markdown: buildPeopleMarkdown(),
+    },
+    {
+      slug: "advisory",
+      path: "/advisory",
+      title: t(getGroup("advisory").name),
+      markdown: buildAdvisoryMarkdown(),
     },
     {
       slug: "news",

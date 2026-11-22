@@ -24,7 +24,7 @@ export interface ParsedFrontmatter {
   lead?: string;
   backLabel?: string;
   backLink?: string;
-  layout?: "article" | "wide" | "wide-article" | "home";
+  layout?: "article" | "wide" | "wide-article" | "directory" | "home";
 }
 
 export function parseMarkdownDocument(raw: string): {
@@ -55,7 +55,11 @@ export function parseMarkdownDocument(raw: string): {
     else if (key === "backLink") meta.backLink = val;
     else if (
       key === "layout" &&
-      (val === "article" || val === "wide" || val === "wide-article" || val === "home")
+      (val === "article" ||
+        val === "wide" ||
+        val === "wide-article" ||
+        val === "directory" ||
+        val === "home")
     ) {
       meta.layout = val;
     }
@@ -517,7 +521,97 @@ function renderBlocks(
       }
       if (i < lines.length && lines[i].trim() === ":::") i += 1;
 
-      if (kindPart === "hero-banner") {
+      if (kindPart === "person") {
+        let personId: string | undefined;
+        let photo: string | undefined;
+        let email: string | undefined;
+        const roles: string[] = [];
+        const subtitles: string[] = [];
+        let bodyStart = 0;
+
+        while (bodyStart < innerLines.length) {
+          const rawLine = innerLines[bodyStart].trim();
+          if (!rawLine) {
+            bodyStart += 1;
+            break;
+          }
+          const metaMatch = /^(id|photo|role|subtitle|email):\s*(.+)$/i.exec(rawLine);
+          if (!metaMatch) break;
+          const mKey = metaMatch[1].toLowerCase();
+          const mVal = metaMatch[2].trim();
+          if (mKey === "id") personId = mVal;
+          else if (mKey === "photo") photo = mVal;
+          else if (mKey === "email") email = mVal;
+          else if (mKey === "role") roles.push(mVal);
+          else if (mKey === "subtitle") subtitles.push(mVal);
+          bodyStart += 1;
+        }
+
+        const bioLines = innerLines.slice(bodyStart);
+
+        out.push(
+          <article
+            key={`prs-${key++}`}
+            id={personId}
+            className="my-6 scroll-mt-24 rounded-2xl border border-border bg-surface p-6 sm:p-8"
+          >
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-8">
+              <div className="flex h-32 w-32 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-border sm:h-40 sm:w-40">
+                {photo && isSafeHref(photo) && (
+                  <img
+                    src={photo}
+                    alt={headerTitle || "Profile photo"}
+                    className="h-full w-full object-cover object-top"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                {headerTitle && (
+                  <h3 className="mb-1 font-display text-2xl font-semibold text-fg">
+                    {headerTitle}
+                  </h3>
+                )}
+                {roles.length > 0 && (
+                  <div className="font-medium text-fg">
+                    {roles.map((r, ri) => (
+                      <p key={ri}>{renderInline(r)}</p>
+                    ))}
+                  </div>
+                )}
+                {subtitles.length > 0 && (
+                  <p className="mt-1 text-sm text-muted">
+                    {subtitles.map((sub, si) => (
+                      <span key={si}>
+                        {si > 0 && <br />}
+                        {renderInline(sub)}
+                      </span>
+                    ))}
+                  </p>
+                )}
+                {email && (
+                  <p className="mt-1 text-sm">
+                    <a
+                      href={`mailto:${email}`}
+                      className="text-muted hover:text-accent hover:underline"
+                    >
+                      {email}
+                    </a>
+                  </p>
+                )}
+                {bioLines.length > 0 && (
+                  <div className="mt-3 space-y-2.5 leading-relaxed text-muted [&_a]:text-sm [&_a]:text-accent">
+                    {renderBlocks(bioLines, events)}
+                  </div>
+                )}
+              </div>
+            </div>
+          </article>,
+        );
+      } else if (kindPart === "hero-banner") {
         out.push(
           <div
             key={`ban-${key++}`}
@@ -824,9 +918,11 @@ export function WikiMarkdownRenderer({
   const maxWidthClass =
     meta.layout === "home" || meta.layout === "wide"
       ? "max-w-6xl"
-      : meta.layout === "wide-article"
-        ? "max-w-4xl"
-        : "max-w-3xl";
+      : meta.layout === "directory"
+        ? "max-w-5xl"
+        : meta.layout === "wide-article"
+          ? "max-w-4xl"
+          : "max-w-3xl";
 
   return (
     <div className={cn("mx-auto px-5 py-12 sm:px-6 sm:py-16", maxWidthClass, className)}>

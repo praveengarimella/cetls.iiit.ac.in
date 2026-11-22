@@ -644,6 +644,18 @@ export function WikiPageView({
                 >
                   <span className="px-1 text-[11px] font-semibold">Callout</span>
                 </ToolbarBtn>
+                <ToolbarBtn
+                  title="Insert Person Profile Card"
+                  onClick={() =>
+                    insertAtCursor(
+                      "\n:::person Full Name\nid: person-slug\nphoto: /people/photo.jpg\nrole: Role or Title\nsubtitle: IIIT Hyderabad\nemail: name@iiit.ac.in\n\n",
+                      "\n\n[Profile →](https://example.com)\n:::\n",
+                      "Short biography here.",
+                    )
+                  }
+                >
+                  <span className="px-1 text-[11px] font-semibold">Person</span>
+                </ToolbarBtn>
               </div>
 
               {/* Write / Split / Preview Switcher */}
